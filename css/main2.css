@@ -1,0 +1,284 @@
+/* @charset "UTF-8";
+
+html,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+    /* A medida das caixas sem contar a borda*/
+
+
+
+
+/* Importando fonte*/
+@font-face {
+    font-family: 'CalistogaRegular';
+    src: url('../fonts/Calistoga-Regular.ttf') format("truetype"),
+        url('../fonts/Calistoga-Regular.woff') format("woff"),
+        url('../fonts/Calistoga-Regular.eot') format('eot'),
+        url('../fonts/Calistoga-Regular.woff2') format('woff2'),
+        url('../fonts/Calistoga-Regular.svg') format('svg');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'BricolageRegular';
+    src: url('../fonts/BricolageGrotesque-Regular.woff') format('woff');
+    font-weight: 400;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Calistoga&display=swap'); */
+
+
+
+/* Paleta de cor*/
+
+:root {
+    --color-background: #fffdf7;
+    --color-primary-01: #3E2724;
+    --color-primary-02: #5F352F;
+    --color-primary-03: #F3E9E7;
+    --color-secondary-01: #141B8D;
+    --color-secondary-02: #F1CC32;
+    --color-secondary-03: #FF6D74;
+    --color-terciary-01: #B2B7FF;
+    --color-terciary-02: #FFEB99;
+    --color-terciary-03: #FFB2B8;
+    --color-terciary-05: #B29725;
+    --color-terciary-06: #DA4E53;
+
+    --font-tittle: 'CalistogaRegular', Georgia, Times, "Times New Roman", serif;
+    --font-corpo: 'BricolageRegular', Verdana, Geneva, sans-serif;
+}
+
+/*
+
+font-family: "Bricolage Grotesque", sans-serif;
+font-family: "Calistoga", serif;
+
+*/
+
+/*.h1 h2 h3 h4 h5 h6 {
+    font-family: "Calistoga", serif;
+    color: var(--color-primary-01);
+    font-weight: 400;
+
+}
+*/
+
+h1 {
+    font: normal 400 3rem var(--font-tittle);
+    color: var(--color-primary-02);
+}
+
+
+/* h1 {
+    font-family: 'Calistoga', serif;
+    color: var(--color-primary-01);
+    font-weight: 400;
+    font-size: 3em;
+}  */
+
+h2 {
+    font-family: var(--font-tittle);
+    color: var(--color-primary-01);
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-family: var(--font-tittle);
+    color: var(--color-primary-01);
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+h4 {
+    font-family: var(--font-tittle);
+    color: var(--color-primary-01);
+    font-weight: 400;
+    font-size: 32px;
+}
+
+h5 {
+    font-family: var(--font-tittle);
+    color: var(--color-primary-01);
+    font-weight: 400;
+    font-size: 24px;
+}
+
+h6 {
+    font-family: var(--font-tittle);
+    color: var(--color-primary-01);
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.Subtitle-text {
+    font-family: var(--font-corpo);
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 32px;
+    color: var(--color-primary-01);
+}
+
+.body-text {
+    font-family: var(--font-corpo);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 32px;
+    color: var(--color-primary-01);
+}
+
+.button-text,
+p {
+    font-family: var(--font-corpo);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+
+.fx-bar-icons {
+    background-color: var(--color-primary-02);
+    display: flex;
+    flex-direction: row;
+    color: var(--color-background);
+    align-items: center;
+    padding: 24px;
+    gap: 24px;
+}
+
+
+
+.header {
+    background-image: url(../img/DESENHO-FAZENDA\ 1.jpg);
+    width: 100%;
+    background-size: cover;
+    margin-top: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 1500px;
+    background: rgba(95, 53, 47, 0.1);
+    border-radius: 300px;
+}
+
+.navbar-hero {
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    margin: auto;
+    margin-top: 30px;
+
+    /*border: 1px solid var(--color-secondary-02);*/
+}
+
+.navbar-hero-intern {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.small-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-farm {
+    display: flex;
+    width: 1500px;
+    padding-top: 65px;
+    padding-bottom: 363px;
+}
+
+
+
+.big-cake {
+    align-self: flex-end;
+}
+
+
+.btn-marrom {
+    display: flex;
+    width: max-content;
+    height: 61px;
+    padding: 24px 16px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 26px;
+    background: var(--color-primary-01);
+    line-height: normal;
+    text-align: center;
+    color: var(--color-primary-03);
+}
+
+.img-fluid {
+    float: right;
+    position: absolute;
+    right: 0cqmax;
+    margin-top: 15ch;
+    width: 50%;
+}
+
+.text-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 0;
+}
+
+.first-view {
+    background-image: url(../img/BG_AZULEJO_OK\ 1.jpg);
+    height: 100vh;
+    background-size: cover;
+    padding-top: 88px;
+    padding-bottom: 51px;
+}
+
+.anf-yellow {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.anf-dvf-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.big-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    margin-top: -15%;
+}
+
+.anf-dvf {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+.anf-dvf h3 {
+    margin-top: 100px;
+}
+
+.anf-dvf-content {
+    width: 70%;
+}
+

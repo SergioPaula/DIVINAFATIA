@@ -31,11 +31,18 @@ html,
     font-weight: 400;
 }
 
+@font-face {
+    font-family: 'BricolageBold';
+    src: url('../fonts/ORIGINAL/BricolageGrotesque-Bold.ttf') format('truetype');
+    font-weight: 400;
+}
+
 :root {
     --color-background: #fffdf7;
     --color-primary-02: #3E2724;
     --color-primary-01: #5F352F;
     --color-primary-03: #F3E9E7;
+    --color-secondary-02: #FFEB99;
     --color-secondary-03: #FF6D74;
     --color-terciary-03: #FFB2B8;
     --color-terciary-06: #DA4E53;
@@ -46,6 +53,7 @@ html,
     --font-body: 'BricolageRegular', Verdana, Geneva, sans-serif;
     --font-caption: 'BricolageRegular', Verdana, Geneva, sans-serif;
     --font-captionbold: 'BricolageSemiBold', Verdana, Geneva, sans-serif;
+    --font-button: 'BricolageBold', Verdana, Geneva, sans-serif;
 
 }
 
@@ -53,6 +61,33 @@ h1 {
     font-family: var(--font-tittle);
     font-size: 4em;
     font-weight: 400;
+    line-height: 1.250em;
+}
+
+h2 {
+    font-family: var(--font-tittle);
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 1.250em;
+}
+
+h3 {
+    font-family: var(--font-tittle);
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.250em;
+}
+
+p {
+    font-family: var(--font-body);
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.font-btn {
+    font-family: var(--font-button);
+    font-size: 1.25em;
+    text-decoration: none;
 }
 
 .herofarm {
@@ -60,10 +95,10 @@ h1 {
     margin-top: 0;
     background-color: var(--color-primary-03);
     background-image: url('../img/IMAGENS/DESENHO-FAZENDA_full.jpg');
-    height: 935px;
-    background-position: center top;
+    height: 100vh;
+    background-position: center center;
     background-repeat: no-repeat;
-    background-size:;
+    background-size: ;
     padding-top: 1vh;
 }
 
@@ -143,9 +178,77 @@ nav a {
     align-items: flex-start;
     gap: 16px;
     margin-top: 10vh;
+    padding-left: 2vw;
 }
 
 .text-head>p {
     font-family: var(--font-captionbold);
     font-size: 1.5em;
+    padding-bottom: 10px;
 }
+
+.btn-marrom {
+    background-color: var(--color-primary-01);
+    border: 2px solid var(--color-primary-01);
+    border-radius: 30px;
+    padding: 8px 32px;
+    color: var(--button-text-color);
+    font-family: var(--font-captionbold);
+}
+
+.btn-onlyborder {
+    display: flex;
+    background-color: var(--color-primary-03);
+    padding: 8px 18px;
+    border: 2px solid var(--color-primary-01);
+    border-radius: 30px;
+    justify-content: center;
+    gap: 16px;
+}
+
+.servico {
+    display: block;
+    margin-top: 0;
+    background-color: var(--color-primary-03);
+    background-image: url('../img/PATTERNS/pattern_azul.jpg');
+    height: 70vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.box-yellow {    
+    background-color: var(--color-secondary-02);
+    padding-top: 5vh;    
+}
+
+.box-yellow h2 {
+    text-align: center;
+}
+
+.conteudo-boxy {
+    display: flex;
+    align-items: center;
+}
+
+.text-boxyellow {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+    max-width: 360px;
+}
+
+.text-boxyellow span {
+    font-family: var(--font-body);
+    font-weight: 600;
+    line-height: 1.5em;
+}
+
+/* main {
+    max-width: 1440px;
+} */
+
+
+/* .btn-icon-left {
+    padding-left: 70px;
+} */

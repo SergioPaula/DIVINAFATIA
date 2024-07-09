@@ -90,15 +90,21 @@ p {
     text-decoration: none;
 }
 
+.font-btn-small {
+    font-family: var(--font-button);
+    font-size: 1em;
+    text-decoration: none;
+}
+
 .herofarm {
     display: block;
     margin-top: 0;
     background-color: var(--color-primary-03);
     background-image: url('../img/IMAGENS/DESENHO-FAZENDA_full.jpg');
-    height: 100vh;
-    background-position: center center;
+    background-size: 130%;
+    background-position: center top;
     background-repeat: no-repeat;
-    background-size: ;
+    /* background-size: 2300px; */
     padding-top: 1vh;
 }
 
@@ -129,6 +135,13 @@ nav {
 
 nav a {
     text-decoration: none;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 2%;
 }
 
 .nav-item a {
@@ -178,6 +191,7 @@ nav a {
     align-items: flex-start;
     gap: 16px;
     margin-top: 10vh;
+    padding-bottom: 40vh;
     padding-left: 2vw;
 }
 
@@ -206,42 +220,150 @@ nav a {
     gap: 16px;
 }
 
+.big-cake-head {
+    position: absolute;
+    left: 70%;
+    max-width: 800px;
+    translate: -50%;
+    bottom: 10%;
+}
+
+.big-brand-central>img {
+    position: absolute;
+    left: 50%;
+    max-width: 400px;
+    translate: -50%;
+    top: 73vh;
+}
+
 .servico {
     display: block;
     margin-top: 0;
     background-color: var(--color-primary-03);
     background-image: url('../img/PATTERNS/pattern_azul.jpg');
-    height: 70vh;
+    /* height: 70vh; */
     padding-top: 5vh;
-    padding-bottom: 5vh;
+    /* padding-bottom: 5vh; */
 }
 
-.box-yellow {    
+.box-yellow {
     background-color: var(--color-secondary-02);
-    padding-top: 5vh;    
+    padding-top: 5vh;
+    margin-bottom: 3%;
+    margin-top: 1%;
+    border: 20px solid transparent;
+    border-image-source: url(../img/PATTERNS/border-dot.svg);
+    border-image-slice: 80 fill;
+    border-image-outset: 0.8;
+    border-image-repeat: round;
+
+    /* outline-offset: -15px;
+    outline-width:; */
 }
 
 .box-yellow h2 {
     text-align: center;
+    margin-bottom: 25px;
 }
 
 .conteudo-boxy {
-    display: flex;
+    display: grid;
+    grid-column-gap: 16px;
+    grid-template-columns: repeat(12, 1fr);
     align-items: center;
+
+    /* align-items: center; */
+}
+
+.conteudo-boxy>figure {
+    grid-column: 2/5;
 }
 
 .text-boxyellow {
+    grid-column: 7/11;
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 24px;
-    max-width: 360px;
 }
 
 .text-boxyellow span {
     font-family: var(--font-body);
     font-weight: 600;
     line-height: 1.5em;
+}
+
+.morangos {
+    position: absolute;
+    left: 13%;
+    top: 90%;
+    max-width: 200px;
+    translate: -50%;
+}
+
+.img-tools {
+    position: absolute;
+    left: 85%;
+    bottom: -75%;
+    max-width: 270px;
+    translate: -50%;
+    z-index: 1;
+}
+
+.faixa-marrom {
+    background-color: var(--color-primary-01);
+    position: relative;
+    z-index: 10;
+}
+
+.como-fazemos {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 0px;
+}
+
+.como-fazemos div {
+    display: flex;
+    gap: 24px;
+    padding: 24px 16px;
+    align-items: center;
+}
+
+.icon-txt >p , strong {
+    font-family: var(--font-body);
+    color: var(--button-text-color);
+}
+
+.icon-txt > img {
+    max-width: 40px;
+}
+
+.cardapio {
+    display: block;
+    margin-top: 0;
+    background-color: var(--color-primary-03);
+    background-image: url('../img/PATTERNS/pattern_amarelo.jpg');
+    height: 70vh;
+    padding-top: 0;
+    /* padding-bottom: 5vh; */
+}
+
+.box-produtos {
+    background-color: var(--color-primary-03);
+    padding-top: 5vh;
+    margin-bottom: 3%;
+    margin-top: 0;
+    border: 20px solid transparent;
+    border-image-source: url(../img/PATTERNS/border-dot.svg);
+    border-image-slice: 80 fill;
+    border-image-outset: 0.8;
+    border-image-repeat: round;
+
+    /* outline-offset: -15px;
+    outline-width:; */
 }
 
 /* main {

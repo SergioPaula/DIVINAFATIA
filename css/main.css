@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 html,
 * {
     margin: 0;
@@ -8,7 +10,7 @@ html,
     color: var(--all-text-color);
 }
 
-@font-face {
+/* @font-face {
     font-family: 'CalistogaRegular';
     src: url('../fonts/Calistoga-Regular.ttf') format("truetype"),
         url('../fonts/Calistoga-Regular.woff') format("woff"),
@@ -16,7 +18,7 @@ html,
         url('../fonts/Calistoga-Regular.woff2') format('woff2'),
         url('../fonts/Calistoga-Regular.svg') format('svg');
     font-weight: 400;
-}
+} */
 
 @font-face {
     font-family: 'BricolageRegular';
@@ -49,7 +51,7 @@ html,
     --all-text-color: #5f352f;
     --button-text-color: #F3E9E7;
 
-    --font-tittle: 'CalistogaRegular', Georgia, Times, "Times New Roman", serif;
+    --font-tittle: "Calistoga", Georgia, Times, "Times New Roman", serif;
     --font-body: 'BricolageRegular', Verdana, Geneva, sans-serif;
     --font-caption: 'BricolageRegular', Verdana, Geneva, sans-serif;
     --font-captionbold: 'BricolageSemiBold', Verdana, Geneva, sans-serif;

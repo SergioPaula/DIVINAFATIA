@@ -394,7 +394,7 @@ strong {
 .espaco-produto {
     display: grid;
     grid-template-columns: repeat(3, 16vw);
-    max-width: ;
+    max-width:;
     gap: 32px;
     padding: 16px;
     justify-content: center;

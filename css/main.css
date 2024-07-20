@@ -334,13 +334,14 @@ nav a {
     align-items: center;
 }
 
-.icon-txt >p , strong {
+.icon-txt>p,
+strong {
     font-family: var(--font-body);
     font-size: 1em;
     color: var(--button-text-color);
 }
 
-.icon-txt > img {
+.icon-txt>img {
     max-width: 40px;
 }
 
@@ -349,18 +350,19 @@ nav a {
     margin-top: 0;
     background-color: var(--color-primary-03);
     background-image: url('../img/PATTERNS/pattern_amarelo.jpg');
-    height: 70vh;
+    height: 100%;
     padding-top: 0;
-    /* padding-bottom: 5vh; */
+    padding-bottom: 2%;
 }
 
 .box-produtos {
     background-color: var(--color-primary-03);
     padding-top: 5vh;
+    padding-bottom: 5vh;
     margin-bottom: 3%;
     margin-top: 0;
     border: 20px solid transparent;
-    border-image-source: url(../img/PATTERNS/border-dot.svg);
+    border-image-source: url(../img/PATTERNS/border-dotcreme.svg);
     border-image-slice: 80 fill;
     border-image-outset: 0.8;
     border-image-repeat: round;
@@ -368,6 +370,87 @@ nav a {
     /* outline-offset: -15px;
     outline-width:; */
 }
+
+.cardapio-produtos {
+    display: flex;
+}
+
+.cardapio-produtos>img {
+    max-width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-produtos {
+    text-align: center;
+}
+
+.menu-caixaalta {
+    font-family: var(--font-caption);
+    text-transform: uppercase;
+}
+
+
+
+.espaco-produto {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: ;
+    gap: 24px;
+    padding: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    max-width: 18vw;
+    border-radius: 30px;
+    border: 2px solid var(--color-primary-01);
+}
+
+
+.img-produto>img {
+    max-width: 100%;
+    /* max-height: 244px; */
+    border-radius: 27px;
+
+}
+
+.title-produto {
+    font-family: var(--font-tittle);
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+.descrip-produto {
+    font-family: var(--font-body);
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+.box-price {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 8px;
+    background: rgba(95, 53, 47, 0.10);
+    border-radius: 40px;
+}
+
+.preco-errado {
+    font-family: var(--font-body);
+    text-decoration-line: line-through;
+}
+
+
+
+
 
 /* main {
     max-width: 1440px;

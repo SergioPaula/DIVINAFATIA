@@ -351,13 +351,12 @@ strong {
     background-color: var(--color-primary-03);
     background-image: url('../img/PATTERNS/pattern_amarelo.jpg');
     height: 100%;
-    padding-top: 0;
     padding-bottom: 2%;
 }
 
 .box-produtos {
     background-color: var(--color-primary-03);
-    padding-top: 5vh;
+    padding-top: 1vh;
     padding-bottom: 5vh;
     margin-bottom: 3%;
     margin-top: 0;
@@ -373,6 +372,7 @@ strong {
 
 .cardapio-produtos {
     display: flex;
+    padding-top: 2%;
 }
 
 .cardapio-produtos>img {
@@ -393,29 +393,33 @@ strong {
 
 .espaco-produto {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 16vw);
     max-width: ;
-    gap: 24px;
-    padding: 24px;
+    gap: 32px;
+    padding: 16px;
     justify-content: center;
     align-items: center;
+    margin-top: 3%;
 }
 
 .card-item {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 16px;
+    justify-content: center; */
+    gap: 8px;
     padding: 16px;
-    max-width: 18vw;
+    /* max-width: 18vw; */
+    max-height: 50vh;
     border-radius: 30px;
     border: 2px solid var(--color-primary-01);
 }
 
 
 .img-produto>img {
+    display: block;
     max-width: 100%;
-    /* max-height: 244px; */
+    margin-bottom: 8px;
+    /* max-height: 100px; */
     border-radius: 27px;
 
 }
@@ -435,6 +439,7 @@ strong {
 
 .box-price {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
     padding: 8px;

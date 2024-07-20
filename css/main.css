@@ -56,7 +56,6 @@ html,
     --font-caption: 'BricolageRegular', Verdana, Geneva, sans-serif;
     --font-captionbold: 'BricolageSemiBold', Verdana, Geneva, sans-serif;
     --font-button: 'BricolageBold', Verdana, Geneva, sans-serif;
-
 }
 
 h1 {
@@ -114,7 +113,7 @@ p {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0px 32px;
+    padding: 0px 16px;
 
 }
 
@@ -334,15 +333,15 @@ nav a {
     align-items: center;
 }
 
+.icon-40 {
+    max-width: 40px;
+}
+
 .icon-txt>p,
 strong {
     font-family: var(--font-body);
     font-size: 1em;
     color: var(--button-text-color);
-}
-
-.icon-txt>img {
-    max-width: 40px;
 }
 
 .cardapio {
@@ -355,6 +354,9 @@ strong {
 }
 
 .box-produtos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: var(--color-primary-03);
     padding-top: 1vh;
     padding-bottom: 5vh;
@@ -362,8 +364,8 @@ strong {
     margin-top: 0;
     border: 20px solid transparent;
     border-image-source: url(../img/PATTERNS/border-dotcreme.svg);
-    border-image-slice: 80 fill;
-    border-image-outset: 0.8;
+    border-image-slice: 116 fill;
+    border-image-outset: 1;
     border-image-repeat: round;
 
     /* outline-offset: -15px;
@@ -372,14 +374,11 @@ strong {
 
 .cardapio-produtos {
     display: flex;
+    /* justify-content: space-between; */
     padding-top: 2%;
+    align-items: center;
 }
 
-.cardapio-produtos>img {
-    max-width: 40px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .header-produtos {
     text-align: center;
@@ -393,41 +392,37 @@ strong {
 
 .espaco-produto {
     display: grid;
-    grid-template-columns: repeat(3, 16vw);
-    max-width:;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
     gap: 32px;
     padding: 16px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3%;
 }
 
 .card-item {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
+    display: grid;
+    max-width: 350px;
     gap: 8px;
     padding: 16px;
-    /* max-width: 18vw; */
-    max-height: 50vh;
     border-radius: 30px;
-    border: 2px solid var(--color-primary-01);
+    border: 3px solid var(--color-primary-01);
 }
 
+.img-produto {
+    margin: auto;
+    max-width: 100%;
+}
 
 .img-produto>img {
-    display: block;
-    max-width: 100%;
     margin-bottom: 8px;
-    /* max-height: 100px; */
     border-radius: 27px;
-
-}
+    
+    }
 
 .title-produto {
     font-family: var(--font-tittle);
     font-weight: 400;
     line-height: 1.2em;
+
 }
 
 .descrip-produto {
@@ -435,6 +430,9 @@ strong {
     font-size: 0.9em;
     font-weight: 400;
     line-height: 1.2em;
+    /* text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; */
 }
 
 .box-price {

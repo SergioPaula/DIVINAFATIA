@@ -482,11 +482,11 @@ strong {
 }
 
 .cheirinho {
-    height: 80vh;
+    padding-bottom: 3%;
+    padding-top: 5%;
 }
 
-.box-cheirinho {
-    margin-top: 5%;
+.box-cheirinho {    
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 16px;
@@ -579,7 +579,7 @@ strong {
 }
 
 .box-proposito .conteudo-proposito {
-    grid-column: 6/13;
+    grid-column: 7/13;
     display: flex;
     flex-direction: column;
     justify-content: center;

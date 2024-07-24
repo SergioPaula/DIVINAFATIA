@@ -56,6 +56,7 @@ html,
     --font-caption: 'BricolageRegular', Verdana, Geneva, sans-serif;
     --font-captionbold: 'BricolageSemiBold', Verdana, Geneva, sans-serif;
     --font-button: 'BricolageBold', Verdana, Geneva, sans-serif;
+
 }
 
 h1 {
@@ -305,7 +306,7 @@ nav a {
 .img-tools {
     position: absolute;
     left: 85%;
-    bottom: -75%;
+    bottom: -65%;
     max-width: 270px;
     translate: -50%;
     z-index: 1;
@@ -345,24 +346,23 @@ strong {
 }
 
 .cardapio {
-    display: block;
     margin-top: 0;
     background-color: var(--color-primary-03);
     background-image: url('../img/PATTERNS/pattern_amarelo.jpg');
-    height: 100%;
-    padding-bottom: 2%;
 }
 
 .box-produtos {
+    max-width: 1440px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: var(--color-primary-03);
     padding-top: 1vh;
     padding-bottom: 5vh;
-    margin-bottom: 3%;
+    /* margin-bottom: 3%; */
     margin-top: 0;
-    border: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
     border-image-source: url(../img/PATTERNS/border-dotcreme.svg);
     border-image-slice: 116 fill;
     border-image-outset: 1;
@@ -371,14 +371,6 @@ strong {
     /* outline-offset: -15px;
     outline-width:; */
 }
-
-.cardapio-produtos {
-    display: flex;
-    /* justify-content: space-between; */
-    padding-top: 2%;
-    align-items: center;
-}
-
 
 .header-produtos {
     text-align: center;
@@ -389,6 +381,16 @@ strong {
     text-transform: uppercase;
 }
 
+.cardapio-produtos {
+    display: flex;
+    max-width: 1400px;
+    column-gap: 16px;
+    grid-gap: 32px;
+    padding-top: 2%;
+    align-items: center;
+}
+
+
 
 .espaco-produto {
     display: grid;
@@ -396,15 +398,16 @@ strong {
     margin: auto;
     gap: 32px;
     padding: 16px;
-    max-width: 50vw;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .card-item {
-    display: grid;
-    /* max-height: 750px; */
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 18vw;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 8px;
-    align-content: space-between;
     padding: 16px;
     border-radius: 30px;
     border: 3px solid var(--color-primary-01);
@@ -421,7 +424,7 @@ strong {
 }
 
 
-.conteudo-produto{
+.conteudo-produto {
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -460,6 +463,129 @@ strong {
     font-family: var(--font-body);
     text-decoration-line: line-through;
 }
+
+.select-cardapio {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 389px;
+    height: 107px;
+    padding: 8px;
+    border-radius: 67px;
+    background: rgba(95, 53, 47, 0.20);
+}
+
+.menu-rapido {
+    display: flex;
+    gap: 8px;
+
+}
+
+.cheirinho {
+    height: 80vh;
+}
+
+.box-cheirinho {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 16px;
+}
+
+.box-cheirinho>:nth-child(1) {
+    grid-column: 1/13;
+    grid-row: 1;
+    width: 1440px;
+    opacity: 1;
+}
+
+.box-cheirinho>:nth-child(2) {
+    padding-bottom: 20vh;
+    grid-column: 1/4;
+}
+
+.box-cheirinho>:nth-child(3) {
+    padding-top: 20vh;
+    grid-column: 4/7;
+}
+
+#bolo-cenoura {
+    grid-column: 7/14;
+}
+
+.depoimento {
+    background-color: var(--color-primary-03);
+    background-image: url(../img/IMAGENS/TEXTURAPAPEL-1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.caixa-depoimento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 16px;
+    padding: 2% 0 2% 0;
+    align-items: center;
+}
+
+.caixa-depoimento>img {
+    grid-column: 1/6;
+    width: 88%;
+}
+
+.conteudo-depoimento {
+    grid-column: 6/13;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    background-color: var(--color-background);
+    border: 2px solid var(--color-primary-02);
+    padding: 16px;
+    height: 430px;
+}
+
+.conteudo-depoimento>div {
+    grid-column: 2/4;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+}
+
+.conteudo-depoimento>div :nth-child(4) {    
+    margin-left: auto;
+}
+
+
+.foto-depoimento {
+    width: 187px;
+
+}
+
+.box-proposito {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 16px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.box-proposito img {
+    grid-column: 1/6;
+    width: 90%;
+}
+
+.box-proposito .conteudo-proposito {
+    grid-column: 6/13;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
 
 
 

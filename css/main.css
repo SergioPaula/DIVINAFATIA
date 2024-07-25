@@ -313,6 +313,7 @@ nav a {
 }
 
 .faixa-marrom {
+    max-width: 100%;
     background-color: var(--color-primary-01);
     position: relative;
     z-index: 10;
@@ -322,9 +323,10 @@ nav a {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 0px;
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+    flex-flow: row nowrap;
 }
 
 .como-fazemos div {
@@ -406,7 +408,7 @@ strong {
     flex-flow: column wrap;
     max-width: 18vw;
     justify-content: space-between;
-    align-items: flex-start;
+    /* place-content: start center;     */
     gap: 8px;
     padding: 16px;
     border-radius: 30px;
@@ -428,7 +430,7 @@ strong {
     display: flex;
     flex-direction: column;
     align-content: space-between;
-    gap: 16px;
+    gap: 8px;
 
 }
 
@@ -440,18 +442,20 @@ strong {
 }
 
 .descrip-produto {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
     font-family: var(--font-body);
     font-size: 0.9em;
     font-weight: 400;
-    line-height: 1.2em;
-    /* text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden; */
+    line-height: 1.4em;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    
 }
 
 .box-price {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: center;
     gap: 16px;
     padding: 8px;
@@ -495,8 +499,9 @@ strong {
 .box-cheirinho>:nth-child(1) {
     grid-column: 1/13;
     grid-row: 1;
-    width: 1440px;
+    max-width: 100%;
     opacity: 1;
+    place-self: center center;
 }
 
 .box-cheirinho>:nth-child(2) {
@@ -511,6 +516,7 @@ strong {
 
 #bolo-cenoura {
     grid-column: 7/14;
+    max-width: 100%;
 }
 
 .depoimento {
@@ -539,7 +545,7 @@ strong {
 .conteudo-depoimento {
     grid-column: 6/13;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr;
     align-content: center;
     background-color: var(--color-background);
     border: 2px solid var(--color-primary-02);
@@ -548,7 +554,7 @@ strong {
 }
 
 .conteudo-depoimento>div {
-    grid-column: 2/4;
+    grid-column: 2;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -584,6 +590,70 @@ strong {
     flex-direction: column;
     justify-content: center;
     gap: 16px;
+}
+
+.contato {
+    background-color: var(--color-primary-03);
+}
+
+.conteudo-rodape{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 16px;
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+
+.convite-rodape {
+    grid-column: 1/4;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+ }
+
+
+ .paracontato-rodape {
+    grid-column: 5/13;
+    padding-top: 15%;
+ }
+
+
+.icon-rodape {
+    display: flex;
+    gap: 24px;
+    place-items: start center;
+}
+
+.text-rodape {
+    display: flex;
+    /* justify-content: space-evenly; */
+    gap: 8px;
+}
+
+.form-mailing {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+footer{
+    background-color: var(--color-primary-01);
+}
+
+
+.footer-text {
+    display: flex;
+    justify-content: space-between;    
+    padding:2%;
+}
+
+.footer-text > p {
+    font-family: var(--font-body);
+    color: var(--button-text-color) !important;
+    font-size: 0.9em !important;
+    font-weight: 400;
+    letter-spacing: 0.08em;
 }
 
 

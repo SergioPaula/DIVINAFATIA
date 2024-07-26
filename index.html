@@ -82,7 +82,7 @@
                 </div>
             </div>
             <figure>
-                <img src="./img/IMAGENS/BOLÃO_2 1m.png" class="big-cake-head" alt="">
+                <img src="./img/IMAGENS/BOLÃO_2 1m.png" class="big-cake-head container" alt="">
             </figure>
         </section>
 
@@ -116,12 +116,7 @@
                         <a href="#" class="btn-marrom font-btn-small">Faça seu pedido!</a>
                     </aside>
                 </div>
-
-                <figure>
-                    <img src="./img/IMAGENS/morangos-flutuante.webp" class="morangos" alt="">
-                    <img src="./img/IMAGENS/tools-cook.webp" class="img-tools" alt="">
-                </figure>
-
+                
             </article>
 
             <article class="faixa-marrom">
@@ -260,7 +255,7 @@
                 <div>
                     <p>Você irá sentir o aroma envolvente preenchendo o ambiente, enquanto todos aguardam ansiosos para
                         saborear a primeira mordida.</p>
-                    <a href="#" class="btn-onlyborder font-btn">Falar por Whatsapp</a>
+                    <a href="#" class="btn-onlyborder font-btn-small mt-2">Falar por Whatsapp</a>
                 </div>
                 <img id="bolo-cenoura" src="./img/IMAGENS/bolo-cenoura.webp" alt="">
             </article>
@@ -280,9 +275,9 @@
                         <img class="foto-depoimento" src="./img/IMAGENS/foto-bruna.webp" alt="">
                         <div>
                             <img class="icon-40" src="./img/ICONS/quote-left.svg" alt="">
-                            <h3>Bruna Lima</h3>
                             <p>A bala de brigadeiro é um vício! 😍🍰 Cada mordida é como um abraço de felicidade. Não dá
                                 pra resistir! 💕</p>
+                            <h4>Bruna Lima</h4>
                             <img class="icon-40" src="./img/ICONS/quote-right.svg" alt="">
                         </div>
 
@@ -319,7 +314,9 @@
                         <h3>
                             Hoje, convidamos você a fazer parte desta jornada.
                         </h3>
-                        <p>Visite nosso cardápio, escolha entre nossa variedade de bolos caseiros e encomende conosco. Torne-se a pessoa que proporciona momentos especiais, aconchego e lembranças inestimáveis. Um café ou chá da tarde de cada vez para um mundo melhor!</p>
+                        <p>Visite nosso cardápio, escolha entre nossa variedade de bolos caseiros e encomende conosco.
+                            Torne-se a pessoa que proporciona momentos especiais, aconchego e lembranças inestimáveis.
+                            Um café ou chá da tarde de cada vez para um mundo melhor!</p>
                     </aside>
                     <div class="icon-rodape">
                         <a href="" class="">
@@ -339,12 +336,12 @@
                     <div class="text-rodape">
                         <div>
                             <img src="./img/ICONS/pin-map.svg" width="24px" alt="icone de mapa">
-                            <h3>Endereço</h3>
+                            <h4 class="mt-1">Endereço</h4>
                             <p>Rua Isabel Aguiar de Campos, 561 <br>São Paulo - SP</p>
                         </div>
                         <div>
                             <img src="./img/ICONS/whats_top.svg" width="24px" alt="icone de mapa">
-                            <h3>Contato</h3>
+                            <h4 class="mt-1">Contato</h4>
                             <p>(11) 94963-2858 <br>
                                 atendimento@divinafatia.com.br<br>
                                 Ter a Sab: 13h às 20h</p>
@@ -352,12 +349,30 @@
                     </div>
 
                     <div class="form-mailing">
-                        <div>                            
-                            <h3>Fique por dentro das novidades</h3>
-                            <form action=""></form>
-                        </div>                        
+
+                        <h4 class="mb-1">Fique por dentro das novidades</h4>
+                        <form action="cadastro.php" method="get" autocomplete="on">
+                            <fieldset class="placeholder-geral">
+                                <div class="placeholder-txt">
+                                    <!-- <label for="">Nome</label> -->
+                                    <input type="text" name="nome_php" id="name_js" required minlength="3"
+                                        placeholder="Como podemos chamar você?" autocomplete="name">
+                                </div>
+                                <div class="placeholder-txt">
+                                    <!-- <label for="">E-mail</label> -->
+                                    <input type="email" name="email_php" id="email_js" required
+                                        placeholder="Digite seu melhor email" autocomplete="email">
+                                </div>
+                                <div class="button-submit font-btn-small">
+                                    <input type="submit" value="Cadastrar">
+                                </div>
+                            </fieldset>
+                            <p class="txt-small mt-1"><input type="checkbox" name="aceito_php" id="aceito_js">
+                                Aceito receber informações da Divina Fatia</p>
+                        </form>
+
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -365,12 +380,12 @@
     </main>
 
     <footer>
-        <section class="container footer-text">
-            
-            <p>
+        <section class="container footer-text ">
+
+            <p class="txt-small">
                 © Divina Fatia 2024 CNPJ: 35.689.008/ 0001-91. Todos os direitos reservados
             </p>
-            <p>
+            <p class="txt-small">
                 Desenvolvido por: <strong>O Panfleteiro!</strong>
             </p>
         </section>

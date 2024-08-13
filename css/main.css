@@ -622,8 +622,12 @@ strong {
     grid-template-columns: 1fr 2fr;
     align-content: center;
     background-color: var(--color-background);
-    border: 2px solid var(--color-primary-02);
-    padding: 3rem;
+    border: 30px solid transparent;    
+    border-image-source: url(../img/PATTERNS/borda_depoimentos-01.svg);
+    border-image-slice: 120 fill;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    /* padding: 3rem; */
     height: 430px;
 }
 

@@ -157,6 +157,10 @@ p {
     list-style: none;
 }
 
+#burguer {
+    display: none;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -292,7 +296,8 @@ nav a {
     position: relative;
     background-color: var(--color-secondary-02);
     padding-top: 5vh;
-    margin-bottom: 3%;
+    padding-bottom: 3vh;
+    margin-bottom: 3vh;
     margin-top: 1%;
     border: 20px solid transparent;
     border-image-source: url(../img/PATTERNS/border-dot.svg);
@@ -367,6 +372,7 @@ nav a {
 .text-boxyellow span {
     font-family: var(--font-body);
     font-weight: 600;
+    font-size: 1.2em;
     line-height: 1.5em;
 }
 

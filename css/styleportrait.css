@@ -7,3 +7,115 @@ html,
     box-sizing: border-box;
     color: var(--all-text-color);
 }
+
+h1 {
+    font-family: var(--font-tittle);
+    font-size: 3.6em;
+    font-weight: 400;
+    line-height: 1.250em;
+}
+
+h2 {
+    font-family: var(--font-tittle);
+    font-size: 2.2em;
+    font-weight: 400;
+    line-height: 1.250em;
+}
+
+h3 {
+    font-family: var(--font-tittle);
+    font-size: 1.8em;
+    font-weight: 400;
+    line-height: 1.250em;
+}
+
+h4 {
+    font-family: var(--font-tittle);
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.250em;
+}
+
+p {
+    font-family: var(--font-body);
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.txt-small {
+    font-family: var(--font-body);
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+
+.font-btn {
+    font-family: var(--font-button);
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+.font-btn-small {
+    font-family: var(--font-button);
+    font-size: 1em;
+    text-decoration: none;
+}
+
+#burguer {
+    display: block;
+}
+
+.menu-superior {
+    display: flex;
+    justify-content: end;
+    align-items: center;background-color: var(--color-primary-03);
+    
+}
+
+.collapse {
+    display: none;
+}
+
+nav .btn-social {
+    display: none;
+}
+.navbar-brand {
+    left: 18%;
+}
+
+.navbar-brand > img {
+    width: 120px;
+    margin-top: -0.5rem;
+}
+
+.text-head {
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 10vh;
+    padding-bottom: 40vh;
+    padding-left: 2vw;
+}
+
+.text-head .btn-social {
+    flex-direction: column;
+    gap: 16px;
+    align-items: start;
+}
+
+.box-yellow::before {
+    content: "";
+    background-image: none;   
+}
+
+.box-yellow::after {
+    content: "";
+    background-image: none;   
+}
+
+.conteudo-boxy {
+    display: block; 
+}
+
+

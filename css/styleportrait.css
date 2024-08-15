@@ -69,6 +69,7 @@ p {
 
 #burguer {
     display: block;
+    text-decoration: none;
 }
 
 .menu-superior {
@@ -130,6 +131,7 @@ nav .btn-social {
 
 .box-yellow {
     padding-top: 5vh;
+    padding-bottom: 3vh;
 }
 
 .box-yellow::before {
@@ -150,14 +152,21 @@ nav .btn-social {
     /* max-width: 100%; */
 }
 
+.box-produtos {
+    padding: 5vh 2vw;
+}
+
+.hiden {
+    display: none;
+}
+
 .box-produtos::after {
     content: "";
     background-image: none;
 }
 
 .cheirinho {
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding: 5vh 2vw;
 }
 
 .box-cheirinho {
@@ -166,21 +175,17 @@ nav .btn-social {
     gap: 32px;
 }
 
-.box-cheirinho>:nth-child(3) {
-    padding-top: 0rem;
-
-}
 
 .depoimento {
     background-size: cover;
+    padding: 5vh 2vw;
 }
 
 .caixa-depoimento {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    justify-content: center;
-    padding-bottom: 8vh;
+    justify-content: center;    
 }
 
 .caixa-depoimento>img {
@@ -201,16 +206,12 @@ nav .btn-social {
 
 .conteudo-depoimento>div {
     gap: 16px;
-    max-width: 70vw;
+    max-width: 80vw;
     max-height: 100%;
 }
 
-.conteudo-depoimento>img {
-    max-width: 50%;
-}
-
 .foto-depoimento {
-    width: 30vw;
+    width: 35vw;
 }
 
 .box-proposito {
@@ -218,13 +219,14 @@ nav .btn-social {
     flex-direction: column;
     gap: 16px;
     align-items: center;
+    padding: 5vh 2vw;
 }
 
 .box-proposito::after {
     right: auto;
     left: auto;
     max-width: 30vw;
-    top: 55rem;
+    top: 58rem;
 }
 
 .box-proposito::before {

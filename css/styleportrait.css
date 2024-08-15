@@ -125,7 +125,7 @@ nav .btn-social {
 }
 
 .servico::before {
-    top: 90vh;
+    top: 50rem;
     background-size: 65%;
 }
 
@@ -238,7 +238,7 @@ nav .btn-social {
     right: auto;
     left: auto;
     max-width: 30vw;
-    top: 55rem;
+    top: 60rem;
 }
 
 .box-proposito::before {

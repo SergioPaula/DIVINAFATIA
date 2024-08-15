@@ -67,8 +67,9 @@ p {
 .menu-superior {
     display: flex;
     justify-content: end;
-    align-items: center;background-color: var(--color-primary-03);
-    
+    align-items: center;
+    background-color: var(--color-primary-03);
+
 }
 
 .collapse {
@@ -78,11 +79,12 @@ p {
 nav .btn-social {
     display: none;
 }
+
 .navbar-brand {
     left: 18%;
 }
 
-.navbar-brand > img {
+.navbar-brand>img {
     width: 120px;
     margin-top: -0.5rem;
 }
@@ -94,7 +96,7 @@ nav .btn-social {
     align-items: flex-start;
     gap: 16px;
     margin-top: 10vh;
-    padding-bottom: 40vh;
+    padding-bottom: 15vh;
     padding-left: 2vw;
 }
 
@@ -104,18 +106,109 @@ nav .btn-social {
     align-items: start;
 }
 
+.servico::before {
+    top: 55vh;
+    background-size: 65%;
+}
+
 .box-yellow::before {
     content: "";
-    background-image: none;   
+    background-image: none;
 }
 
 .box-yellow::after {
     content: "";
-    background-image: none;   
+    background-image: none;
 }
 
 .conteudo-boxy {
-    display: block; 
+    display: block;
 }
 
+.box-produtos::after {
+    content: "";
+    background-image: none;
+}
 
+.cheirinho {
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.box-cheirinho {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.box-cheirinho>:nth-child(3) {
+    padding-top: 0rem;
+
+}
+
+.depoimento {
+    background-size: cover;
+}
+
+.caixa-depoimento {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    padding-bottom: 8vh;
+}
+
+.caixa-depoimento>img {
+    display: none;
+}
+
+.conteudo-depoimento {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: none;
+    padding-top: 32px;
+    align-items: center;
+    align-content: center;
+    background-color: transparent;
+
+}
+
+.conteudo-depoimento>div {
+    gap: 16px;
+    max-width: 70vw;
+    max-height: 100%;
+}
+
+.conteudo-depoimento>img {
+    max-width: 50%;
+}
+
+.foto-depoimento {
+    width: 30vw;
+}
+
+.box-proposito {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.box-proposito::after {
+    right: auto;
+    left: auto;
+    max-width: 30vw;
+    top: 55rem;
+}
+
+.box-proposito::before {
+    content: "";
+    background-image: none;  
+}
+
+.conteudo-proposito {    
+    max-width: 80vw;
+    padding-top: 32px;
+    padding-bottom: 15vh;
+}

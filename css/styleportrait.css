@@ -175,6 +175,18 @@ nav .btn-social {
     gap: 32px;
 }
 
+.box-cheirinho>:nth-child(3) {
+    padding-top: 0rem;
+}
+
+.faixa-marrom {
+    display: none;
+}
+
+.cardapio {
+    display: none;
+}
+
 
 .depoimento {
     background-size: cover;

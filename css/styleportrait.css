@@ -121,12 +121,17 @@ nav .btn-social {
     left: 50vw;
     max-width: 80%;
     translate: -50%;
-    bottom: -5vw;
+    bottom: 8vw;
 }
 
-.servico::before {
+/* .servico::before {
     top: 50rem;
     background-size: 65%;
+} */
+
+.big-brand-central>img {
+    max-width: 45vw;
+    top: 55rem;
 }
 
 .box-yellow {

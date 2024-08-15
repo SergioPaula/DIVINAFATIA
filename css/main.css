@@ -291,10 +291,10 @@ nav a {
     /* padding-bottom: 5vh; */
 }
 
-.servico::before {
+/*.servico::before {
     content: "";
     background-image: url(../img/LOGO/big-brand.webp);
-    /* background-color: #FF6D74; */
+    background-color: #FF6D74;
     background-position: center center;
     position: absolute;
     width: 400px;
@@ -305,12 +305,12 @@ nav a {
     z-index: 1;
     background-repeat: no-repeat;
     background-size: 100%; 
-}
+} */
 
 .box-yellow {
     position: relative;
     background-color: var(--color-secondary-02);
-    padding-top: 5vh;
+    padding-top: 8vh;
     padding-bottom: 3vh;
     margin-bottom: 3vh;
     margin-top: 1vh;
@@ -324,14 +324,14 @@ nav a {
     outline-width:; */
 }
 
-/* .big-brand-central>img {
+.big-brand-central>img {
     position: absolute;
     left: 50%;
-    max-width: 400px;
+    max-width: 18vw;
     translate: -50%;
-    top: 73vh;
+    top: 75vh;
     z-index: 10;
-} */
+}
 
 
 

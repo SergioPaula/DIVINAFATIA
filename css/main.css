@@ -739,7 +739,7 @@ strong {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 16px;
-    padding-top: 5%;
+    padding-top: 5vh;
     padding-bottom: 10%;
 }
 

@@ -238,7 +238,7 @@ nav .btn-social {
     right: auto;
     left: auto;
     max-width: 30vw;
-    top: 58rem;
+    top: 55rem;
 }
 
 .box-proposito::before {
@@ -249,5 +249,34 @@ nav .btn-social {
 .conteudo-proposito {    
     max-width: 80vw;
     padding-top: 32px;
-    padding-bottom: 15vh;
+    padding-bottom: 8vh;
+}
+
+.conteudo-rodape {
+    display: flex;
+    flex-direction: column;    
+    padding: 8vh 8vw;
+    gap: 32px;
+}
+
+.paracontato-rodape {
+    align-self: flex-start;
+}
+
+.text-rodape {
+    display: flex;
+    flex-direction: column;
+}
+
+.placeholder-geral {
+    flex-direction: column;
+}
+
+footer {
+    padding: 3vh 1vw;
+}
+
+.footer-text {
+    flex-direction: column;
+    text-align: center;
 }

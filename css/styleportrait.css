@@ -60,6 +60,13 @@ p {
     text-decoration: none;
 }
 
+.container {
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 16px;
+}
+
 #burguer {
     display: block;
 }
@@ -110,14 +117,14 @@ nav .btn-social {
     display: block;
     position: absolute;
     /* background-color: black; */
-    margin: 45vw;
+    left: 50vw;
     max-width: 80%;
     translate: -50%;
-    bottom: -40vw;
+    bottom: -5vw;
 }
 
 .servico::before {
-    top: 80vh;
+    top: 90vh;
     background-size: 65%;
 }
 

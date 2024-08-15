@@ -128,6 +128,10 @@ nav .btn-social {
     background-size: 65%;
 }
 
+.box-yellow {
+    padding-top: 5vh;
+}
+
 .box-yellow::before {
     content: "";
     background-image: none;
@@ -140,6 +144,10 @@ nav .btn-social {
 
 .conteudo-boxy {
     display: block;
+}
+
+.bolo-polaroid {
+    /* max-width: 100%; */
 }
 
 .box-produtos::after {

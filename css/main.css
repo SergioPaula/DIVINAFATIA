@@ -313,7 +313,7 @@ nav a {
     padding-top: 5vh;
     padding-bottom: 3vh;
     margin-bottom: 3vh;
-    margin-top: 1%;
+    margin-top: 1vh;
     border: 20px solid transparent;
     border-image-source: url(../img/PATTERNS/border-dot.svg);
     border-image-slice: 80 fill;
@@ -376,6 +376,10 @@ nav a {
 
 .conteudo-boxy>figure {
     grid-column: 2/5;
+}
+
+.bolo-polaroid {
+    max-width: 100%;
 }
 
 .text-boxyellow {

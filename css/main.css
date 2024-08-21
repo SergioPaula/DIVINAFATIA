@@ -128,24 +128,27 @@ p {
     margin-bottom: 2rem;
 }
 
-.herofarm {
-    display: block;
-    margin-top: 0;
-    background-color: var(--color-primary-03);
-    background-image: url('../img/IMAGENS/DESENHO-FAZENDA_full.jpg');
-    background-size: 130%;
-    background-position: center top;
-    background-repeat: no-repeat;
-    /* background-size: 2300px; */
-    padding-top: 1vh;
-}
-
 .container {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
     padding: 0px 16px;
 }
+
+.herofarm {
+    display: block;
+    margin-top: 0;
+    background-color: var(--color-primary-03);
+    background-image: url('../img/IMAGENS/DESENHO-FAZENDA_full.jpg');
+    background-size: 130vw;
+    background-size: 130svw;
+    background-position: center top;
+    background-repeat: no-repeat;
+    /* background-size: 2300px; */
+    padding-top: 1vh;
+}
+
+
 
 .menu-superior {
     display: flex;
@@ -211,12 +214,13 @@ nav a {
     justify-content: center;
 }
 
-.nav-icon:hover , .nav-car:hover {
+.nav-icon:hover,
+.nav-car:hover {
     background-color: var(--color-terciary-03);
 }
 
 .nav-car {
-    background-color: var(--color-sombrabotao); 
+    background-color: var(--color-sombrabotao);
     border-radius: 30px;
     display: flex;
     padding: 8px 16px;
@@ -254,7 +258,8 @@ nav a {
     font-family: var(--font-captionbold);
 }
 
-.btn-marrom:hover, .btn-onlyborder:hover {
+.btn-marrom:hover,
+.btn-onlyborder:hover {
     background-color: var(--color-primary-02);
     border: 2px solid var(--color-primary-02);
     color: var(--button-text-color);
@@ -270,13 +275,17 @@ nav a {
     gap: 16px;
 }
 
+.herofarm {
+    position: relative;
+}
+
 .big-cake-head {
     display: block;
     position: absolute;
-    margin: 25% 0 0 70rem;
+    left: 65svw;
     max-width: 100%;
     translate: -50%;
-    bottom: 10%;
+    bottom: 5svh;
 }
 
 
@@ -286,9 +295,16 @@ nav a {
     margin-top: 0;
     background-color: var(--color-primary-03);
     background-image: url('../img/PATTERNS/pattern_azul.jpg');
-    /* height: 70vh; */
     padding-top: 5vh;
-    /* padding-bottom: 5vh; */
+}
+
+.big-brand-central {
+    position: absolute;
+    left: 50%;
+    max-width: 18vw;
+    translate: -50%;
+    top: 75vh;
+    z-index: 10;
 }
 
 .box-yellow {
@@ -303,18 +319,8 @@ nav a {
     border-image-slice: 80 fill;
     border-image-outset: 0.8;
     border-image-repeat: round;
-    z-index: 0;    
+    z-index: 0;
 }
-
-.big-brand-central>img {
-    position: absolute;
-    left: 50%;
-    max-width: 18vw;
-    translate: -50%;
-    top: 75vh;
-    z-index: 10;
-}
-
 
 
 .box-yellow::before {
@@ -327,7 +333,7 @@ nav a {
     left: -8rem;
     z-index: 1;
     background-repeat: no-repeat;
-    background-size: 100%; 
+    background-size: 100%;
 }
 
 .box-yellow::after {
@@ -339,7 +345,7 @@ nav a {
     width: 250px;
     height: 380px;
     background-repeat: no-repeat;
-    background-size: 100%;    
+    background-size: 100%;
 }
 
 .box-yellow h2 {
@@ -384,7 +390,7 @@ nav a {
     position: relative;
     max-width: 100%;
     background-color: var(--color-primary-01);
-    padding: 2rem;    
+    padding: 2rem;
     z-index: 10;
 }
 
@@ -454,7 +460,7 @@ strong {
     right: -10rem;
     top: 2rem;
     background-repeat: no-repeat;
-    background-size: 100%;   
+    background-size: 100%;
 }
 
 .header-produtos {
@@ -632,7 +638,7 @@ strong {
     grid-template-columns: 1fr 2fr;
     align-content: center;
     background-color: var(--color-background);
-    border: 30px solid transparent;    
+    border: 30px solid transparent;
     border-image-source: url(../img/PATTERNS/borda_depoimentos-01.svg);
     border-image-slice: 120 fill;
     border-image-outset: 0;
@@ -683,7 +689,7 @@ strong {
     right: 2rem;
     top: 35rem;
     background-repeat: no-repeat;
-    background-size: 100%;   
+    background-size: 100%;
 }
 
 .box-proposito::before {
@@ -695,7 +701,7 @@ strong {
     left: -4rem;
     top: -4rem;
     background-repeat: no-repeat;
-    background-size: 100%;   
+    background-size: 100%;
 }
 
 
@@ -781,7 +787,7 @@ strong {
     font-family: var(--font-body);
     color: var(--color-secondary-03);
     font-weight: 400;
-    font-size: 1em;    
+    font-size: 1em;
 }
 
 .button-submit input {
@@ -800,12 +806,12 @@ strong {
     outline: 1px solid var(--color-primary-01)
 }
 
-.button-submit input:hover{
+.button-submit input:hover {
     background-color: var(--color-terciary-06);
-    border: 1px solid var(--color-terciary-06);    
+    border: 1px solid var(--color-terciary-06);
 }
 
-.button-submit input:active{
+.button-submit input:active {
     background-color: var(--color-sombrabotao);
     border: 2px solid var(--color-primary-02);
 }

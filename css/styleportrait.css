@@ -116,6 +116,8 @@ nav .btn-social {
 
 .herofarm {
     position: relative;
+    background-size: cover;
+    background-position: center center;
 }
 
 .herofarm>.big-cake-head {
@@ -135,7 +137,7 @@ nav .btn-social {
 .big-brand-central {
     position: absolute;
     max-width: 45vw;
-    top: -5svh;    
+    top: -15%;    
     left: 50vw;
     translate: -50%;
     z-index: 1;

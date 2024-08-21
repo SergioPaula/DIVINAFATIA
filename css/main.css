@@ -304,7 +304,7 @@ nav a {
     left: 50%;
     max-width: 18vw;
     translate: -50%;
-    top: 75vh;
+    top: -15%;
     z-index: 10;
 }
 

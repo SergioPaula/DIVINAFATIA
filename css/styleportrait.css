@@ -61,7 +61,7 @@ p {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 0px 16px;
@@ -77,7 +77,7 @@ p {
     justify-content: end;
     align-items: center;
     background-color: var(--color-primary-03);
-
+    max-width: 100%;
 }
 
 .collapse {
@@ -114,39 +114,46 @@ nav .btn-social {
     align-items: start;
 }
 
-.big-cake-head {
-    display: block;
-    position: absolute;
-    /* background-color: black; */
-    left: 50vw;
-    max-width: 80%;
-    translate: -50%;
-    bottom: 8vw;
+.herofarm {
+    position: relative;
 }
 
-/* .servico::before {
-    top: 50rem;
-    background-size: 65%;
-} */
+.herofarm>.big-cake-head {
+    position: absolute;
+    right: -30vw;
+    max-width: 80%;
+    translate: -50%;
+    bottom: 10vh;
+    /* background-color: black; */
+}
 
-.big-brand-central>img {
+.serviço {
+    position: relative;
+}
+
+
+.big-brand-central {
+    position: absolute;
     max-width: 45vw;
-    top: 55rem;
+    top: 110vh;
+    left: 50vw;
+    translate: -50%;
+    z-index: 1;
 }
 
 .box-yellow {
     padding-top: 5vh;
     padding-bottom: 3vh;
+    border-left: 0px;
+    border-right: 0px;
 }
 
 .box-yellow::before {
-    content: "";
-    background-image: none;
+    display: none;    
 }
 
 .box-yellow::after {
-    content: "";
-    background-image: none;
+    display: none;
 }
 
 .conteudo-boxy {
@@ -202,7 +209,7 @@ nav .btn-social {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    justify-content: center;    
+    justify-content: center;
 }
 
 .caixa-depoimento>img {
@@ -248,10 +255,10 @@ nav .btn-social {
 
 .box-proposito::before {
     content: "";
-    background-image: none;  
+    background-image: none;
 }
 
-.conteudo-proposito {    
+.conteudo-proposito {
     max-width: 80vw;
     padding-top: 32px;
     padding-bottom: 8vh;
@@ -259,7 +266,7 @@ nav .btn-social {
 
 .conteudo-rodape {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     padding: 8vh 8vw;
     gap: 32px;
 }

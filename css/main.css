@@ -292,6 +292,7 @@ nav a {
 
 .servico {
     display: block;
+    position: relative;
     margin-top: 0;
     background-color: var(--color-primary-03);
     background-image: url('../img/PATTERNS/pattern_azul.jpg');
@@ -308,7 +309,6 @@ nav a {
 }
 
 .box-yellow {
-    position: relative;
     background-color: var(--color-secondary-02);
     padding-top: 8vh;
     padding-bottom: 3vh;

@@ -137,9 +137,9 @@ nav .btn-social {
 .big-brand-central {
     position: absolute;
     max-width: 45vw;
-    top: -15%;    
+    top: 0%;    
     left: 50vw;
-    translate: -50%;
+    translate: -50% -40%;
     z-index: 1;
 }
 

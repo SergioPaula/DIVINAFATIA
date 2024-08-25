@@ -194,15 +194,23 @@ nav .btn-social {
 }
 
 .faixa-marrom {
-    height: 160px;
     overflow: hidden;
 }
 
 .como-fazemos {
-    grid-auto-columns: 45%;    
+    display: grid;
+    grid-template-rows: min-content;  
+    grid-auto-columns: 56%;
+    inline-size: 100%;   
     overflow-x: auto;    
     overscroll-behavior-inline: contain;
+    gap: 2.5rem;
 }
+
+/* .icon-txt {
+    display: grid;
+    grid-template-rows: min-content;    
+} */
 
 
 .cardapio {

@@ -387,6 +387,7 @@ nav a {
 
 
 .faixa-marrom {
+    display: grid;
     position: relative;
     max-width: 100%;
     background-color: var(--color-primary-01);
@@ -398,10 +399,10 @@ nav a {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    justify-content: space-around;
-    gap: 36px;
-    flex-flow: row nowrap;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 2rem;
 }
 
 .como-fazemos>div {

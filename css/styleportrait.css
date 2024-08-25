@@ -193,6 +193,10 @@ nav .btn-social {
     padding-top: 0rem;
 }
 
+/* *::-webkit-scrollbar{
+    display: none;
+} */
+
 .faixa-marrom {
     overflow: hidden;
 }
@@ -205,6 +209,15 @@ nav .btn-social {
     overflow-x: auto;    
     overscroll-behavior-inline: contain;
     gap: 2.5rem;
+}
+
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 0px;
+}
+
+.snaps-inline > * {
+    scroll-snap-align: start;
 }
 
 /* .icon-txt {

@@ -140,8 +140,7 @@ p {
     margin-top: 0;
     background-color: var(--color-primary-03);
     background-image: url('../img/IMAGENS/DESENHO-FAZENDA_full.jpg');
-    background-size: 130vw;
-    background-size: 130svw;
+    background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     /* background-size: 2300px; */
@@ -485,34 +484,29 @@ strong {
 
 
 .espaco-produto {
+    max-width: 100%;
+    
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
     margin: auto;
     gap: 32px;
     padding: 16px;
-    justify-content: space-between;
 }
 
 .card-item {
     display: flex;
     flex-flow: column wrap;
-    max-width: 18vw;
+    max-width: 350px;
     justify-content: space-between;
-    /* place-content: start center;     */
     gap: 8px;
     padding: 16px;
     border-radius: 30px;
     border: 3px solid var(--color-primary-01);
 }
 
-.img-produto {
-    margin: auto;
-    max-width: 100%;
-}
-
 .img-produto>img {
-    /* margin-bottom: 8px; */
-    border-radius: 27px;
+    border-radius: 30px;
+    width: 100%;    
 }
 
 

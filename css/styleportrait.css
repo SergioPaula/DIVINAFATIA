@@ -170,6 +170,21 @@ nav .btn-social {
     padding: 5vh 2vw;
 }
 
+.faixa-marrom {
+    overflow: hidden;
+    padding: 2rem 1rem;
+}
+
+.como-fazemos {
+    display: grid;
+    /* grid-template-rows: min-content;   */
+    grid-auto-columns: 56%;
+    inline-size: 100%;   
+    overflow-x: auto;    
+    overscroll-behavior-inline: contain;
+    gap: 2.5rem;
+}
+
 .hiden {
     display: none;
 }
@@ -178,6 +193,16 @@ nav .btn-social {
     content: "";
     background-image: none;
 }
+
+.espaco-produto {
+    display: grid;
+    grid-template-rows: min-content;
+    grid-auto-columns: 100%;
+    inline-size: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
 
 .cheirinho {
     padding: 5vh 2vw;
@@ -193,24 +218,6 @@ nav .btn-social {
     padding-top: 0rem;
 }
 
-/* *::-webkit-scrollbar{
-    display: none;
-} */
-
-.faixa-marrom {
-    overflow: hidden;
-    padding: 2rem 1rem;
-}
-
-.como-fazemos {
-    display: grid;
-    grid-template-rows: min-content;  
-    grid-auto-columns: 56%;
-    inline-size: 100%;   
-    overflow-x: auto;    
-    overscroll-behavior-inline: contain;
-    gap: 2.5rem;
-}
 
 .snaps-inline {
     scroll-snap-type: inline mandatory;

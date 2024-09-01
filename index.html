@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Que cheirinho de bolo assando!"> <!--Texto descritivo-->
 
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/main.css" media="all">
     <link rel="stylesheet" href="./css/styleportrait.css" media="screen and (orientation: portrait)">
 
@@ -153,14 +154,14 @@
                     <h2>“compartilhar um café da tarde”</h2>
                 </div>
 
-                <aside class="cardapio-produtos">
-                    <a href="">
-                        <img src="./img/ICONS/ICON_ARROW_LEFT.svg" alt="" class="icon-40 hiden">
-                    </a>
+                <div class="cardapio-produtos swiper">
+                    <!-- <a href="">
+                        <img src="./img/ICONS/ICON_ARROW_LEFT.svg" alt="" class="icon-40 swiper-button-prev hiden">
+                    </a> -->
 
-                    <div class="espaco-produto">
+                    <div class="espaco-produto swiper-wrapper">
 
-                        <div class="card-item">
+                        <div class="card-item swiper-slide">
                             <div class="conteudo-produto">
                                 <figure class="img-produto">
                                     <img src="./img/PRODUTOS/01-chocolate/01.png" alt="">
@@ -183,7 +184,7 @@
                         </div>
 
 
-                        <div class="card-item">
+                        <div class="card-item swiper-slide">
                             <div class="conteudo-produto">
                                 <figure class="img-produto">
                                     <img src="./img/PRODUTOS/02-fuba/01.png" alt="">
@@ -203,7 +204,7 @@
                         </div>
 
 
-                        <div class="card-item">
+                        <div class="card-item swiper-slide">
                             <div class="conteudo-produto">
                                 <figure class="img-produto">
                                     <img src="./img/PRODUTOS/04-churros/01.png" alt="">
@@ -224,12 +225,12 @@
                     </div>
 
 
-                    <a href="">
-                        <img src="./img/ICONS/ICON_ARROW.svg" alt="" class="icon-40 hiden">
-                    </a>
+                    <!-- <a href="">
+                        <img src="./img/ICONS/ICON_ARROW.svg" alt="" class="icon-40 swiper-button-next hiden">
+                    </a> -->
 
 
-                </aside>
+                </div>
 
                 <div class="select-cardapio">
                     <figure class="menu-rapido">
@@ -392,6 +393,9 @@
         </section>
     </footer>
 
+    
+    <script src="./js/main.js"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="./04. SITE/js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="./04. SITE/js/modernizr-3.5.0.min.js"></script>
     <script type="text/javascript" src="./04. SITE/js/bootstrap.min.js"></script>

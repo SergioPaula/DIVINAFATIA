@@ -168,6 +168,11 @@ nav .btn-social {
 
 .box-produtos {
     padding: 5vh 2vw;
+    border: 0;
+}
+
+.box-produtos::after {
+    display: none;
 }
 
 .faixa-marrom {
@@ -189,10 +194,9 @@ nav .btn-social {
     display: none;
 }
 
-.box-produtos::after {
-    content: "";
-    background-image: none;
-}
+
+
+
 
 .espaco-produto {
     /* display: grid;

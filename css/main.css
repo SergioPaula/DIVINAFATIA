@@ -426,7 +426,6 @@ strong {
     margin-top: 0;
     background-color: var(--color-primary-03);
     background-image: url('../img/PATTERNS/pattern_amarelo.jpg');
-    padding-bottom: 3vh;
 }
 
 .box-produtos {
@@ -435,9 +434,9 @@ strong {
     flex-direction: column;
     justify-content: center;
     background-color: var(--color-primary-03);
-    padding-top: 1vh;
+    padding-top: 2vh;
     padding-bottom: 5vh;
-    /* margin-bottom: 3%; */
+    margin-bottom: 0;
     margin-top: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
@@ -481,12 +480,11 @@ strong {
     align-items: center;
 }
 
-
-
 .espaco-produto {
     max-width: 100%;    
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit,minmax(300px, 3fr)); */
+    height: fit-content;
     margin: auto;
     gap: 32px;
     padding: 16px;
@@ -496,6 +494,7 @@ strong {
     display: flex;
     flex-flow: column wrap;
     max-width: 350px;
+    height: 60svh;
     justify-content: space-between;
     gap: 8px;
     padding: 16px;
@@ -556,7 +555,7 @@ strong {
     margin-right: auto;
     margin-top: 2%;
     width: 389px;
-    height: 107px;
+    height: 60px;
     padding: 8px;
     border-radius: 67px;
     background: rgba(95, 53, 47, 0.20);

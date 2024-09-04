@@ -668,21 +668,9 @@ strong {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 16px;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
     position: relative;
-}
-
-.box-proposito::after {
-    content: "";
-    background-image: url(../img/IMAGENS/manteiga-flutuante/manteiga-flutuante_1_5x.webp);
-    width: 260px;
-    height: 100%;
-    position: absolute;
-    right: 2rem;
-    top: 35rem;
-    background-repeat: no-repeat;
-    background-size: 100%;
 }
 
 .box-proposito::before {
@@ -723,6 +711,18 @@ strong {
     padding-top: 5vh;
     padding-bottom: 10%;
 }
+
+
+/* .conteudo-rodape::before {
+    content: "";
+    background-image: url(../img/IMAGENS/manteiga-flutuante/manteiga-flutuante_1_5x.webp);
+    width: 260px;
+    height: 100%;
+    position: absolute;
+   
+    background-repeat: no-repeat;
+    background-size: 30%;
+} */
 
 
 .convite-rodape {

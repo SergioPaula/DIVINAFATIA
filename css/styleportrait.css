@@ -269,6 +269,7 @@ nav .btn-social {
     align-items: center;
     align-content: center;
     background-color: transparent;
+    margin-bottom: 5svh;
 
 }
 
@@ -288,6 +289,7 @@ nav .btn-social {
     gap: 16px;
     align-items: center;
     padding: 5vh 2vw;
+    margin-top: 5svh;
 }
 
 .box-proposito::after {
@@ -315,8 +317,24 @@ nav .btn-social {
     gap: 32px;
 }
 
+.conteudo-rodape::before {
+    content: "";
+    background-image: url(../img/IMAGENS/manteiga-flutuante/manteiga-flutuante_1_5x.webp);
+    background-position: center center;
+    width: 320px;
+    height: 340px;
+    background-color: transparent;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    translate: -50% -50%;
+    background-repeat: no-repeat;
+    background-size: 30%;
+}
+
 .paracontato-rodape {
     align-self: flex-start;
+    margin-bottom: 5vh;
 }
 
 .text-rodape {

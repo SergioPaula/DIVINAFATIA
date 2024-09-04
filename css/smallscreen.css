@@ -26,18 +26,12 @@ h1 {
 .box-produtos {
     padding-bottom: 5svh;
     padding-top: 5svh;
-    overflow: hidden;
     border: 0;
     width: 100%;
 }
 
 .card-item {
     width: 60svw;
-    min-height: 350px;
-}
-
-.swiper {
-    overflow: visible;
 }
 
 .box-yellow {

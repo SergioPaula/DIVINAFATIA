@@ -334,25 +334,33 @@ nav a {
     content: "";
     background-image: url(../img/IMAGENS/morango-flutuante/morango-flutuante_1_5x.webp);
     position: absolute;
-    width: 180px;
-    height: 100%;
-    top: 2rem;
-    left: -8rem;
+    background-size: cover;    
+    background-position: center center;
+    
+    width: 160px;
+    height: 220px;
+    top: 1rem;
+    left: 7rem;
     z-index: 1;
     background-repeat: no-repeat;
-    background-size: 100%;
 }
 
 .box-yellow::after {
     content: "";
     background: url(../img/IMAGENS/tools-fluante1/tools-fluante1_1_5x.webp);
-    position: absolute;
-    bottom: -5rem;
-    right: -10rem;
-    width: 250px;
-    height: 380px;
+    position: absolute;        
+    background-position: center center;
+    width: 220px;
+    height: 340px;
+
+    
+    background-size: cover;
+    bottom: -2.5rem;
+    right: 0rem;    
+    
+    transform: translate(-50%, -50%);
     background-repeat: no-repeat;
-    background-size: 100%;
+    
 }
 
 .box-yellow h2 {
@@ -501,7 +509,8 @@ strong {
 .card-item {
     display: flex;
     flex-flow: column wrap;
-    max-width: 350px;
+    max-width: 325px;
+    height: 500px;
     justify-content: space-between;
     gap: 8px;
     padding: 16px;

@@ -501,7 +501,7 @@ strong {
 .card-item {
     display: flex;
     flex-flow: column wrap;
-    width: min(600px, 70%);
+    max-width: 350px;
     justify-content: space-between;
     gap: 8px;
     padding: 16px;

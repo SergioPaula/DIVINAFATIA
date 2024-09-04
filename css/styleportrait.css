@@ -205,6 +205,7 @@ nav .btn-social {
     inline-size: 100%;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
+    max-width: 100%;
 }
 
 
@@ -321,15 +322,15 @@ nav .btn-social {
     content: "";
     background-image: url(../img/IMAGENS/manteiga-flutuante/manteiga-flutuante_1_5x.webp);
     background-position: center center;
-    width: 320px;
-    height: 340px;
+    width: 115px;
+    height: 115px;
     background-color: transparent;
     position: absolute;
     z-index: 1;
     left: 50%;
     translate: -50% -50%;
     background-repeat: no-repeat;
-    background-size: 30%;
+    background-size: cover;
 }
 
 .paracontato-rodape {

@@ -60,6 +60,14 @@ html,
 
 }
 
+h1,
+h2,
+h3,
+h4,
+p {
+    text-wrap: balance;
+}
+
 h1 {
     font-family: var(--font-tittle);
     font-size: 4em;
@@ -493,8 +501,7 @@ strong {
 .card-item {
     display: flex;
     flex-flow: column wrap;
-    max-width: 350px;
-    height: 60svh;
+    width: min(600px, 70%);
     justify-content: space-between;
     gap: 8px;
     padding: 16px;

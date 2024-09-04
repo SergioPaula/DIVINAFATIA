@@ -22,3 +22,8 @@ h1 {
     flex-direction: column;
     align-items: center;
 }
+
+.box-produtos {
+    padding-bottom: 5svh;
+    padding-top: 5svh;
+}

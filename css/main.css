@@ -481,13 +481,13 @@ strong {
 }
 
 .espaco-produto {
-    max-width: 100%;    
+    max-width: 100svw;    
     /* display: grid; */
     /* grid-template-columns: repeat(auto-fit,minmax(300px, 3fr)); */
-    height: fit-content;
+    min-height: fit-content;
     margin: auto;
     gap: 32px;
-    padding: 16px;
+    padding: 16px;    
 }
 
 .card-item {
@@ -513,7 +513,6 @@ strong {
     flex-direction: column;
     align-content: space-between;
     gap: 8px;
-
 }
 
 .title-produto {
@@ -559,6 +558,7 @@ strong {
     padding: 8px;
     border-radius: 67px;
     background: rgba(95, 53, 47, 0.20);
+    display: none;
 }
 
 .menu-rapido {

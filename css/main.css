@@ -382,7 +382,7 @@ nav a {
 }
 
 .bolo-polaroid {
-    max-width: 100%;
+    max-width: 100svw;
 }
 
 .text-boxyellow {
@@ -521,7 +521,8 @@ strong {
 
 .img-produto>img {
     border-radius: 30px;
-    width: 100%;    
+    width: 100%;
+    object-fit: cover; /*para manter imagem sem esticar, precisa testar*/
 }
 
 .card-text {

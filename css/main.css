@@ -476,6 +476,7 @@ strong {
     top: 2rem;
     background-repeat: no-repeat;
     background-size: 100%;
+    z-index: 1;
 }
 
 .header-produtos {
@@ -631,7 +632,7 @@ strong {
     background-image: url(../img/IMAGENS/TEXTURAPAPEL-1.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%;
+    background-size: cover;
     padding-top: 3%;
     padding-bottom: 3%;
 }
@@ -707,6 +708,7 @@ strong {
     top: -4rem;
     background-repeat: no-repeat;
     background-size: 100%;
+    z-index: 1;
 }
 
 
@@ -737,16 +739,25 @@ strong {
 }
 
 
-/* .conteudo-rodape::before {
+.conteudo-rodape::before {
     content: "";
     background-image: url(../img/IMAGENS/manteiga-flutuante/manteiga-flutuante_1_5x.webp);
-    width: 260px;
-    height: 100%;
+    background-position: center center;
+    width: 180px;
+    height: 180px;
+    background-color: transparent;
     position: absolute;
-   
+    z-index: 1;
+    right: 10vw;
+    right: 10svw;
+    
     background-repeat: no-repeat;
-    background-size: 30%;
-} */
+    background-size: cover;
+
+    translate: -50%;
+    transform: translateY(-13vh);
+    transform: translateY(-13svh);
+}
 
 
 .convite-rodape {
@@ -821,6 +832,12 @@ strong {
 .placeholder-txt>input:hover {
     border: 1px solid var(--color-primary-01);
     outline: 1px solid var(--color-primary-01)
+}
+
+.placeholder-txt>input:focus-within {
+    background-color: var(--color-background);
+    border: 0px solid var(--color-secondary-03);
+    outline: 2px solid var(--color-secondary-03);
 }
 
 .button-submit input:hover {

@@ -502,7 +502,8 @@ strong {
 }
 
 .espaco-produto {
-    flex-grow: 1;    
+    flex-grow: 1;
+    align-self: stretch;    
     display: flex;
     justify-content: center;
     gap: 32px;
@@ -514,7 +515,7 @@ strong {
     flex: 0 1 320px;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    align-self: stretch;
     justify-content: space-between;
     gap: 8px;
     padding: 16px;

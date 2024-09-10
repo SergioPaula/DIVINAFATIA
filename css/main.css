@@ -489,7 +489,7 @@ strong {
 }
 
 .cardapio-produtos {
-    display: flex;
+    display: flex;    
     max-width: 1400px;
     column-gap: 16px;
     grid-gap: 32px;
@@ -497,20 +497,23 @@ strong {
     align-items: center;
 }
 
+.botao_cardapio {
+    flex: 0 1;
+}
+
 .espaco-produto {
-    max-width: 100svw;    
-    /* display: grid; */
-    /* grid-template-columns: repeat(auto-fit,minmax(300px, 3fr)); */
-    min-height: fit-content;
-    margin: auto;
+    flex-grow: 1;    
+    display: flex;
+    justify-content: center;
     gap: 32px;
     padding: 16px;    
 }
 
 .card-item {
+    
+    flex: 0 1 320px;
     display: flex;
-    flex-flow: column wrap;
-    max-width: 325px;
+    flex-direction: column;
     height: 500px;
     justify-content: space-between;
     gap: 8px;

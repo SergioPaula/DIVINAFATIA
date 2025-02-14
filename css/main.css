@@ -905,6 +905,10 @@ footer {
     width: 300px;
 }
 
+.swiper-wrapper {
+    align-items: stretch; /* Faz com que os slides tenham a mesma altura */
+}
+
 .card-item {
     background: #fff;
     border-radius: 10px;
@@ -923,6 +927,11 @@ footer {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none; /* Oculta os ícones padrão do Swiper */
 }
 
 .swiper-button-prev:hover,

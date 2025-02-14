@@ -1,4 +1,5 @@
 var swiper = new Swiper('.swiper-container', {
+  initialSlide: 0, // Garante que o carrossel comece no primeiro slide
   slidesPerView: 1.5, // Mostra 1 card e meio por vez
   spaceBetween: 10, // Espaço entre os cards
   navigation: {

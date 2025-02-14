@@ -219,7 +219,8 @@
     }
 
     .card-item {
-        flex: 0 0 80%; /* Mostra um card e meio por vez */
+        flex: 0 0 80%;
+        /* Mostra um card e meio por vez */
         scroll-snap-align: start;
         border-radius: 30px;
         border: 3px solid var(--color-primary-01);
@@ -228,7 +229,8 @@
     }
 
     .botao_cardapio {
-        display: none; /* Esconde os botões de navegação em mobile */
+        display: none;
+        /* Esconde os botões de navegação em mobile */
     }
 
     .espaco-produto {
@@ -250,177 +252,191 @@
         padding: 8px;
         border-radius: 20px;
     }
+
+
+/*DEEPSEEK*/
+
+.swiper-container {
+    overflow: visible; /* Garante que o carrossel não seja cortado */
+}
+
+.swiper-slide {
+    width: 80%; /* Ajusta a largura dos slides para mobile */
+}
+
+.card-item {
+    width: 100%; /* Garante que o card ocupe toda a largura do slide */
+}
+}
+
+/*DEEPSEEK*/
+
+
+.espaco-produto {
+    display: flex;
+    overflow-x: auto;
+    inline-size: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+
+}
+
+.botao_cardapio {
+    display: none;
 }
 
 
-     /*DEEPSEEK*/
+.cheirinho {
+    padding: 5vh 2vw;
+}
+
+.box-cheirinho {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.box-cheirinho>:nth-child(3) {
+    padding-top: 0rem;
+}
+
+.btn-size {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.8rem 2rem;
+}
 
 
-    .espaco-produto {
-        display: flex;
-        overflow-x: auto;
-        inline-size: 100%;
-        overflow-x: auto;
-        overscroll-behavior-inline: contain;
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 0px;
+}
 
-    }
-
-    .botao_cardapio {
-        display: none;
-    }
+.snaps-inline>* {
+    scroll-snap-align: start;
+}
 
 
-    .cheirinho {
-        padding: 5vh 2vw;
-    }
-
-    .box-cheirinho {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-    }
-
-    .box-cheirinho>:nth-child(3) {
-        padding-top: 0rem;
-    }
-
-    .btn-size {
-        max-width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0.8rem 2rem;
-    }
+.cardapio {
+    display: grid;
+    grid-auto-columns: 1fr;
+}
 
 
-    .snaps-inline {
-        scroll-snap-type: inline mandatory;
-        scroll-padding-inline: 0px;
-    }
+.depoimento {
+    background-size: cover;
+    padding: 5vh 2vw;
+}
 
-    .snaps-inline>* {
-        scroll-snap-align: start;
-    }
+.caixa-depoimento {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+}
 
+.caixa-depoimento>img {
+    display: none;
+}
 
-    .cardapio {
-        display: grid;
-        grid-auto-columns: 1fr;
-    }
+.conteudo-depoimento {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: none;
+    padding-top: 32px;
+    align-items: center;
+    align-content: center;
+    background-color: transparent;
+    margin-bottom: 5svh;
 
+}
 
-    .depoimento {
-        background-size: cover;
-        padding: 5vh 2vw;
-    }
+.conteudo-depoimento>div {
+    gap: 16px;
+    max-width: 80vw;
+    max-height: 100%;
+}
 
-    .caixa-depoimento {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        justify-content: center;
-    }
+.foto-depoimento {
+    width: 35vw;
+}
 
-    .caixa-depoimento>img {
-        display: none;
-    }
+.box-proposito {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    padding: 5vh 2vw;
+    margin-top: 5svh;
+}
 
-    .conteudo-depoimento {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        border: none;
-        padding-top: 32px;
-        align-items: center;
-        align-content: center;
-        background-color: transparent;
-        margin-bottom: 5svh;
+.box-proposito::after {
+    right: auto;
+    left: auto;
+    max-width: 30vw;
+    top: 60rem;
+}
 
-    }
+.box-proposito::before {
+    content: "";
+    background-image: none;
+}
 
-    .conteudo-depoimento>div {
-        gap: 16px;
-        max-width: 80vw;
-        max-height: 100%;
-    }
+.conteudo-proposito {
+    max-width: 80vw;
+    padding-top: 32px;
+    padding-bottom: 8vh;
+}
 
-    .foto-depoimento {
-        width: 35vw;
-    }
+.conteudo-rodape {
+    display: flex;
+    flex-direction: column;
+    padding: 8vh 8vw;
+    gap: 32px;
+}
 
-    .box-proposito {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        align-items: center;
-        padding: 5vh 2vw;
-        margin-top: 5svh;
-    }
+.conteudo-rodape::before {
+    content: "";
+    background-image: url(../img/IMAGENS/manteiga-flutuante/manteiga-flutuante_1_5x.webp);
+    background-position: center center;
+    width: 115px;
+    height: 115px;
+    background-color: transparent;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
 
-    .box-proposito::after {
-        right: auto;
-        left: auto;
-        max-width: 30vw;
-        top: 60rem;
-    }
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    .box-proposito::before {
-        content: "";
-        background-image: none;
-    }
+    translate: -50%;
+    transform: translateY(-13vh);
+    transform: translateY(-13svh);
+}
 
-    .conteudo-proposito {
-        max-width: 80vw;
-        padding-top: 32px;
-        padding-bottom: 8vh;
-    }
+.paracontato-rodape {
+    align-self: flex-start;
+    margin-bottom: 5vh;
+}
 
-    .conteudo-rodape {
-        display: flex;
-        flex-direction: column;
-        padding: 8vh 8vw;
-        gap: 32px;
-    }
+.text-rodape {
+    display: flex;
+    flex-direction: column;
+}
 
-    .conteudo-rodape::before {
-        content: "";
-        background-image: url(../img/IMAGENS/manteiga-flutuante/manteiga-flutuante_1_5x.webp);
-        background-position: center center;
-        width: 115px;
-        height: 115px;
-        background-color: transparent;
-        position: absolute;
-        z-index: 1;
-        left: 50%;
+.placeholder-geral {
+    flex-direction: column;
+}
 
-        background-repeat: no-repeat;
-        background-size: cover;
+footer {
+    padding: 3vh 1vw;
+}
 
-        translate: -50%;
-        transform: translateY(-13vh);
-        transform: translateY(-13svh);
-    }
-
-    .paracontato-rodape {
-        align-self: flex-start;
-        margin-bottom: 5vh;
-    }
-
-    .text-rodape {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .placeholder-geral {
-        flex-direction: column;
-    }
-
-    footer {
-        padding: 3vh 1vw;
-    }
-
-    .footer-text {
-        flex-direction: column;
-        text-align: center;
-    }
+.footer-text {
+    flex-direction: column;
+    text-align: center;
+}
 
 }

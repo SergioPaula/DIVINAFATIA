@@ -892,6 +892,52 @@ footer {
     letter-spacing: 0.08em;
 }
 
+/*DEEPSEEK*/
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+}
+
+.card-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    background-color: var(--color-primary-01); /* Cor de fundo */
+    border-radius: 50%; /* Botões redondos */
+    width: 40px; /* Tamanho */
+    height: 40px; /* Tamanho */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: var(--color-primary-02); /* Cor de fundo ao passar o mouse */
+}
+
+.swiper-button-prev img,
+.swiper-button-next img {
+    width: 24px; /* Tamanho do ícone */
+    height: 24px; /* Tamanho do ícone */
+}
+
+/*DEEPSEEK*/
+
 
 
 

@@ -63,8 +63,7 @@ html,
 h1,
 h2,
 h3,
-h4
-{
+h4 {
     text-wrap: balance;
 }
 
@@ -334,9 +333,9 @@ nav a {
     content: "";
     background-image: url(../img/IMAGENS/morango-flutuante/morango-flutuante_1_5x.webp);
     position: absolute;
-    background-size: cover;    
+    background-size: cover;
     background-position: center center;
-    
+
     width: 160px;
     height: 220px;
     top: 1rem;
@@ -348,19 +347,19 @@ nav a {
 .box-yellow::after {
     content: "";
     background: url(../img/IMAGENS/tools-fluante1/tools-fluante1_1_5x.webp);
-    position: absolute;        
+    position: absolute;
     background-position: center center;
     width: 220px;
     height: 340px;
 
-    
+
     background-size: cover;
     bottom: -2.5rem;
-    right: 0rem;    
-    
+    right: 0rem;
+
     transform: translate(-50%, -50%);
     background-repeat: no-repeat;
-    
+
 }
 
 .box-yellow h2 {
@@ -488,14 +487,14 @@ strong {
     text-transform: uppercase;
 }
 
-.cardapio-produtos {
+/*.cardapio-produtos {
     display: flex;    
-    max-width: 1400px;
+    max-width: 100%;
     column-gap: 16px;
     grid-gap: 32px;
     padding-top: 2%;
     align-items: center;
-}
+}*/
 
 .botao_cardapio {
     flex: 0 1;
@@ -503,52 +502,50 @@ strong {
 
 .espaco-produto {
     flex-grow: 1;
-    align-items: stretch;    
+    align-items: stretch;
     display: flex;
     justify-content: center;
     gap: 32px;
-    padding: 16px;    
+    padding: 16px;
 }
 
-.card-item {
-    
-    flex: 0 1 320px;
+.swiper {
+    width: 90%;
+    height: 90%;
+    margin-top: 4svh;
+    margin-bottom: 4svh;
+}
+
+.swiper-wrapper {
+    padding-bottom: 10px;
+}
+
+.swiper-slide {
+    background-color: var(--color-background);
     display: flex;
     flex-direction: column;
-    /*align-self: stretch;*/
-    max-height: 100%;
-    justify-content: space-between;
-    gap: 8px;
     padding: 16px;
     border-radius: 30px;
     border: 3px solid var(--color-primary-01);
-    overflow: hidden;    
+    overflow: hidden;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card-item {
-    background: var(--color-background);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    text-align: center;
-}
 
 .img-produto>img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 30px;
     width: 100%;
-    object-fit: cover; /*para manter imagem sem esticar, precisa testar*/
+    margin-bottom: 1svh;
+    /*para manter imagem sem esticar, precisa testar*/
 }
 
 .card-text {
     display: flex;
     flex-flow: column wrap;
-    gap: 8px;
-}
-
-
-.conteudo-produto {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
     gap: 8px;
 }
 
@@ -762,7 +759,7 @@ strong {
     z-index: 1;
     right: 10vw;
     right: 10svw;
-    
+
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -818,8 +815,8 @@ strong {
 
 .placeholder-txt>input {
     border: 1px solid var(--color-secondary-03);
-    background-color: var(--color-primary-03); 
-    width: 300px;   
+    background-color: var(--color-primary-03);
+    width: 300px;
     padding: .4rem;
     border-radius: 25px;
     font-family: var(--font-body);
@@ -901,51 +898,8 @@ footer {
 }
 
 /*DEEPSEEK*/
-.swiper-container {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 300px;
-}
-
-.swiper-wrapper {
-    align-items: stretch; /* Faz com que os slides tenham a mesma altura */
-}
 
 
-
-.swiper-button-prev,
-.swiper-button-next {
-    background-color: var(--color-sombrabotao); /* Cor de fundo */
-    border-radius: 50%; /* Botões redondos */
-    width: 50px; /* Tamanho */
-    height: 50px; /* Tamanho */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-    display: none; /* Oculta os ícones padrão do Swiper */
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    background-color: var(--color-terciary-03); /* Cor de fundo ao passar o mouse */
-}
-
-.swiper-button-prev img,
-.swiper-button-next img {
-    width: 30px; /* Tamanho do ícone */
-    height: 30px; /* Tamanho do ícone */
-}
 
 /*DEEPSEEK*/
 

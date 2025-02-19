@@ -1,0 +1,366 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+html,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--all-text-color);
+}
+
+/* @font-face {
+    font-family: 'CalistogaRegular';
+    src: url('../fonts/Calistoga-Regular.ttf') format("truetype"),
+        url('../fonts/Calistoga-Regular.woff') format("woff"),
+        url('../fonts/Calistoga-Regular.eot') format('eot'),
+        url('../fonts/Calistoga-Regular.woff2') format('woff2'),
+        url('../fonts/Calistoga-Regular.svg') format('svg');
+    font-weight: 400;
+} */
+
+@font-face {
+    font-family: 'BricolageRegular';
+    src: url('../fonts/BricolageGrotesque-Regular.woff') format('woff');
+    font-weight: 400;
+
+}
+
+@font-face {
+    font-family: 'BricolageSemiBold';
+    src: url('../fonts/ORIGINAL/BricolageGrotesque-SemiBold.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'BricolageBold';
+    src: url('../fonts/ORIGINAL/BricolageGrotesque-Bold.ttf') format('truetype');
+    font-weight: 400;
+}
+
+:root {
+    --color-background: #fffdf7;
+    --color-primary-02: #3E2724;
+    --color-primary-01: #5F352F;
+    --color-primary-03: #F3E9E7;
+    --color-sombrabotao: #E7D8D5;
+    --color-secondary-02: #FFEB99;
+    --color-secondary-03: #FF6D74;
+    --color-terciary-03: #FFB2B8;
+    --color-terciary-06: #DA4E53;
+    --all-text-color: #5f352f;
+    --button-text-color: #F3E9E7;
+
+    --font-tittle: "Calistoga", Georgia, Times, "Times New Roman", serif;
+    --font-body: 'BricolageRegular', Verdana, Geneva, sans-serif;
+    --font-caption: 'BricolageRegular', Verdana, Geneva, sans-serif;
+    --font-captionbold: 'BricolageSemiBold', Verdana, Geneva, sans-serif;
+    --font-button: 'BricolageBold', Verdana, Geneva, sans-serif;
+
+}
+
+body {
+    color: var(--all-text-color);
+    line-height: 1.6;
+}
+
+
+.swiper {
+    width: 90%;
+    height: 90%;
+    margin-top: 4svh;
+    margin-bottom: 4svh;
+}
+
+.swiper-wrapper {
+        padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Card do produto */
+.swiper-slide {
+    border: 3px solid var(--color-primary-01);
+    background-color: var(--color-background);
+    border-radius: 16px;
+    padding: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.swiper-slide:hover {
+    transform: translateY(-4px);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.card-text {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 8px;
+}
+
+.select-cardapio {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 389px;
+    height: 60px;
+    padding: 8px;
+    border-radius: 67px;
+    background: rgba(95, 53, 47, 0.20);
+    display: none;
+}
+
+.menu-rapido {
+    display: flex;
+    gap: 8px;
+
+}
+
+/*AJUSTE DO CARD*/
+
+
+
+/* Seção de produtos */
+.products {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+
+/* Imagem do produto */
+.card-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    /* Aspect ratio 1:1 */
+}
+
+.card-image img {
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 1svh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Tags */
+.tags {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tag {
+    font-family: var(--font-button);
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.tag.new {
+    background-color: #3498db;
+}
+
+.tag.bestseller {
+    background-color: #f1c40f;
+}
+
+.tag.sale {
+    background-color: #e74c3c;
+}
+
+/* Conteúdo do card */
+.card-content {
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    flex-grow: 1;
+}
+
+/* Rating */
+.rating {
+    display: flex;
+    gap: 2px;
+}
+
+.rating .fas.fa-star {
+    font-size: 0.8rem;
+    color: #f1c40f;
+    /* cor amarela para estrelas */
+    transition: transform 0.2s ease;
+}
+
+.rating .far.fa-star {
+    font-size: 0.8rem;
+    color: #e0e0e0;
+    /* cor cinza para estrelas inativas */
+    transition: transform 0.2s ease;
+}
+
+/* Título e descrição */
+.title-produto {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-tittle);
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+.description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    font-family: var(--font-body);
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1.4em;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+
+}
+
+/* Preços */
+
+.box-price {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 8px;
+    background: rgba(95, 53, 47, 0.10);
+    border-radius: 40px;
+}
+
+
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.old-price {
+    font-family: var(--font-body);
+    text-decoration-line: line-through;
+    font-size: 1rem;    
+}
+
+.current-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Controles de compra */
+.purchase-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--color-primary-03);
+    padding: 0.5rem;
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-background);
+    color: #2c3e50;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.qty-btn:hover {
+    background-color: var(--color-terciary-03);
+}
+
+.qty-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.qty-display {
+    font-weight: 600;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.add-to-cart {
+    background-color: #27ae60;
+    color:var(--color-background);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #219a52;
+}
+
+
+/* Botões Navegação */
+.swiper-button-prev,
+.swiper-button-next {
+    background-color: var(--color-sombrabotao); /* Cor de fundo */
+    border-radius: 50%; /* Botões redondos */
+    width: 50px; /* Tamanho */
+    height: 50px; /* Tamanho */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none; /* Oculta os ícones padrão do Swiper */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: var(--color-terciary-03); /* Cor de fundo ao passar o mouse */
+}
+
+.swiper-button-prev img,
+.swiper-button-next img {
+    width: 30px; /* Tamanho do ícone */
+    height: 30px; /* Tamanho do ícone */
+}

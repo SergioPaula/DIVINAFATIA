@@ -5,12 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Que cheirinho de bolo assando!"> <!--Texto descritivo-->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
-    <link rel="stylesheet" href="./css/main3.css" media="screen">
-    <link rel="stylesheet" href="./css/styleportrait copy.css" media="screen and (orientation: portrait)">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/main.css" media="screen">
+    <link rel="stylesheet" href="./css/styleportrait.css" media="screen and (orientation: portrait)">
 
 
     <link rel="shortcut icon" href="./img/fav_df.svg" type="image/x-icon">
@@ -34,7 +31,7 @@
                             <a href="#depoimentos" class="nav-link">Depoimentos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#blog" class="nav-link">Blog</a>
+                            <a href="#contatos" class="nav-link">Blog</a>
                         </li>
                         <li class="nav-item">
                             <a href="#contatos" class="nav-link">Contatos</a>
@@ -159,12 +156,14 @@
                     <h2>Os sabores caseiros mais amados para ...</h2>
                     <h2>“compartilhar um café da tarde”</h2>
                 </div>
-
-                <!-- Swiper -->
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-
+        
+                <!-- Container do Swiper -->
+                <div class="swiper cardapio-produtos">
+                    <!-- Wrapper do Swiper -->
+                    <div class="swiper-wrapper espaco-produto">
+        
+                        <!-- Slide 1 -->
+                        <div class="card-item swiper-slide">
                             <div class="conteudo-produto">
                                 <figure class="img-produto">
                                     <img src="./img/PRODUTOS/01-chocolate/01.png" alt="">
@@ -172,10 +171,8 @@
                                 <div class="card-text">
                                     <p class="title-produto">Bolo de Chocolate com Cobertura de Brigadeiro</p>
                                     <p class="descrip-produto">
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have.
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have.
+                                        There are many variations of passages of Lorem Ipsum available, but the majority have.
+                                        There are many variations of passages of Lorem Ipsum available, but the majority have.
                                     </p>
                                 </div>
                             </div>
@@ -183,12 +180,10 @@
                                 <p class="preco-errado">R$ 65,90</p>
                                 <p class="price-produto"><b>R$ 62,90</b></p>
                             </div>
-
                         </div>
-
-
-                        <div class="swiper-slide">
-
+        
+                        <!-- Slide 2 -->
+                        <div class="card-item swiper-slide">
                             <div class="conteudo-produto">
                                 <figure class="img-produto">
                                     <img src="./img/PRODUTOS/02-fuba/01.png" alt="">
@@ -204,12 +199,10 @@
                                 <p class="preco-errado">R$ 65,90</p>
                                 <p class="price-produto"><b>R$ 62,90</b></p>
                             </div>
-
                         </div>
-
-
-                        <div class="swiper-slide">
-
+        
+                        <!-- Slide 3 -->
+                        <div class="card-item swiper-slide">
                             <div class="conteudo-produto">
                                 <figure class="img-produto">
                                     <img src="./img/PRODUTOS/04-churros/01.png" alt="">
@@ -225,10 +218,10 @@
                                 <p class="preco-errado">R$ 65,90</p>
                                 <p class="price-produto"><b>R$ 62,90</b></p>
                             </div>
-
                         </div>
-                        <div class="swiper-slide">
 
+                        <!-- Slide 4 -->
+                        <div class="card-item swiper-slide">
                             <div class="conteudo-produto">
                                 <figure class="img-produto">
                                     <img src="./img/PRODUTOS/04-churros/01.png" alt="">
@@ -244,24 +237,31 @@
                                 <p class="preco-errado">R$ 65,90</p>
                                 <p class="price-produto"><b>R$ 62,90</b></p>
                             </div>
-
                         </div>
-                        <div class="swiper-slide">Slide 5</div>
-                        <div class="swiper-slide">Slide 6</div>
-                        <div class="swiper-slide">Slide 7</div>
-                        <div class="swiper-slide">Slide 8</div>
-                        <div class="swiper-slide">Slide 9</div>
+        
+                    </div> <!-- Fim do swiper-wrapper -->
+        
+                    <!-- Botões de navegação personalizados -->
+                    <div class="swiper-button-prev botao_cardapio">
+                        <img src="./img/ICONS/ICON_ARROW_LEFT.svg" alt="Voltar" class="icon-40">
                     </div>
-
+                    <div class="swiper-button-next botao_cardapio">
+                        <img src="./img/ICONS/ICON_ARROW.svg" alt="Avançar" class="icon-40">
+                    </div>
+        
+                </div> <!-- Fim do swiper-container -->
+        
+                <!-- Seletor de cardápio (opcional) -->
+                <div class="select-cardapio">
+                    <figure class="menu-rapido">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                    </figure>
                 </div>
-
-
-
-
+        
             </article>
         </section>
-
-
 
 
         <section class="cheirinho">
@@ -409,14 +409,12 @@
     </footer>
 
 
-    <!-- Swiper JS -->
+    <script src="./js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="./js/scripts.js"></script>
-
-    <!-- Initialize Swiper -->
-
-
-
+    <!-- <script type="text/javascript" src="./04. SITE/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="./04. SITE/js/modernizr-3.5.0.min.js"></script>
+    <script type="text/javascript" src="./04. SITE/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./04. SITE/js/popper.min.js"></script> -->
 
 </body>
 

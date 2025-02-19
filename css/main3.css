@@ -101,6 +101,19 @@ p {
     line-height: 1.5em;
 }
 
+span {
+    font-family: var(--font-captionbold);
+    font-weight: 200;
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+button {
+    font-family: var(--font-button);
+    font-size: 1em;
+    text-decoration: none;    
+}
+
 .txt-small {
     font-family: var(--font-body);
     font-size: 0.9em;
@@ -509,97 +522,6 @@ strong {
     padding: 16px;
 }
 
-.swiper {
-    width: 90%;
-    height: 90%;
-    margin-top: 4svh;
-    margin-bottom: 4svh;
-}
-
-.swiper-wrapper {
-    padding-bottom: 10px;
-}
-
-.swiper-slide {
-    background-color: var(--color-background);
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    border-radius: 30px;
-    border: 3px solid var(--color-primary-01);
-    overflow: hidden;
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-
-.img-produto>img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 30px;
-    width: 100%;
-    margin-bottom: 1svh;
-    /*para manter imagem sem esticar, precisa testar*/
-}
-
-.card-text {
-    display: flex;
-    flex-flow: column wrap;
-    gap: 8px;
-}
-
-.title-produto {
-    font-family: var(--font-tittle);
-    font-weight: 400;
-    line-height: 1.2em;
-
-}
-
-.descrip-produto {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    font-family: var(--font-body);
-    font-size: 0.9em;
-    font-weight: 400;
-    line-height: 1.4em;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-
-}
-
-.box-price {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 16px;
-    padding: 8px;
-    background: rgba(95, 53, 47, 0.10);
-    border-radius: 40px;
-}
-
-.preco-errado {
-    font-family: var(--font-body);
-    text-decoration-line: line-through;
-}
-
-.select-cardapio {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
-    width: 389px;
-    height: 60px;
-    padding: 8px;
-    border-radius: 67px;
-    background: rgba(95, 53, 47, 0.20);
-    display: none;
-}
-
-.menu-rapido {
-    display: flex;
-    gap: 8px;
-
-}
 
 .cheirinho {
     padding-bottom: 3%;
@@ -896,15 +818,6 @@ footer {
     font-weight: 400;
     letter-spacing: 0.08em;
 }
-
-/*DEEPSEEK*/
-
-
-
-/*DEEPSEEK*/
-
-
-
 
 
 

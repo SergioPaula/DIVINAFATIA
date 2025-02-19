@@ -74,7 +74,7 @@ body {
 }
 
 .swiper-wrapper {
-        padding-top: 15px;
+    padding-top: 15px;
     padding-bottom: 15px;
 }
 
@@ -264,7 +264,7 @@ body {
 .old-price {
     font-family: var(--font-body);
     text-decoration-line: line-through;
-    font-size: 1rem;    
+    font-size: 1rem;
 }
 
 .current-price {
@@ -286,7 +286,7 @@ body {
     background-color: var(--color-primary-03);
     padding: 0.5rem;
     border-radius: 8px;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .qty-btn {
@@ -322,7 +322,7 @@ body {
 
 .add-to-cart {
     background-color: #27ae60;
-    color:var(--color-background);
+    color: var(--color-background);
     border: none;
     padding: 1rem;
     border-radius: 8px;
@@ -339,10 +339,14 @@ body {
 /* Botões Navegação */
 .swiper-button-prev,
 .swiper-button-next {
-    background-color: var(--color-sombrabotao); /* Cor de fundo */
-    border-radius: 50%; /* Botões redondos */
-    width: 50px; /* Tamanho */
-    height: 50px; /* Tamanho */
+    background-color: var(--color-sombrabotao);
+    /* Cor de fundo */
+    border-radius: 50%;
+    /* Botões redondos */
+    width: 50px;
+    /* Tamanho */
+    height: 50px;
+    /* Tamanho */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -351,16 +355,36 @@ body {
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-    display: none; /* Oculta os ícones padrão do Swiper */
+    display: none;
+    /* Oculta os ícones padrão do Swiper */
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    background-color: var(--color-terciary-03); /* Cor de fundo ao passar o mouse */
+    background-color: var(--color-terciary-03);
+    /* Cor de fundo ao passar o mouse */
 }
 
 .swiper-button-prev img,
 .swiper-button-next img {
-    width: 30px; /* Tamanho do ícone */
-    height: 30px; /* Tamanho do ícone */
+    width: 30px;
+    /* Tamanho do ícone */
+    height: 30px;
+    /* Tamanho do ícone */
+}
+
+/* Responsividade */
+@media screen and (max-width: 1024px) {
+
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
+
+    .swiper-wrapper {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
 }

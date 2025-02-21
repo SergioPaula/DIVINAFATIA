@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cards de Produtos - Teste</title>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="./css/modal.css">
+
+
     <style>
         /* Reset e configurações gerais */
         * {
@@ -82,7 +85,7 @@
             left: 0;
             right: 0;
             height: 40%;
-            background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent);
             z-index: 1;
         }
 
@@ -131,9 +134,17 @@
             font-weight: 600;
         }
 
-        .tag.new { background-color: #3498db; }
-        .tag.bestseller { background-color: #f1c40f; }
-        .tag.sale { background-color: #e74c3c; }
+        .tag.new {
+            background-color: #3498db;
+        }
+
+        .tag.bestseller {
+            background-color: #f1c40f;
+        }
+
+        .tag.sale {
+            background-color: #e74c3c;
+        }
 
         /* Conteúdo do card */
         .card-content {
@@ -269,7 +280,7 @@
             .container {
                 padding: 1rem;
             }
-            
+
             .products {
                 width: 100%;
                 gap: 16px;
@@ -281,11 +292,12 @@
         }
     </style>
 </head>
+
 <body>
     <main class="container">
         <section class="products">
             <!-- Card 1 -->
-            <article class="product-card">
+            <article class="product-card card-clickable" data-product-id="1">
                 <div class="card-image">
                     <img src="https://via.placeholder.com/400x400" alt="Bolo de Chocolate">
                     <div class="tags">
@@ -296,7 +308,7 @@
                         <h2>Bolo de Chocolate com Brigadeiro</h2>
                     </div>
                 </div>
-                
+
                 <div class="card-content">
                     <div class="rating">
                         <i class="fas fa-star active"></i>
@@ -305,14 +317,15 @@
                         <i class="fas fa-star active"></i>
                         <i class="fas fa-star active"></i>
                     </div>
-                    
-                    <p class="description">Delicioso bolo de chocolate coberto com brigadeiro cremoso e chocolate belga ralado. Uma explosão de sabor para os amantes de chocolate.</p>
-                    
+
+                    <p class="description">Delicioso bolo de chocolate coberto com brigadeiro cremoso e chocolate belga
+                        ralado. Uma explosão de sabor para os amantes de chocolate.</p>
+
                     <div class="price-container">
                         <span class="old-price">R$ 89,90</span>
                         <span class="current-price">R$ 79,90</span>
                     </div>
-                    
+
                     <div class="purchase-controls">
                         <div class="quantity">
                             <button class="qty-btn minus" data-product="1">-</button>
@@ -327,7 +340,7 @@
             </article>
 
             <!-- Card 2 -->
-            <article class="product-card">
+            <article class="product-card card-clickable" data-product-id="1">
                 <div class="card-image">
                     <img src="https://via.placeholder.com/400x400" alt="Red Velvet">
                     <div class="tags">
@@ -337,7 +350,7 @@
                         <h2>Red Velvet</h2>
                     </div>
                 </div>
-                
+
                 <div class="card-content">
                     <div class="rating">
                         <i class="fas fa-star active"></i>
@@ -346,13 +359,14 @@
                         <i class="fas fa-star active"></i>
                         <i class="fas fa-star active"></i>
                     </div>
-                    
-                    <p class="description">Clássico bolo red velvet com cobertura de cream cheese. Uma combinação perfeita de sabores que derrete na boca.</p>
-                    
+
+                    <p class="description">Clássico bolo red velvet com cobertura de cream cheese. Uma combinação
+                        perfeita de sabores que derrete na boca.</p>
+
                     <div class="price-container">
                         <span class="current-price">R$ 89,90</span>
                     </div>
-                    
+
                     <div class="purchase-controls">
                         <div class="quantity">
                             <button class="qty-btn minus" data-product="2">-</button>
@@ -367,7 +381,7 @@
             </article>
 
             <!-- Card 3 -->
-            <article class="product-card">
+            <article class="product-card card-clickable" data-product-id="1">
                 <div class="card-image">
                     <img src="https://via.placeholder.com/400x400" alt="Bolo de Cenoura">
                     <div class="tags">
@@ -377,7 +391,7 @@
                         <h2>Bolo de Cenoura</h2>
                     </div>
                 </div>
-                
+
                 <div class="card-content">
                     <div class="rating">
                         <i class="fas fa-star active"></i>
@@ -386,14 +400,15 @@
                         <i class="fas fa-star active"></i>
                         <i class="fas fa-star active"></i>
                     </div>
-                    
-                    <p class="description">Bolo de cenoura super macio com cobertura de chocolate. Receita tradicional que agrada a todos os paladares.</p>
-                    
+
+                    <p class="description">Bolo de cenoura super macio com cobertura de chocolate. Receita tradicional
+                        que agrada a todos os paladares.</p>
+
                     <div class="price-container">
                         <span class="old-price">R$ 69,90</span>
                         <span class="current-price">R$ 59,90</span>
                     </div>
-                    
+
                     <div class="purchase-controls">
                         <div class="quantity">
                             <button class="qty-btn minus" data-product="3">-</button>
@@ -408,6 +423,124 @@
             </article>
         </section>
     </main>
+
+    <!-- Modal Container -->
+    <div class="modal" id="productModal">
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <!-- Botão Fechar -->
+            <button class="modal-close">&times;</button>
+
+            <div class="modal-body">
+                <!-- Coluna da Imagem -->
+                <div class="modal-image">
+                    <img src="bolo-chocolate.jpg" alt="Bolo de Chocolate">
+                    <!-- Tags do produto -->
+                    <div class="modal-tags">
+                        <span class="tag new">Novo</span>
+                        <span class="tag bestseller">Mais Vendido</span>
+                    </div>
+                </div>
+
+                <!-- Coluna das Informações -->
+                <div class="modal-info">
+                    <!-- Cabeçalho -->
+                    <div class="modal-header">
+                        <h2>Bolo de Chocolate com Brigadeiro</h2>
+                        <div class="rating">
+                            <i class="fas fa-star active"></i>
+                            <i class="fas fa-star active"></i>
+                            <i class="fas fa-star active"></i>
+                            <i class="fas fa-star active"></i>
+                            <i class="fas fa-star active"></i>
+                        </div>
+                    </div>
+
+                    <!-- Informações Principais -->
+                    <div class="modal-main-info">
+                        <div class="info-item">
+                            <span class="label">Serve até:</span>
+                            <span class="value">15-20 pessoas</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Peso aproximado:</span>
+                            <span class="value">2.5kg</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Validade:</span>
+                            <span class="value">5 dias refrigerado</span>
+                        </div>
+                    </div>
+
+                    <!-- Descrição -->
+                    <div class="modal-description">
+                        <h3>Descrição</h3>
+                        <p>Delicioso bolo de chocolate com massa super macia e cobertura de brigadeiro cremoso.
+                            Feito com chocolate belga de alta qualidade e decorado com raspas de chocolate meio amargo.
+                        </p>
+                    </div>
+
+                    <!-- Ingredientes -->
+                    <div class="modal-ingredients">
+                        <h3>Ingredientes</h3>
+                        <p>Farinha de trigo, ovos, açúcar, chocolate em pó, leite integral, manteiga, fermento químico.
+                        </p>
+                    </div>
+
+                    <!-- Informações Nutricionais -->
+                    <div class="modal-nutrition">
+                        <h3>Informações Importantes</h3>
+                        <div class="alert-box">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Contém glúten e lactose. Pode conter traços de castanhas e amendoim.</p>
+                        </div>
+                    </div>
+
+                    <!-- Área de Compra -->
+                    <div class="modal-purchase">
+                        <!-- Preços -->
+                        <div class="price-group">
+                            <span class="old-price">R$ 89,90</span>
+                            <span class="current-price">R$ 79,90</span>
+                        </div>
+
+                        <!-- Quantidade -->
+                        <div class="quantity-selector">
+                            <span class="label">Quantidade:</span>
+                            <div class="controls">
+                                <button class="qty-btn minus">-</button>
+                                <span class="qty-number">1</span>
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Total -->
+                        <div class="total-price">
+                            <span class="label">Total:</span>
+                            <span class="value">R$ 79,90</span>
+                        </div>
+
+                        <!-- Botão de Compra -->
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-bag"></i>
+                            Adicionar à Sacola
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        
+    </script>
+
+
+    <script src="./js/modal-script.js">
+    </script>
+
 
     <script>
         // Dados dos produtos
@@ -488,5 +621,8 @@
             });
         });
     </script>
+    
+
 </body>
+
 </html>

@@ -1,0 +1,296 @@
+.card-clickable {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Impede que o cursor seja pointer nos controles */
+.card-clickable .purchase-controls {
+    cursor: default;
+}
+
+.card-clickable .purchase-controls button {
+    cursor: pointer;
+}
+
+/* Efeito de clique */
+.card-clickable:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Modal Base */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+/* Botão Fechar */
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.modal-close:hover {
+    background-color: #f8f9fa;
+}
+
+/* Layout do Modal */
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Imagem */
+.modal-image {
+    position: relative;
+    height: 90vh;
+    max-height: 600px;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Informações */
+.modal-info {
+    padding: 30px;
+    overflow-y: auto;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Cabeçalho */
+.modal-header h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: #2c3e50;
+}
+
+/* Rating */
+.rating {
+    display: flex;
+    gap: 4px;
+}
+
+.rating .fa-star {
+    color: #f1c40f;
+}
+
+/* Informações Principais */
+.modal-main-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-item .label {
+    font-size: 14px;
+    color: #666;
+}
+
+.info-item .value {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Seções de Texto */
+.modal-description,
+.modal-ingredients,
+.modal-nutrition {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-description h3,
+.modal-ingredients h3,
+.modal-nutrition h3 {
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+/* Alerta */
+.alert-box {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: #fff3cd;
+    border-radius: 8px;
+    color: #856404;
+}
+
+/* Área de Compra */
+.modal-purchase {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.price-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.old-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 18px;
+}
+
+.current-price {
+    font-size: 32px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Seletor de Quantidade */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.qty-number {
+    font-weight: 600;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Total */
+.total-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Botão de Compra */
+.add-to-cart {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background: #219a52;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-image {
+        height: 300px;
+    }
+
+    .modal-info {
+        padding: 20px;
+    }
+
+    .modal-main-info {
+        grid-template-columns: 1fr 1fr;
+    }
+}

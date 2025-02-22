@@ -10,15 +10,6 @@ html,
     color: var(--all-text-color);
 }
 
-/* @font-face {
-    font-family: 'CalistogaRegular';
-    src: url('../fonts/Calistoga-Regular.ttf') format("truetype"),
-        url('../fonts/Calistoga-Regular.woff') format("woff"),
-        url('../fonts/Calistoga-Regular.eot') format('eot'),
-        url('../fonts/Calistoga-Regular.woff2') format('woff2'),
-        url('../fonts/Calistoga-Regular.svg') format('svg');
-    font-weight: 400;
-} */
 
 @font-face {
     font-family: 'BricolageRegular';
@@ -416,6 +407,60 @@ body {
     height: 30px;
     /* Tamanho do ícone */
 }
+
+
+/* Menu Filtro */
+
+.menucardapio {
+    display: flex;
+    flex-flow: column wrap;
+    border-radius: 67px;
+    background: rgba(95, 53, 47, 0.20);
+    max-width: fit-content;
+    padding: 16px;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-filter {
+    max-width: 70%;
+}
+
+.filtro-produto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.text-filtro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 175px;
+    padding: 8px;
+    font-family: var(--font-tittle);
+    font-size: 1.2rem;
+    border-radius: 70px;
+    background: var(--color-terciary-06);
+    color: var(--button-text-color);
+    align-self: stretch;
+    line-height: 1;
+    text-align: center;
+}
+
+
+.circle-filter {
+    background-color: var(--color-terciary-03);
+    width: 73px;
+    height: 73px;
+    border-radius: 50px;
+    position:absolute;
+}
+
+
 
 /* Responsividade */
 @media screen and (max-width: 1024px) {

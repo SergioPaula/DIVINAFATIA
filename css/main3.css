@@ -101,6 +101,10 @@ p {
     line-height: 1.5em;
 }
 
+a {
+    text-decoration: none;
+}
+
 span {
     font-family: var(--font-captionbold);
     font-weight: 200;
@@ -314,7 +318,7 @@ nav a {
     position: relative;
     margin-top: 0;
     background-color: var(--color-primary-03);
-    background-image: url('../img/PATTERNS/pattern_azul.jpg');
+    background-image: url('../img/PATTERNS/pattern_azul.avif');
     padding-top: 5vh;
 }
 
@@ -453,7 +457,7 @@ strong {
 .cardapio {
     margin-top: 0;
     background-color: var(--color-primary-03);
-    background-image: url('../img/PATTERNS/pattern_amarelo.jpg');
+    background-image: url('../img/PATTERNS/pattern_amarelo.avif');
 }
 
 .box-produtos {
@@ -461,6 +465,7 @@ strong {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: var(--color-primary-03);
     padding-top: 2vh;
     padding-bottom: 5vh;
@@ -473,9 +478,6 @@ strong {
     border-image-outset: 1;
     border-image-repeat: round;
     position: relative;
-
-    /* outline-offset: -15px;
-    outline-width:; */
 }
 
 .box-produtos::after {
@@ -499,15 +501,6 @@ strong {
     font-family: var(--font-caption);
     text-transform: uppercase;
 }
-
-/*.cardapio-produtos {
-    display: flex;    
-    max-width: 100%;
-    column-gap: 16px;
-    grid-gap: 32px;
-    padding-top: 2%;
-    align-items: center;
-}*/
 
 .botao_cardapio {
     flex: 0 1;
@@ -560,7 +553,7 @@ strong {
 
 .depoimento {
     background-color: var(--color-primary-03);
-    background-image: url(../img/IMAGENS/TEXTURAPAPEL-1.jpg);
+    background-image: url(../img/PATTERNS/TEXTURAPAPEL-1.avif);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -818,14 +811,3 @@ footer {
     font-weight: 400;
     letter-spacing: 0.08em;
 }
-
-
-
-/* main {
-    max-width: 1440px;
-} */
-
-
-/* .btn-icon-left {
-    padding-left: 70px;
-} */

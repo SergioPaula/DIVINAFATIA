@@ -152,6 +152,37 @@ button {
     margin-bottom: 2rem;
 }
 
+.icon{
+    width: 40px;
+    height: 40px;
+    fill: currentColor;
+}
+
+.icon-30{
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+}
+
+.icon-25{
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
+}
+
+.social-top{
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+
+.cart-nav{
+    fill: currentColor; /* Permite mudar cor via color */
+  width: 24px; /* ou o tamanho que quiser */
+  height: 24px;
+}
+
 .container {
     max-width: 1440px;
     margin-left: auto;
@@ -443,9 +474,7 @@ nav a {
     align-items: center;
 }
 
-.icon-40 {
-    max-width: 40px;
-}
+
 
 .icon-txt>p,
 strong {

@@ -74,7 +74,7 @@ body {
     border: 2px solid var(--all-text-color);
     background-color: var(--button-text-color);
     border-radius: 30px;
-    padding: 10px 10px 0px 10px ;
+    padding: 10px 10px 0px 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
     display: flex;
@@ -240,7 +240,7 @@ body {
     border-radius: 8px;
     transition: background-color 0.3s ease;
     text-wrap: balance;
-    height: calc(2.2rem * 2 + 4px);    
+    height: calc(2.2rem * 2 + 4px);
 }
 
 
@@ -360,6 +360,16 @@ body {
 
 
 /* Botões Navegação */
+.icon-next, .icon-previous {
+    fill: currentColor;
+    max-width: 30px;
+}
+
+.icon-next:hover,
+.icon-previous:hover {
+    fill: var(--color-terciary-06)
+}
+
 .swiper-button-prev,
 .swiper-button-next {
     background-color: var(--color-sombrabotao);
@@ -427,7 +437,7 @@ body {
 .item-filter {
     max-width: 100px;
     display: flex;
-    align-items: center;    
+    align-items: center;
     cursor: pointer;
     transition: all 0.3s ease
 }
@@ -446,7 +456,7 @@ body {
     color: var(--button-text-color);
     align-self: stretch;
     line-height: 1;
-    text-align: center;     
+    text-align: center;
 }
 
 
@@ -462,11 +472,11 @@ body {
 .circle-filter {
     position: absolute;
     margin-left: 12px;
-    transition: transform 0.3s ease;    
+    transition: transform 0.3s ease;
     background-color: var(--color-terciary-03);
     width: 75px;
     height: 75px;
-    border-radius: 50px;    
+    border-radius: 50px;
 }
 
 

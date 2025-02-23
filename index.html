@@ -36,7 +36,7 @@
                         <li class="nav-item">
                             <a href="#cardapio" class="nav-link">Cardápio</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="#blog" class="nav-link">Blog</a>
                         </li>
@@ -177,14 +177,14 @@
                     <div class="swiper-wrapper">
 
                         <div class="swiper-slide">
-                            <article class="product-card">
+                            <article class="product-card" data-category="sem-cobertura">
                                 <figure class="card-image">
-                                    <img src="./img/PRODUTOS/01-chocolate/01.png" alt="Bolo de Chocolate">
+                                    <img src="./img/PRODUTOS/01-chocolate/01.png" alt="Bolo de Chocolate"/>
                                     <div class="tags">
                                         <span class="tag sale">Promoção</span>
                                     </div>
                                     <div class="title-overlay">
-                                        <h2>Bolo de Chocolate <br>com Brigadeiro</h2>
+                                        <h2>Bolo de Chocolate <br>com Brigadeiro e Granulado</h2>
                                     </div>
                                 </figure>
 
@@ -221,7 +221,7 @@
                         </div>
 
                         <div class="swiper-slide">
-                            <article class="product-card">
+                            <article class="product-card" data-category="sem-cobertura">
                                 <figure class="card-image" onclick="showProductModal(1)">
                                     <img src="./img/PRODUTOS/01-chocolate/01.png" alt="Bolo de Chocolate">
                                     <div class="tags">
@@ -265,7 +265,7 @@
                         </div>
 
                         <div class="swiper-slide">
-                            <article class="product-card">
+                            <article class="product-card" data-category="com-cobertura">
                                 <figure class="card-image" onclick="showProductModal(1)">
                                     <img src="./img/PRODUTOS/01-chocolate/01.png" alt="Bolo de Chocolate">
                                     <div class="tags">
@@ -309,7 +309,7 @@
                         </div>
 
                         <div class="swiper-slide">
-                            <article class="product-card">
+                            <article class="product-card" data-category="com-cobertura">
                                 <figure class="card-image" onclick="showProductModal(1)">
                                     <img src="./img/PRODUTOS/01-chocolate/01.png" alt="Bolo de Chocolate">
                                     <div class="tags">
@@ -353,7 +353,7 @@
                         </div>
 
                         <div class="swiper-slide">
-                            <article class="product-card">
+                            <article class="product-card" data-category="bastante-cobertura">
                                 <figure class="card-image" onclick="showProductModal(1)">
                                     <img src="./img/PRODUTOS/01-chocolate/01.png" alt="Bolo de Chocolate">
                                     <div class="tags">
@@ -410,20 +410,48 @@
 
                 <div class="menucardapio">
                     <div class="filtro-produto">
-                        <div><img src="./img/IMAGENS/BOLO_SEMC 1.avif" alt="miniatura de um bolo caseiro sem cobertura" class="img-filter">
+                        <div class="item-filter">
                             <div class="circle-filter"></div>
-                        
+                            <img src="./img/IMAGENS/semcobertura.avif" alt="miniatura de um bolo caseiro sem cobertura"
+                                class="img-filter">                         
+
                         </div>
                         <a href="" class="text-filtro">
                             Bolos Sem Cobertura
                         </a>
-    
+
                     </div>
-    
+
+                    <div class="filtro-produto">
+                        <div class="item-filter">
+                            <div class="circle-filter"></div>
+                            <img src="./img/IMAGENS/comcobertura.avif" alt="miniatura de um bolo caseiro sem cobertura"
+                                class="img-filter">                         
+
+                        </div>
+                        <a href="" class="text-filtro">
+                            Bolos Com Cobertura
+                        </a>
+
+                    </div>
+
+                    <div class="filtro-produto">
+                        <div class="item-filter">
+                            <div class="circle-filter"></div>
+                            <img src="./img/IMAGENS/bastantecobertura.avif" alt="miniatura de um bolo caseiro sem cobertura"
+                                class="img-filter">                         
+
+                        </div>
+                        <a href="" class="text-filtro">
+                            Bolos Com Bastante Cobertura
+                        </a>
+
+                    </div>
+
                 </div>
             </article>
 
-            
+
 
 
         </section>
@@ -526,8 +554,8 @@
                             <h4 class="mt-1">Nossas políticas</h4>
                             <p><a href="" target="_blank">Termos de uso</a></p>
                             <p><a href="" target="_blank">Política de Privacidade</a></p>
-                            <p><a href="" target="_blank">Política de Cookies</a></p>                       
-                            
+                            <p><a href="" target="_blank">Política de Cookies</a></p>
+
                         </div>
                         <div>
                             <img src="./img/ICONS/whats_top.svg" width="30px" alt="icone de mapa">
@@ -538,9 +566,9 @@
                         </div>
                     </div>
 
-                   
-                   
-                   
+
+
+
                     <div class="form-mailing">
 
                         <h4 class="mb-1">Fique por dentro das novidades</h4>
@@ -553,7 +581,7 @@
                                 </div>
                                 <div class="placeholder-txt">
                                     <!-- <label for="">E-mail</label> -->
-                                   <input type="email" name="email_php" id="email_js" required
+                                    <input type="email" name="email_php" id="email_js" required
                                         placeholder="Digite seu melhor email" autocomplete="email">
                                 </div>
                                 <div class="button-submit font-btn-small">
@@ -588,128 +616,130 @@
 
 
     <!-- MODAL MEU CARRINHO -->
-     <!-- Modal do Carrinho -->
-<div class="cart-modal" id="cartModal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content">
-        <!-- Cabeçalho do Modal -->
-        <div class="modal-header">
-            <button class="modal-close">&times;</button>
-            <!-- Indicadores de Passo -->
-            <div class="steps-indicator">
-                <div class="step active" data-step="1">1</div>
-                <div class="step" data-step="2">2</div>
-                <div class="step" data-step="3">3</div>
-            </div>
-            <h2 class="modal-title">Sacola de Guloseimas Divina Fatia</h2>
-        </div>
-
-        <!-- Conteúdo do Modal -->
-        <div class="modal-body">
-            <!-- Passo 1: Lista de Itens -->
-            <div class="step-content step-1 active">
-                <div class="cart-items">
-                    <!-- Os itens do carrinho serão inseridos aqui dinamicamente -->
-                    <div class="cart-item">
-                        <div class="item-image">
-                            <img src="placeholder.jpg" alt="Produto">
-                        </div>
-                        <div class="item-details">
-                            <h3>Nome do Produto</h3>
-                            <p class="price">R$ 79,90</p>
-                        </div>
-                        <div class="item-quantity">
-                            <button class="qty-btn minus">-</button>
-                            <span class="qty-display">1</span>
-                            <button class="qty-btn plus">+</button>
-                        </div>
-                        <button class="remove-item">&times;</button>
-                    </div>
+    <!-- Modal do Carrinho -->
+    <div class="cart-modal" id="cartModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <!-- Cabeçalho do Modal -->
+            <div class="modal-header">
+                <button class="modal-close">&times;</button>
+                <!-- Indicadores de Passo -->
+                <div class="steps-indicator">
+                    <div class="step active" data-step="1">1</div>
+                    <div class="step" data-step="2">2</div>
+                    <div class="step" data-step="3">3</div>
                 </div>
-                <div class="cart-summary">
-                    <p>Subtotal: <span class="subtotal">R$ 0,00</span></p>
-                </div>
+                <h2 class="modal-title">Sacola de Guloseimas Divina Fatia</h2>
             </div>
 
-            <!-- Passo 2: Endereço de Entrega -->
-            <div class="step-content step-2">
-                <div class="delivery-form">
-                    <div class="form-group">
-                        <label for="cep">CEP</label>
-                        <div class="cep-input">
-                            <input type="text" id="cep" name="cep">
-                            <button class="search-cep">Buscar</button>
+            <!-- Conteúdo do Modal -->
+            <div class="modal-body">
+                <!-- Passo 1: Lista de Itens -->
+                <div class="step-content step-1 active">
+                    <div class="cart-items">
+                        <!-- Os itens do carrinho serão inseridos aqui dinamicamente -->
+                        <div class="cart-item">
+                            <div class="item-image">
+                                <img src="placeholder.jpg" alt="Produto">
+                            </div>
+                            <div class="item-details">
+                                <h3>Nome do Produto</h3>
+                                <p class="price">R$ 79,90</p>
+                            </div>
+                            <div class="item-quantity">
+                                <button class="qty-btn minus">-</button>
+                                <span class="qty-display">1</span>
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                            <button class="remove-item">&times;</button>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="address">Endereço</label>
-                        <input type="text" id="address" name="address">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="number">Número</label>
-                            <input type="text" id="number" name="number">
-                        </div>
-                        <div class="form-group">
-                            <label for="complement">Complemento</label>
-                            <input type="text" id="complement" name="complement">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="neighborhood">Bairro</label>
-                        <input type="text" id="neighborhood" name="neighborhood">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="city">Cidade</label>
-                            <input type="text" id="city" name="city">
-                        </div>
-                        <div class="form-group">
-                            <label for="state">Estado</label>
-                            <input type="text" id="state" name="state">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Passo 3: Resumo do Pedido -->
-            <div class="step-content step-3">
-                <div class="order-summary">
-                    <h3>Resumo do Pedido</h3>
-                    <div class="summary-items">
-                        <!-- Itens do resumo serão inseridos aqui -->
-                    </div>
-                    <div class="delivery-info">
-                        <h4>Endereço de Entrega</h4>
-                        <p class="delivery-address"></p>
-                    </div>
-                    <div class="final-summary">
+                    <div class="cart-summary">
                         <p>Subtotal: <span class="subtotal">R$ 0,00</span></p>
-                        <p>Frete: <span class="shipping">R$ 0,00</span></p>
-                        <p class="total">Total: <span>R$ 0,00</span></p>
+                    </div>
+                </div>
+
+                <!-- Passo 2: Endereço de Entrega -->
+                <div class="step-content step-2">
+                    <div class="delivery-form">
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <div class="cep-input">
+                                <input type="text" id="cep" name="cep">
+                                <button class="search-cep">Buscar</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Endereço</label>
+                            <input type="text" id="address" name="address">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="number">Número</label>
+                                <input type="text" id="number" name="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="complement">Complemento</label>
+                                <input type="text" id="complement" name="complement">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="neighborhood">Bairro</label>
+                            <input type="text" id="neighborhood" name="neighborhood">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">Cidade</label>
+                                <input type="text" id="city" name="city">
+                            </div>
+                            <div class="form-group">
+                                <label for="state">Estado</label>
+                                <input type="text" id="state" name="state">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Passo 3: Resumo do Pedido -->
+                <div class="step-content step-3">
+                    <div class="order-summary">
+                        <h3>Resumo do Pedido</h3>
+                        <div class="summary-items">
+                            <!-- Itens do resumo serão inseridos aqui -->
+                        </div>
+                        <div class="delivery-info">
+                            <h4>Endereço de Entrega</h4>
+                            <p class="delivery-address"></p>
+                        </div>
+                        <div class="final-summary">
+                            <p>Subtotal: <span class="subtotal">R$ 0,00</span></p>
+                            <p>Frete: <span class="shipping">R$ 0,00</span></p>
+                            <p class="total">Total: <span>R$ 0,00</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Rodapé do Modal -->
-        <div class="modal-footer">
-            <button class="btn-back" hidden>Voltar</button>
-            <button class="btn-next">Continuar</button>
+            <!-- Rodapé do Modal -->
+            <div class="modal-footer">
+                <button class="btn-back" hidden>Voltar</button>
+                <button class="btn-next">Continuar</button>
+            </div>
         </div>
     </div>
-</div>
 
 
     <!-- JAVASCRIPT -->
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="./js/scripts.js"></script>
-    <script src="./js/products-config.js"></script>
-    <script src="./js/product-modal.js"></script>
-    <script src="./js/cart-modal.js"></script>
+   <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./js/scripts.js"></script>
+<script src="./js/products-config.js"></script>
+<script src="./js/product-modal.js"></script>
+<script src="./js/cart-modal.js"></script>
+<script src="./js/filter-menu.js"></script>
 
-    
+
+
 
     <!-- Initialize Swiper -->
 

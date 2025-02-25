@@ -51,8 +51,10 @@ html,
     --color-terciary-06: #DA4E53;
     --all-text-color: #5f352f;
     --button-text-color: #F3E9E7;
+    --cor-sombra: rgba(95, 53, 47, 0.2);
+    --cor-sombra-black:
 
-    --font-tittle: "Calistoga", Georgia, Times, "Times New Roman", serif;
+        --font-tittle: "Calistoga", Georgia, Times, "Times New Roman", serif;
     --font-body: 'BricolageRegular', Verdana, Geneva, sans-serif;
     --font-caption: 'BricolageRegular', Verdana, Geneva, sans-serif;
     --font-captionbold: 'BricolageSemiBold', Verdana, Geneva, sans-serif;
@@ -86,7 +88,7 @@ html,
 .modal-content {
     position: relative;
     width: 90%;
-    max-width: 70svw;    
+    max-width: 70svw;
     margin: 5vh auto;
     background-color: var(--color-background);
     border-radius: 16px;
@@ -100,21 +102,38 @@ html,
     position: relative;
 }
 
-.modal-close {
+.close-modal-cart {
     position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     right: 20px;
     top: 20px;
-    background: none;
-    border: none;
-    font-size: 24px;
+    padding: 0px 16px;
+    height: 30px;
+    border-radius: 30px;
+    background: var(--color-sombrabotao);
+    border: 0px solid var(--color-primary-01);
+    font-size: 18px;
     cursor: pointer;
     color: var(--color-primary-01);
+}
+
+.close-modal-cart:hover {
+    background: var(--cor-sombra);
+
+}
+
+.x-modal {
+    width: 13px;
+    height: 13px;
+    fill: currentColor;
 }
 
 .steps-indicator {
     display: flex;
     justify-content: start;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
@@ -128,23 +147,42 @@ html,
     justify-content: center;
     color: var(--color-primary-01);
     font-family: var(--font-button);
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
-.step.active {
-    background-color: var(--color-secondary-02);
+.step::before {
+    content: '';
+    width: 15px;
+    background-color: var(--cor-sombra);
+    position: absolute;
+    height: 2px;
+    margin-left: 45px;
 }
+
+.step:last-child::before {
+    content: none;
+}
+
+.step.active,
+.step.active::before {
+    background-color: var(--color-secondary-03);
+}
+
 
 .modal-title {
     text-align: center;
     font-family: var(--font-tittle);
     color: var(--color-primary-01);
     margin: 0;
+    font-size: 2rem;
 }
 
-.modal-body {
+.modal-bodycart {
     padding: 20px;
-    overflow-y: auto;
     max-height: calc(90vh - 180px);
+    flex: 1;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 .step-content {
@@ -156,13 +194,19 @@ html,
 }
 
 /* Estilos para os itens do carrinho */
-.cart-item {
-    display: grid;
-    grid-template-columns: 100px 1fr auto auto;
+.cart-items .cart-item {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
     gap: 20px;
     align-items: center;
     padding: 15px;
-    border-bottom: 1px solid var(--color-sombrabotao);
+    border-bottom: 1px solid var(--cor-sombra);
+    
+}
+
+.cart-item:last-child {
+    border-bottom: 2px solid var(--color-primary-01);
 }
 
 .item-image img {
@@ -176,17 +220,25 @@ html,
     margin: 0;
     font-family: var(--font-tittle);
     color: var(--color-primary-01);
+    font-size: 1.2rem;
+}
+
+.items-details, .items-quantity {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
 }
 
 .item-quantity {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 32px;
 }
 
 .qty-btn {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     border: none;
     background-color: var(--color-primary-03);
@@ -194,12 +246,26 @@ html,
     cursor: pointer;
 }
 
-.remove-item {
-    
+.btn-retirar {
+    background-color: var(--color-terciary-06);
     border: none;
-    color: var(--color-terciary-06);
-    font-size: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-item {
+    width: 15px;
+    height: 15px;
+    fill: var(--color-primary-03);
+    background-color: none;
+    font-size: 20px;
+   
 }
 
 /* Estilos para o formulário de endereço */
@@ -251,7 +317,8 @@ html,
     gap: 10px;
 }
 
-.btn-back, .btn-next {
+.btn-back,
+.btn-next {
     padding: 10px 20px;
     border-radius: 30px;
     border: none;
@@ -273,12 +340,12 @@ html,
     .cart-item {
         grid-template-columns: 80px 1fr;
     }
-    
+
     .item-quantity {
         grid-column: 1 / -1;
         justify-content: center;
     }
-    
+
     .remove-item {
         position: absolute;
         right: 10px;

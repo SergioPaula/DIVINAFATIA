@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartModal = document.getElementById('cartModal');
     const cartButton = document.querySelector('.nav-car');
-    const closeButton = cartModal.querySelector('.modal-close');
+    const closeButton = cartModal.querySelector('.close-modal-cart');
     const overlay = cartModal.querySelector('.modal-overlay');
     const nextButton = cartModal.querySelector('.btn-next');
     const backButton = cartModal.querySelector('.btn-back');

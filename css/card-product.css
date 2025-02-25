@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+/* Removido a importação de fontes e as @font-face, pois elas já estão no main3.css */
 
+/* Reset básico - mantido aqui para o caso deste arquivo ser usado independentemente */
 html,
 * {
     margin: 0;
@@ -10,52 +11,14 @@ html,
     color: var(--all-text-color);
 }
 
-
-@font-face {
-    font-family: 'BricolageRegular';
-    src: url('../fonts/BricolageGrotesque-Regular.woff') format('woff');
-    font-weight: 400;
-
-}
-
-@font-face {
-    font-family: 'BricolageSemiBold';
-    src: url('../fonts/ORIGINAL/BricolageGrotesque-SemiBold.ttf') format('truetype');
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'BricolageBold';
-    src: url('../fonts/ORIGINAL/BricolageGrotesque-Bold.ttf') format('truetype');
-    font-weight: 400;
-}
-
-:root {
-    --color-background: #fffdf7;
-    --color-primary-02: #3E2724;
-    --color-primary-01: #5F352F;
-    --color-primary-03: #F3E9E7;
-    --color-sombrabotao: #E7D8D5;
-    --color-secondary-02: #FFEB99;
-    --color-secondary-03: #FF6D74;
-    --color-terciary-03: #FFB2B8;
-    --color-terciary-06: #DA4E53;
-    --all-text-color: #5f352f;
-    --button-text-color: #F3E9E7;
-
-    --font-tittle: "Calistoga", Georgia, Times, "Times New Roman", serif;
-    --font-body: 'BricolageRegular', Verdana, Geneva, sans-serif;
-    --font-caption: 'BricolageRegular', Verdana, Geneva, sans-serif;
-    --font-captionbold: 'BricolageSemiBold', Verdana, Geneva, sans-serif;
-    --font-button: 'BricolageBold', Verdana, Geneva, sans-serif;
-
-}
+/* Removida a definição :root duplicada - usando as variáveis do arquivo principal */
 
 body {
     color: var(--all-text-color);
     line-height: 1.6;
 }
 
+/* ====== SWIPER E CARDS ====== */
 
 .swiper {
     width: 90%;
@@ -87,24 +50,16 @@ body {
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
 .card-text {
     display: flex;
     flex-flow: column wrap;
     gap: 8px;
 }
 
-
-
 .menu-rapido {
     display: flex;
     gap: 8px;
-
 }
-
-/*AJUSTE DO CARD*/
-
-
 
 /* Seção de produtos */
 .products {
@@ -116,8 +71,6 @@ body {
     flex-wrap: wrap;
 }
 
-
-
 /* Imagem do produto */
 .card-image {
     position: relative;
@@ -126,7 +79,6 @@ body {
     overflow: hidden;
     border-radius: 12px;
 }
-
 
 .card-image img {
     position: absolute;
@@ -150,7 +102,6 @@ body {
     z-index: 1;
 }
 
-
 /* Tags */
 .tags {
     position: absolute;
@@ -163,12 +114,12 @@ body {
 }
 
 .tag {
-    font-family: var(--font-button);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-bold);
     padding: 3px 12px;
     border-radius: 15px;
     color: var(--color-primary-02);
     font-size: 0.8rem;
-    font-weight: 400;
 }
 
 .tag.new {
@@ -201,14 +152,12 @@ body {
 .rating .fas.fa-star {
     font-size: 0.8rem;
     color: var(--color-primary-02);
-    /* cor amarela para estrelas */
     transition: transform 0.2s ease;
 }
 
 .rating .far.fa-star {
     font-size: 0.8rem;
     color: var(--color-primary-01);
-    /* cor cinza para estrelas inativas */
     transition: transform 0.2s ease;
 }
 
@@ -221,12 +170,10 @@ body {
     z-index: 2;
 }
 
-
 .title-overlay h2 {
     font-size: 1.4rem;
-    /*margin-bottom: 0.5rem;*/
-    font-family: var(--font-tittle);
-    font-weight: 400;
+    font-family: var(--font-title);
+    font-weight: var(--font-weight-regular);
     line-height: 2.2rem;
     display: inline;
     background: rgba(255, 255, 255, 0.95);
@@ -243,8 +190,6 @@ body {
     height: calc(2.2rem * 2 + 4px);
 }
 
-
-
 .product-card:hover .title-overlay h2 {
     background: rgba(255, 255, 255, 1);
 }
@@ -254,15 +199,13 @@ body {
     -webkit-line-clamp: 2;
     font-family: var(--font-body);
     font-size: 0.9em;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     line-height: 1.4em;
     overflow: hidden;
     -webkit-box-orient: vertical;
-
 }
 
 /* Preços */
-
 .box-price {
     display: flex;
     flex-flow: row wrap;
@@ -272,7 +215,6 @@ body {
     background: rgba(95, 53, 47, 0.10);
     border-radius: 40px;
 }
-
 
 .price-container {
     display: flex;
@@ -286,13 +228,15 @@ body {
 
 .old-price {
     font-family: var(--font-body);
+    font-weight: var(--font-weight-regular);
     text-decoration-line: line-through;
     font-size: 1rem;
+    color: var(--color-sombra);
 }
 
 .current-price {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
 }
 
 /* Controles de compra */
@@ -338,7 +282,7 @@ body {
 }
 
 .qty-display {
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     min-width: 2rem;
     text-align: center;
 }
@@ -349,7 +293,7 @@ body {
     border: none;
     padding: 1rem;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -358,9 +302,9 @@ body {
     background-color: #219a52;
 }
 
-
 /* Botões Navegação */
-.icon-next, .icon-previous {
+.icon-next,
+.icon-previous {
     fill: currentColor;
     max-width: 30px;
 }
@@ -373,13 +317,9 @@ body {
 .swiper-button-prev,
 .swiper-button-next {
     background-color: var(--color-sombrabotao);
-    /* Cor de fundo */
     border-radius: 50%;
-    /* Botões redondos */
     width: 50px;
-    /* Tamanho */
     height: 50px;
-    /* Tamanho */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -389,26 +329,20 @@ body {
 .swiper-button-prev::after,
 .swiper-button-next::after {
     display: none;
-    /* Oculta os ícones padrão do Swiper */
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
     background-color: var(--color-terciary-03);
-    /* Cor de fundo ao passar o mouse */
 }
 
 .swiper-button-prev img,
 .swiper-button-next img {
     width: 30px;
-    /* Tamanho do ícone */
     height: 30px;
-    /* Tamanho do ícone */
 }
 
-
 /* Menu Filtro */
-
 .menucardapio {
     display: flex;
     flex-flow: row wrap;
@@ -442,14 +376,13 @@ body {
     transition: all 0.3s ease
 }
 
-
 .text-filtro {
     display: none;
     justify-content: center;
     align-items: center;
     max-width: 200px;
     padding: 8px 12px;
-    font-family: var(--font-tittle);
+    font-family: var(--font-title);
     font-size: 1.2rem;
     border-radius: 70px;
     background: var(--color-terciary-06);
@@ -459,15 +392,10 @@ body {
     text-align: center;
 }
 
-
-
 .text-filtro.active {
     display: flex;
     opacity: 1;
 }
-
-
-
 
 .circle-filter {
     position: absolute;
@@ -478,11 +406,6 @@ body {
     height: 75px;
     border-radius: 50px;
 }
-
-
-/*----------------*/
-
-
 
 /* Animação suave para mostrar/esconder produtos */
 .swiper-slide {
@@ -497,14 +420,8 @@ body {
     opacity: 1;
 }
 
-
-/*----------------*/
-
-
-
 /* Responsividade */
 @media screen and (max-width: 1024px) {
-
 
     .swiper-button-prev,
     .swiper-button-next {
@@ -515,5 +432,4 @@ body {
         padding-top: 0px;
         padding-bottom: 0px;
     }
-
 }

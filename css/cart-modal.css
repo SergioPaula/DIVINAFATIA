@@ -1,7 +1,111 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
 
+:root {
+    /* Cores */
+    --color-background: #fffdf7;
+    --color-primary-01: #5F352F;
+    /* Marrom principal */
+    --color-primary-02: #3E2724;
+    /* Marrom escuro */
+    --color-primary-03: #F3E9E7;
+    /* Marrom claro */
+    --color-sombrabotao: #E7D8D5;
+
+    --color-secondary-02: #FFEB99;
+    /* Amarelo */
+    --color-secondary-03: #FF6D74;
+    /* Rosa */
+
+    --color-terciary-03: #FFB2B8;
+    /* Rosa claro */
+    --color-terciary-06: #DA4E53;
+    /* Rosa escuro */
+
+    --all-text-color: #5f352f;
+    /* Cor padrão de texto */
+    --button-text-color: #F3E9E7;
+    /* Cor de texto nos botões */
+
+    --color-sombra: rgba(95, 53, 47, 0.2);
+    --color-marrom-claro: #B18983;
+
+    /* Fontes */
+    --font-title: "Calistoga", serif;
+    --font-body: "Bricolage Grotesque", sans-serif;
+
+    /* Pesos de fonte */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* Tamanhos de texto */
+    --text-xs: 0.75rem;
+    /* 12px */
+    --text-sm: 0.875rem;
+    /* 14px */
+    --text-base: 1rem;
+    /* 16px */
+    --text-md: 1.125rem;
+    /* 18px */
+    --text-lg: 1.25rem;
+    /* 20px */
+    --text-xl: 1.5rem;
+    /* 24px */
+    --text-2xl: 1.8rem;
+    /* 28.8px */
+    --text-3xl: 2.25rem;
+    /* 36px */
+    --text-4xl: 3rem;
+    /* 48px */
+    --text-5xl: 4rem;
+    /* 64px */
+
+    /* Line heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+
+    /* Border radius */
+    --radius-sm: 8px;
+    --radius-md: 15px;
+    --radius-lg: 30px;
+    --radius-xl: 50px;
+    --radius-pill: 9999px;
+
+    /* Espaçamento */
+    --spacing-1: 0.25rem;
+    /* 4px */
+    --spacing-2: 0.5rem;
+    /* 8px */
+    --spacing-3: 0.75rem;
+    /* 12px */
+    --spacing-4: 1rem;
+    /* 16px */
+    --spacing-5: 1.5rem;
+    /* 24px */
+    --spacing-6: 2rem;
+    /* 32px */
+    --spacing-8: 3rem;
+    /* 48px */
+
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 5px 8px 0 rgba(0, 0, 0, 0.3);
+
+    /* Transições */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+
+/* Reset básico - apenas se este arquivo for usado independentemente */
 html,
 * {
     margin: 0;
@@ -10,58 +114,13 @@ html,
     color: var(--all-text-color);
 }
 
-/* @font-face {
-    font-family: 'CalistogaRegular';
-    src: url('../fonts/Calistoga-Regular.ttf') format("truetype"),
-        url('../fonts/Calistoga-Regular.woff') format("woff"),
-        url('../fonts/Calistoga-Regular.eot') format('eot'),
-        url('../fonts/Calistoga-Regular.woff2') format('woff2'),
-        url('../fonts/Calistoga-Regular.svg') format('svg');
-    font-weight: 400;
-} */
-
-@font-face {
-    font-family: 'BricolageRegular';
-    src: url('../fonts/BricolageGrotesque-Regular.woff') format('woff');
-    font-weight: 400;
-
+/* Classes específicas */
+.txt-small-modal {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
 }
 
-@font-face {
-    font-family: 'BricolageSemiBold';
-    src: url('../fonts/ORIGINAL/BricolageGrotesque-SemiBold.ttf') format('truetype');
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'BricolageBold';
-    src: url('../fonts/ORIGINAL/BricolageGrotesque-Bold.ttf') format('truetype');
-    font-weight: 400;
-}
-
-:root {
-    --color-background: #fffdf7;
-    --color-primary-02: #3E2724;
-    --color-primary-01: #5F352F;
-    --color-primary-03: #F3E9E7;
-    --color-sombrabotao: #E7D8D5;
-    --color-secondary-02: #FFEB99;
-    --color-secondary-03: #FF6D74;
-    --color-terciary-03: #FFB2B8;
-    --color-terciary-06: #DA4E53;
-    --all-text-color: #5f352f;
-    --button-text-color: #F3E9E7;
-    --cor-sombra: rgba(95, 53, 47, 0.2);
-    --cor-sombra-black:
-
-        --font-tittle: "Calistoga", Georgia, Times, "Times New Roman", serif;
-    --font-body: 'BricolageRegular', Verdana, Geneva, sans-serif;
-    --font-caption: 'BricolageRegular', Verdana, Geneva, sans-serif;
-    --font-captionbold: 'BricolageSemiBold', Verdana, Geneva, sans-serif;
-    --font-button: 'BricolageBold', Verdana, Geneva, sans-serif;
-}
-
-
+/* ====== MODAL DE CARRINHO ====== */
 .cart-modal {
     display: none;
     position: fixed;
@@ -87,7 +146,9 @@ html,
 
 .modal-content {
     position: relative;
-    width: 90%;
+    display: flex;
+    flex-direction: column;
+    height: 90svh; /* Altura fixa em vez de min-height */
     max-width: 70svw;
     margin: 5vh auto;
     background-color: var(--color-background);
@@ -96,8 +157,10 @@ html,
     z-index: 1001;
 }
 
+
 .modal-header {
-    padding: 20px;
+    padding: 16px;
+    border-radius: 15px;
     background-color: var(--color-primary-03);
     position: relative;
 }
@@ -120,8 +183,7 @@ html,
 }
 
 .close-modal-cart:hover {
-    background: var(--cor-sombra);
-
+    background: var(--color-sombra);
 }
 
 .x-modal {
@@ -134,7 +196,7 @@ html,
     display: flex;
     justify-content: start;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 .step {
@@ -146,14 +208,15 @@ html,
     align-items: center;
     justify-content: center;
     color: var(--color-primary-01);
-    font-family: var(--font-button);
-    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-lg);
 }
 
 .step::before {
     content: '';
     width: 15px;
-    background-color: var(--cor-sombra);
+    background-color: var(--color-sombra);
     position: absolute;
     height: 2px;
     margin-left: 45px;
@@ -168,21 +231,36 @@ html,
     background-color: var(--color-secondary-03);
 }
 
-
 .modal-title {
     text-align: center;
-    font-family: var(--font-tittle);
+    font-family: var(--font-title);
     color: var(--color-primary-01);
     margin: 0;
-    font-size: 2rem;
+    font-size: var(--text-2xl);
 }
 
-.modal-bodycart {
-    padding: 20px;
-    max-height: calc(90vh - 180px);
+.modal-bodycart {    
+    overflow-y: auto; /* Garante que apenas esta parte tenha rolagem */
     flex: 1;
     overflow: auto;
     overflow-x: hidden;
+}
+
+.modal-header, .modal-footer {
+    flex-shrink: 0;
+}
+
+.modal-bodycart::-webkit-scrollbar  {
+    width: 6px;
+    background-color: transparent;
+}
+
+.modal-bodycart::-webkit-scrollbar-thumb  {
+    background-color: var(--color-background);
+}
+
+.modal-bodycart::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .step-content {
@@ -201,12 +279,11 @@ html,
     gap: 20px;
     align-items: center;
     padding: 15px;
-    border-bottom: 1px solid var(--cor-sombra);
-    
+    border-bottom: 1px solid var(--color-sombra);
 }
 
 .cart-item:last-child {
-    border-bottom: 2px solid var(--color-primary-01);
+    border-bottom: 0px solid var(--color-primary-01);
 }
 
 .item-image img {
@@ -218,16 +295,19 @@ html,
 
 .item-details h3 {
     margin: 0;
-    font-family: var(--font-tittle);
+    font-family: var(--font-title);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     color: var(--color-primary-01);
-    font-size: 1.2rem;
+    font-size: var(--text-lg);
 }
 
-.items-details, .items-quantity {
+.items-details,
+.items-quantity {
     display: flex;
     align-items: center;
     gap: 24px;
-
 }
 
 .item-quantity {
@@ -252,7 +332,7 @@ html,
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-lg);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -263,9 +343,8 @@ html,
     width: 15px;
     height: 15px;
     fill: var(--color-primary-03);
-    background-color: none;
+    background-color: transparent;
     font-size: 20px;
-   
 }
 
 /* Estilos para o formulário de endereço */
@@ -310,11 +389,44 @@ html,
 }
 
 .modal-footer {
-    padding: 20px;
+    padding: 8px 16px;
+    border-radius: 15px;
     background-color: var(--color-primary-03);
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.cart-summary {
+    font-size: var(--text-base);
+    text-align: right;
+}
+
+.cart-summary .center-txt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.center-txt,p .entrega  {
+    color: var(--color-marrom-claro);
+}
+
+.center-txt svg {
+    fill: var(--color-marrom-claro);
+}
+
+.valortotal {
+    font-size: var(--text-xl);
+}
+
+
+
+.nav-modal {
+    display: flex;
+    gap: 16px;
 }
 
 .btn-back,
@@ -323,7 +435,8 @@ html,
     border-radius: 30px;
     border: none;
     cursor: pointer;
-    font-family: var(--font-button);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-bold);
 }
 
 .btn-next {
@@ -334,6 +447,15 @@ html,
 .btn-back {
     background-color: var(--color-sombrabotao);
     color: var(--color-primary-01);
+}
+
+.faixa-decorativa {
+    max-width: 100%;
+    height: 8svh;
+    margin-bottom: 0;
+    background-color: var(--color-primary-03);
+    background-image: url('../img/PATTERNS/pattern_amarelo.avif');
+    background-size: 15%;
 }
 
 @media (max-width: 768px) {

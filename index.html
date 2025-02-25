@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 
-    <link rel="stylesheet" href="./css/main3.css" media="screen">
+    <link rel="stylesheet" href="./css/main.css" media="screen">
     <link rel="stylesheet" href="./css/styleportrait copy.css" media="screen and (orientation: portrait)">
     <link rel="stylesheet" href="./css/card-product.css" media="screen">
     <link rel="stylesheet" href="./css/product-modal.css">
@@ -803,10 +803,128 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="cart-item">
+                            <div class="items-details">
+                                <div class="item-image">
+                                    <img src="./img/PRODUTOS/04-churros/20230624_161430.jpg" alt="Produto">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Nome do Produto</h3>
+                                    <p class="price">R$ 79,90</p>
+                                </div>
+                            </div>
+                            <div class="items-quantity">
+                                <div class="item-quantity">
+                                    <button class="qty-btn minus">-</button>
+                                    <span class="qty-display">1</span>
+                                    <button class="qty-btn plus">+</button>
+                                </div>
+                                <button class="btn-retirar">
+                                    <svg class="remove-item">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cart-item">
+                            <div class="items-details">
+                                <div class="item-image">
+                                    <img src="./img/PRODUTOS/04-churros/20230624_161430.jpg" alt="Produto">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Nome do Produto</h3>
+                                    <p class="price">R$ 79,90</p>
+                                </div>
+                            </div>
+                            <div class="items-quantity">
+                                <div class="item-quantity">
+                                    <button class="qty-btn minus">-</button>
+                                    <span class="qty-display">1</span>
+                                    <button class="qty-btn plus">+</button>
+                                </div>
+                                <button class="btn-retirar">
+                                    <svg class="remove-item">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cart-item">
+                            <div class="items-details">
+                                <div class="item-image">
+                                    <img src="./img/PRODUTOS/04-churros/20230624_161430.jpg" alt="Produto">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Nome do Produto</h3>
+                                    <p class="price">R$ 79,90</p>
+                                </div>
+                            </div>
+                            <div class="items-quantity">
+                                <div class="item-quantity">
+                                    <button class="qty-btn minus">-</button>
+                                    <span class="qty-display">1</span>
+                                    <button class="qty-btn plus">+</button>
+                                </div>
+                                <button class="btn-retirar">
+                                    <svg class="remove-item">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cart-item">
+                            <div class="items-details">
+                                <div class="item-image">
+                                    <img src="./img/PRODUTOS/04-churros/20230624_161430.jpg" alt="Produto">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Nome do Produto</h3>
+                                    <p class="price">R$ 79,90</p>
+                                </div>
+                            </div>
+                            <div class="items-quantity">
+                                <div class="item-quantity">
+                                    <button class="qty-btn minus">-</button>
+                                    <span class="qty-display">1</span>
+                                    <button class="qty-btn plus">+</button>
+                                </div>
+                                <button class="btn-retirar">
+                                    <svg class="remove-item">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cart-item">
+                            <div class="items-details">
+                                <div class="item-image">
+                                    <img src="./img/PRODUTOS/04-churros/20230624_161430.jpg" alt="Produto">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Nome do Produto</h3>
+                                    <p class="price">R$ 79,90</p>
+                                </div>
+                            </div>
+                            <div class="items-quantity">
+                                <div class="item-quantity">
+                                    <button class="qty-btn minus">-</button>
+                                    <span class="qty-display">1</span>
+                                    <button class="qty-btn plus">+</button>
+                                </div>
+                                <button class="btn-retirar">
+                                    <svg class="remove-item">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cart-summary">
-                        <p>Subtotal: <span class="subtotal">R$ 0,00</span></p>
-                    </div>
+                    
                 </div>
 
                 <!-- Passo 2: Endereço de Entrega -->
@@ -880,9 +998,20 @@
 
             <!-- Rodapé do Modal -->
             <div class="modal-footer">
-                <button class="btn-back" hidden>Voltar</button>
-                <button class="btn-next">Continuar</button>
+                <div class="cart-summary">
+                    <p class="txt-small-modal">Subtotal:&nbsp;<span class="subtotal txt-small-modal" id="lblSubTotal">R$ 79,00</span></p>
+                    <p class="txt-small-modal center-txt"><svg class="icon-25">
+                        <use href="#icon-delivery-modal"/>
+                    </svg>
+                        Entrega:&nbsp;<span class="entrega txt-small-modal" id="lblValorEntrega"  >+&nbsp;R$ 12,00</span></p>
+                    <p>Total:&nbsp;<span class="valortotal"  id="lblValorTotal" style="">R$ 91,00</span></p>
+                </div>
+                <div class="nav-modal">
+                    <button class="btn-back" hidden>Voltar</button>
+                    <button class="btn-next">Continuar</button>
+                </div>
             </div>
+            <div class="faixa-decorativa"></div>
         </div>
     </div>
 

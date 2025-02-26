@@ -148,7 +148,8 @@ html,
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 90svh; /* Altura fixa em vez de min-height */
+    height: 90svh;
+    /* Altura fixa em vez de min-height */
     max-width: 70svw;
     margin: 5vh auto;
     background-color: var(--color-background);
@@ -167,7 +168,7 @@ html,
     background-color: var(--color-primary-03);
 }
 
-.close-modal-cart {    
+.close-modal-cart {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -240,23 +241,25 @@ html,
     font-size: var(--text-xl);
 }
 
-.modal-bodycart {    
-    overflow-y: auto; /* Garante que apenas esta parte tenha rolagem */
+.modal-bodycart {
+    overflow-y: auto;
+    /* Garante que apenas esta parte tenha rolagem */
     flex: 1;
     overflow: auto;
     overflow-x: hidden;
 }
 
-.modal-header, .modal-footer {
+.modal-header,
+.modal-footer {
     flex-shrink: 0;
 }
 
-.modal-bodycart::-webkit-scrollbar  {
+.modal-bodycart::-webkit-scrollbar {
     width: 6px;
     background-color: transparent;
 }
 
-.modal-bodycart::-webkit-scrollbar-thumb  {
+.modal-bodycart::-webkit-scrollbar-thumb {
     background-color: var(--color-background);
 }
 
@@ -349,27 +352,167 @@ html,
 }
 
 /* Estilos para o formulário de endereço */
-.delivery-form {
-    display: grid;
-    gap: 15px;
+/* Estilos gerais de formulário */
+fieldset {
+    border: none;
+    margin-top: var(--spacing-5);
 }
 
-.form-group {
+.placeholder-modal label {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+    display: block;
+    color: var(--all-text-color);
+    font-size: var(--text-base);
+}
+
+.placeholder-modal input {
+    font-family: var(--font-body);
+    background-color: var(--color-primary-03);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-marrom-claro);
+    padding: var(--spacing-1);
+    width: 100%;
+    height: var(--spacing-6);
+    color: var(--all-text-color);
+    transition: border-color var(--transition-fast);
+}
+
+.placeholder-modal input:focus {
+    outline: none;
+    border-color: var(--color-primary-02);
+    box-shadow: 0 0 0 2px var(--color-sombra);
+}
+
+
+
+/* Seção de contato do cliente - nome e telefone */
+.contato-cliente {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-6);
+}
+
+.label-nome {
+    grid-column: span 6;
+    /* Nome ocupa 6 colunas (col-6) */
     display: flex;
     flex-direction: column;
-    gap: 5px;
+
 }
 
-.form-row {
+.label-telefone {
+    grid-column: span 4;
+    /* Telefone ocupa 4 colunas (col-4) */
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Linha divisória */
+.divider {
+    height: 1px;
+    background-color: var(--color-sombrabotao);
+    margin: var(--spacing-5) 0;
+    grid-column: span 12;
+}
+
+/* Seção de endereço */
+.endereco-cliente {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: var(--spacing-4);
+}
+
+/* Primeira linha - CEP */
+.cep-container {
+    grid-column: span 4;
+    grid-row: 1;
+    /* CEP ocupa 6 colunas (col-6) */
+    display: flex;
+    flex-direction: column;
+
 }
 
 .cep-input {
     display: flex;
-    gap: 10px;
+    gap: var(--spacing-2);
 }
+
+.cep-input button {
+    padding: 0 var(--spacing-3);
+    background-color: var(--color-primary-01);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+    transition: background-color var(--transition-fast);
+}
+
+.cep-input button:hover {
+    background-color: var(--color-primary-02);
+    box-shadow: var(--shadow-md);
+}
+
+/* Segunda linha - Endereço, Número e Complemento */
+.endereco-container {
+    grid-column: span 6;
+    grid-row: 2;
+    /* Endereço ocupa 6 colunas (col-6) */
+    display: flex;
+    flex-direction: column;
+}
+
+.complemento-container {
+    grid-column: span 4;
+    grid-row: 2;
+    /* Complemento ocupa 4 colunas (col-4) */
+    display: flex;
+    flex-direction: column;
+}
+
+.numero-container {
+    grid-column: span 2;
+    grid-row: 2;
+    /* Número ocupa 2 colunas (col-2) */
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Terceira linha - Bairro, Cidade e UF */
+.bairro-container {
+    grid-column: span 6;
+    grid-row: 3;
+    /* Bairro ocupa 6 colunas (col-6) */
+    display: flex;
+    flex-direction: column;
+}
+
+.cidade-container {
+    grid-column: span 4;
+    grid-row: 3;
+    /* Cidade ocupa 4 colunas (col-4) */
+    display: flex;
+    flex-direction: column;
+}
+
+.uf-container {
+    grid-column: span 2;
+    grid-row: 3;
+    /* UF ocupa 2 colunas (col-2) */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsividade */
+
+
+
 
 /* Estilos para o resumo do pedido */
 .order-summary {
@@ -397,7 +540,7 @@ html,
     flex-direction: column;
     align-items: flex-end;
     gap: 8px;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-3);
 }
 
 .cart-summary {
@@ -411,7 +554,8 @@ html,
     gap: 8px;
 }
 
-.center-txt,p .entrega  {
+.center-txt,
+p .entrega {
     color: var(--color-marrom-claro);
 }
 
@@ -427,7 +571,10 @@ html,
 
 .nav-modal {
     display: flex;
+    justify-content: end;
+    align-items: center;
     gap: 16px;
+    margin-bottom: var(--spacing-3);
 }
 
 .btn-back,
@@ -473,5 +620,25 @@ html,
         position: absolute;
         right: 10px;
         top: 10px;
+    }
+
+    .contato-cliente,
+    .endereco-cliente {
+        grid-template-columns: 1fr;
+        /* Uma coluna em telas menores */
+        gap: var(--spacing-4);
+    }
+
+    .label-nome,
+    .label-telefone,
+    .cep-container,
+    .endereco-container,
+    .numero-container,
+    .complemento-container,
+    .bairro-container,
+    .cidade-container,
+    .uf-container {
+        grid-column: 1;
+        /* Todos os elementos ocupam a coluna inteira */
     }
 }

@@ -364,9 +364,11 @@ fieldset {
     display: block;
     color: var(--all-text-color);
     font-size: var(--text-base);
+    margin-left: var(--spacing-2);
 }
 
-.placeholder-modal input {
+.placeholder-modal input,
+.placeholder-modal select {
     font-family: var(--font-body);
     background-color: var(--color-primary-03);
     border-radius: var(--radius-md);
@@ -509,27 +511,144 @@ fieldset {
     flex-direction: column;
 }
 
-/* Responsividade */
-
-
-
-
 /* Estilos para o resumo do pedido */
 .order-summary {
     display: grid;
-    gap: 20px;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-5);
+    padding: var(--spacing-3) 0;
+
 }
 
-.delivery-modal {
-    fill: rgba(177, 137, 131, 1);
-    width: 30px;
-    height: 30px;
+.itens-escolhidos {
+    border-right: 1px solid var(--color-sombrabotao);
 }
 
-.final-summary {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--color-sombrabotao);
+.resumo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    gap: var(--spacing-3);
+}
+
+.resumo p {
+    padding: 0;
+    align-self: center;
+    justify-self: flex-start;
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-marrom-claro);
+}
+
+.item-image-resumo img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.title-carrinho {
+    font-size: var(--text-xl);
+    margin-bottom: var(--spacing-6);
+}
+
+.summary-items {
+    padding-right: var(--spacing-6);
+    padding-left: var(--spacing-6);
+}
+
+.item-carrinho-content {
+    display: flex;
+    align-items: center;
+    border-bottom: 0px solid var(--color-primary-02);
+    padding: var(--spacing-3) 0;
+    width: 100%;
+    position: relative; /* Para posicionamento do pseudo-elemento */
+}
+
+.item-details-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    flex: 1; /* Ocupa o espaço disponível */
+}
+
+.item-details .price {
+    position: relative;
+    display: inline-block;
+    padding-right: 8px; /* Espaço para a linha pontilhada não sobrepor o texto */
+    background-color: var(--color-background); /* Mesmo que o fundo para "quebrar" a linha */
+    z-index: 2; /* Acima da linha pontilhada */
+}
+
+.item-carrinho-content, .item-details {
+    flex-grow: 1; /* Permite que essa div ocupe o espaço disponível */
+    margin-right: auto; /* Empurra outros elementos para a direita */
+}
+
+.qtd-produto-resumo {
+    white-space: nowrap;
+    font-weight: var(--font-weight-semibold);    
+    color: var(--color-marrom-claro);
+    position: relative;
+    background-color: var(--color-background); /* Mesmo que o fundo para "quebrar" a linha */
+    padding-left: 8px; /* Espaço para a linha pontilhada não sobrepor o texto */
+    z-index: 2; /* Acima da linha pontilhada */
+    align-self: flex-end;
+}
+
+.item-carrinho-content::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 3%;
+    bottom: 30%;
+    border-bottom: 1px dotted var(--color-marrom-claro);
+    z-index: 1; /* Abaixo do texto */
+}
+
+.item-carrinho-content:last-child {
+    border-bottom: 0px solid var(--color-primary-01);
+
+}
+
+
+.title-produto-resumo {
+    font-family: var(--font-body) !important;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--text-base) !important;
+    color: var(--color-primary-01) !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.icon-pin {
+    background-color: var(--color-sombrabotao);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-3);
+    fill: var(--color-primary-01);
+    width: 50px;
+    height: 50px;
+}
+
+.resumo-entrega {
+    display: flex;
+    flex-direction: column;
+}
+
+.resumo-entrega p {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-regular);
+    text-align: left;
+    align-self: flex-start;
+}
+
+.delivery-info {
+    margin-bottom: 20px;
+    padding-top: 0px;
+
 }
 
 .modal-footer {
@@ -640,5 +759,16 @@ p .entrega {
     .uf-container {
         grid-column: 1;
         /* Todos os elementos ocupam a coluna inteira */
+    }
+
+    .item-carrinho-content {
+        padding-right: 50px; /* Espaço para a quantidade */
+    }
+    
+    .qtd-produto-resumo {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }

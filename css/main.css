@@ -822,7 +822,9 @@ strong {
 .placeholder-txt>input {
     border: 1px solid var(--color-secondary-03);
     background-color: var(--color-primary-03);
-    width: 300px;
+    flex-basis: 400px;
+    flex-grow: 1;
+    flex-shrink: 1;
     padding: 8px;
     border-radius: 25px;
     font-family: var(--font-body);

@@ -1,5 +1,5 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
+    slidesPerView: 1.2,
     spaceBetween: 10,
 
     // Configuração dos botões de navegação

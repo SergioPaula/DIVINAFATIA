@@ -353,7 +353,7 @@ html,
 
 /* Estilos para o formulário de endereço */
 /* Estilos gerais de formulário */
-fieldset {
+.step-2 form fieldset, .placeholder-modal{
     border: none;
     margin-top: var(--spacing-5);
 }
@@ -375,7 +375,7 @@ fieldset {
     border: 1px solid var(--color-marrom-claro);
     padding: var(--spacing-1);
     width: 100%;
-    height: var(--spacing-6);
+    height: 45px;
     color: var(--all-text-color);
     transition: border-color var(--transition-fast);
 }
@@ -512,10 +512,15 @@ fieldset {
 }
 
 /* Estilos para o resumo do pedido */
+.step-3 {
+    height: 100%;
+}
+
 .order-summary {
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: var(--spacing-5);
+    height:100%;
     padding: var(--spacing-3) 0;
 
 }

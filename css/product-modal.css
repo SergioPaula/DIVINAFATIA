@@ -37,7 +37,7 @@
     height: 32px;
     border-radius: 50%;
     border: none;
-    background-color: #f0f0f0;
+    background-color: var(--color-sombra);
     cursor: pointer;
 }
 

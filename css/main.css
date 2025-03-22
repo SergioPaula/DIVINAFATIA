@@ -32,6 +32,11 @@ html,
     --color-terciary-06: #DA4E53;
     /* Rosa escuro */
 
+    --color-addcart-01: #62A77C;
+    /* Verde Escuro */
+    --color-addcart-02: #257A49;
+    /* Verde Claro */
+
     --all-text-color: #5f352f;
     /* Cor padrão de texto */
     --button-text-color: #F3E9E7;
@@ -243,6 +248,8 @@ button {
     height: 24px;
 }
 
+
+
 .container {
     max-width: 1440px;
     margin-left: auto;
@@ -322,19 +329,29 @@ nav a {
 .nav-icon {
     background-color: var(--color-sombrabotao);
     border-radius: 30px;
-    padding: 12px 12px;
+    padding: 8px 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.nav-icon:hover,
-.nav-car:hover {
+.nav-icon:hover {
     background-color: var(--color-terciary-03);
+
+}
+.nav-car:hover {
+    background-color: var(--color-secondary-03);
+    color: var(--button-text-color);    
 }
 
+.nav-car:hover .cart-nav {
+    fill: var(--button-text-color);
+}
+
+
+
 .nav-car {
-    background-color: var(--color-sombrabotao);
+    background-color: var(--color-terciary-03);
     border-radius: 30px;
     display: flex;
     padding: 8px 16px;
@@ -344,6 +361,13 @@ nav a {
     font-size: var(--text-base);
     font-weight: var(--font-weight-bold);
     gap: 16px;
+}
+
+.phone-nav {
+    margin-left: var(--spacing-3);
+    margin-right: var(--spacing-3);
+    font-family: var(--font-title);    
+    font-size: var(--text-md);
 }
 
 .text-head {

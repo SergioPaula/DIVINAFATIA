@@ -1,110 +1,5 @@
 @charset "UTF-8";
 
-
-:root {
-    /* Cores */
-    --color-background: #fffdf7;
-    --color-primary-01: #5F352F;
-    /* Marrom principal */
-    --color-primary-02: #3E2724;
-    /* Marrom escuro */
-    --color-primary-03: #F3E9E7;
-    /* Marrom claro */
-    --color-sombrabotao: #E7D8D5;
-
-    --color-secondary-02: #FFEB99;
-    /* Amarelo */
-    --color-secondary-03: #FF6D74;
-    /* Rosa */
-
-    --color-terciary-03: #FFB2B8;
-    /* Rosa claro */
-    --color-terciary-06: #DA4E53;
-    /* Rosa escuro */
-
-    --all-text-color: #5f352f;
-    /* Cor padrão de texto */
-    --button-text-color: #F3E9E7;
-    /* Cor de texto nos botões */
-
-    --color-sombra: rgba(95, 53, 47, 0.2);
-    --color-marrom-claro: #B18983;
-
-    /* Fontes */
-    --font-title: "Calistoga", serif;
-    --font-body: "Bricolage Grotesque", sans-serif;
-
-    /* Pesos de fonte */
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --font-weight-extrabold: 800;
-
-    /* Tamanhos de texto */
-    --text-xs: 0.75rem;
-    /* 12px */
-    --text-sm: 0.875rem;
-    /* 14px */
-    --text-base: 1rem;
-    /* 16px */
-    --text-md: 1.125rem;
-    /* 18px */
-    --text-lg: 1.25rem;
-    /* 20px */
-    --text-xl: 1.5rem;
-    /* 24px */
-    --text-2xl: 1.8rem;
-    /* 28.8px */
-    --text-3xl: 2.25rem;
-    /* 36px */
-    --text-4xl: 3rem;
-    /* 48px */
-    --text-5xl: 4rem;
-    /* 64px */
-
-    /* Line heights */
-    --leading-none: 1;
-    --leading-tight: 1.25;
-    --leading-normal: 1.5;
-    --leading-relaxed: 1.625;
-    --leading-loose: 2;
-
-    /* Border radius */
-    --radius-sm: 8px;
-    --radius-md: 15px;
-    --radius-lg: 30px;
-    --radius-xl: 50px;
-    --radius-pill: 9999px;
-
-    /* Espaçamento */
-    --spacing-1: 0.25rem;
-    /* 4px */
-    --spacing-2: 0.5rem;
-    /* 8px */
-    --spacing-3: 0.75rem;
-    /* 12px */
-    --spacing-4: 1rem;
-    /* 16px */
-    --spacing-5: 1.5rem;
-    /* 24px */
-    --spacing-6: 2rem;
-    /* 32px */
-    --spacing-8: 3rem;
-    /* 48px */
-
-    /* Sombras */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 5px 8px 0 rgba(0, 0, 0, 0.3);
-
-    /* Transições */
-    --transition-fast: 0.2s ease;
-    --transition-normal: 0.3s ease;
-}
-
-
 /* Reset básico - apenas se este arquivo for usado independentemente */
 html,
 * {
@@ -142,6 +37,7 @@ html,
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    z-indez: 50;
 }
 
 .modal-content {

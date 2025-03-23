@@ -1,36 +1,5 @@
 console.log('Modal script loaded');
 
-// Estrutura expandida dos produtos já definida em products-config.js
-
-// Função para criar o modal
-function createProductModal() {
-    console.log('Creating modal');
-    const modal = document.createElement('div');
-    modal.className = 'product-modal';
-    modal.innerHTML = `
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-body">
-                <div class="modal-image-gallery">
-                    <img src="" alt="" class="main-image">
-                </div>
-                <div class="modal-info">
-                    <div class="modal-header">
-                        <h2 class="product-name"></h2>
-                    </div>
-                    <div class="product-description"></div>
-                    <div class="product-price">
-                        <span class="current-price"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
-    return modal;
-}
-
 // Função para mostrar o modal com os dados do produto
 function showProductModal(productId) {
     console.log('Showing modal for product:', productId);
@@ -44,32 +13,90 @@ function showProductModal(productId) {
         return;
     }
 
-    const modal = createProductModal();
-    document.body.appendChild(modal);
+    // Selecionar o modal existente no HTML
+    const modal = document.querySelector('.modal-overlay');
     
-    // Preencher dados básicos primeiro
-    modal.querySelector('.product-name').textContent = product.name;
-    modal.querySelector('.main-image').src = product.images[0];
-    modal.querySelector('.main-image').alt = product.name;
-    modal.querySelector('.product-description').textContent = product.description;
-    modal.querySelector('.current-price').textContent = window.formatPrice(product.price);
-    
-    // Adicionar evento de fechar
-    modal.querySelector('.modal-close').addEventListener('click', () => {
-        console.log('Closing modal');
-        modal.remove();
-    });
-    
-    modal.querySelector('.modal-overlay').addEventListener('click', () => {
-        console.log('Closing modal from overlay');
-        modal.remove();
-    });
+    // Preencher dados do produto no modal
+    if (modal) {
+        // Preencher os dados do produto no modal
+        modal.querySelector('.main-image').src = product.images[0];
+        modal.querySelector('.main-image').alt = product.name;
+        modal.querySelector('.product-name').textContent = product.name;
+        
+        // Preencher a descrição do produto
+        const metaDescription = modal.querySelector('.metaproduct-description');
+        if (metaDescription) {
+            metaDescription.textContent = product.detailedDescription || product.description;
+        }
+        
+        // Preencher preços
+        const currentPrice = modal.querySelector('.current-price');
+        const oldPrice = modal.querySelector('.old-price');
+        
+        if (currentPrice) {
+            currentPrice.textContent = window.formatPrice(product.price);
+        }
+        
+        if (oldPrice && product.oldPrice) {
+            oldPrice.textContent = window.formatPrice(product.oldPrice);
+            oldPrice.style.display = 'inline-block';
+        } else if (oldPrice) {
+            oldPrice.style.display = 'none';
+        }
+        
+        // Avaliações
+        const rating = modal.querySelector('.rating');
+        if (rating && product.rating) {
+            // Aqui você pode implementar o preenchimento das estrelas de avaliação
+            const avaliacoes = rating.querySelector('.avaliacoes');
+            if (avaliacoes) {
+                avaliacoes.textContent = `${product.reviewCount || 0} Avaliações`;
+            }
+        }
+        
+        // Configurar o botão "Adicionar à Sacola"
+        const addToCartButton = modal.querySelector('.add-to-cart');
+        if (addToCartButton) {
+            addToCartButton.setAttribute('data-product', productId);
+        }
+        
+        // Configurar controles de quantidade
+        const quantityContainer = modal.querySelector('.quantity');
+        if (quantityContainer) {
+            window.setupQuantityControls(quantityContainer);
+        }
+        
+        // Mostrar o modal
+        modal.showModal();
+        
+        // Adicionar eventos de fechar
+        const closeButton = modal.querySelector('.modal-close');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                modal.close();
+            });
+        }
+    } else {
+        console.error('Modal element not found in the HTML');
+    }
 }
 
 // Adicionar eventos de clique nas imagens dos produtos
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Setting up click events');
     
+    // Selecionar o modal
+    const modal = document.querySelector('.modal-overlay');
+    
+    // Adicionar evento de fechar ao botão de fechar
+    const closeButton = modal.querySelector('.modal-close');
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            modal.close();
+        });
+    }
+    
+    // Adicionar eventos de clique nas imagens dos produtos
     const productImages = document.querySelectorAll('.card-image');
     productImages.forEach(imageContainer => {
         const productCard = imageContainer.closest('.product-card');

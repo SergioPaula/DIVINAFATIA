@@ -14,6 +14,7 @@ html,
 :root {
     /* Cores */
     --color-background: #fffdf7;
+    --color-background-modal: #F3E9E7;
     --color-primary-01: #5F352F;
     /* Marrom principal */
     --color-primary-02: #3E2724;
@@ -42,7 +43,7 @@ html,
     --button-text-color: #F3E9E7;
     /* Cor de texto nos botões */
 
-    --color-sombra: rgba(95, 53, 47, 0.2);
+    --color-sombra: rgba(95, 53, 47, 0.15);
 
     /* Fontes */
     --font-title: "Calistoga", serif;
@@ -223,13 +224,22 @@ button {
 .icon-30 {
     width: 30px;
     height: 30px;
-    fill: currentColor;
+    fill: var(--color-primary-01)!important;
 }
 
 .icon-25 {
     width: 25px;
     height: 25px;
-    fill: currentColor;
+    fill: var(--color-primary-01)!important;
+    border: none;
+}
+
+
+
+.icon-18 {
+    width: 18px;
+    height: 18px;
+    fill: var(--color-primary-01)!important;
 }
 
 
@@ -246,6 +256,10 @@ button {
     width: 24px;
     /* ou o tamanho que quiser */
     height: 24px;
+}
+
+.medida-unidade {
+    font-size: var(--text-xs);
 }
 
 
@@ -562,8 +576,7 @@ nav a {
 
 
 
-.icon-txt>p,
-strong {
+.icon-txt>p {
     font-family: var(--font-body);
     font-size: var(--text-base);
     color: var(--button-text-color);

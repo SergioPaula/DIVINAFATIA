@@ -822,39 +822,39 @@
         </section>
     </footer>
 
-    <!-- MODAL PRODUTOS -->
-    <dialog class="modal-overlay">
-        </div>
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
+    <!-- MODAL PRODUTOS-->
+    <dialog class="modalproduct-overlay">
+        <div class="product-modal">
+            <div class="modal-productheader"><button class="modal-close">&times;</button></div>
             <div class="modal-body">
                 <section class="modal-bodytop">
                     <div class="modal-image-gallery">
-                        <img src="../DIVINAFATIA/img/PRODUTOS/04-churros/20230624_161430.jpg" alt="" class="main-image">
+                        <img src="./img/PRODUTOS/04-churros/20230624_161430.jpg" alt="" class="main-image">
                     </div>
-                    <div class="modal-info">
-                        <div class="modal-header">
+                    <div class="modalproduct-info">
+                        <div class="modalproduct-title">
                             <h1 class="product-name">Bolo de Churros com Doce de Leite Caseiro</h1>
-                        </div>
-                        <div class="rating">
-                            <svg>
-                                <use href="#star-full"></use>
-                            </svg>
-                            <svg>
-                                <use href="#star-full"></use>
-                            </svg>
-                            <svg>
-                                <use href="#star-full"></use>
-                            </svg>
-                            <svg>
-                                <use href="#star-full"></use>
-                            </svg>
-                            <svg class="star-line">
-                                <use href="#star-line"></use>
-                            </svg>
+                            <div class="rating">
+                                <svg>
+                                    <use href="#star-full"></use>
+                                </svg>
+                                <svg>
+                                    <use href="#star-full"></use>
+                                </svg>
+                                <svg>
+                                    <use href="#star-full"></use>
+                                </svg>
+                                <svg>
+                                    <use href="#star-full"></use>
+                                </svg>
+                                <svg class="star-line">
+                                    <use href="#star-line"></use>
+                                </svg>
 
-                            <p class="avaliacoes">236 Avaliações</p>
+                                <p class="avaliacoes">236 Avaliações</p>
+                            </div>
                         </div>
+
                         <p class="metaproduct-description">Desfrute do verdadeiro sabor dos churros tradicionais em
                             formato de bolo. Massa amanteigada com canela, cobertura de doce de leite caseiro cremoso. A
                             combinação perfeita para um café da tarde inesquecível</p>
@@ -862,9 +862,10 @@
                             <div class="price-container">
                                 <span class="old-price">R$ 89,90</span>
                                 <span class="current-price">R$ 79,90</span>
+                                <p class="medida-unidade">/un</p>
                             </div>
 
-                            <div class="purchase-controls">
+                            <div class="purchase-controls-modal">
                                 <div class="quantity">
                                     <button class="qty-btn minus" data-product="1">-</button>
                                     <span class="qty-display">1</span>
@@ -878,7 +879,24 @@
                                 </button>
                             </div>
 
+
                         </div>
+                        <div class="modalproduct-sku">
+                            <p><strong>SKU:</strong>&nbsp;&nbsp;BOCBT0256</p>
+                            <p><strong>CATEGORIA:</strong>&nbsp;&nbsp;BOLOS CASEIROS</p>
+                            <p><strong>TAG:</strong>&nbsp;&nbsp;BOLO COBERTURA</p>
+                            <p><strong>SHARE:</strong>&nbsp;&nbsp;<svg class="icon-18">
+                                    <use href="#icon-whatsapp"></use>
+                                </svg>
+                                <svg class="icon-18">
+                                    <use href="#icon-insta"></use>
+                                </svg>
+                                <svg class="icon-18">
+                                    <use href="#icon-face"></use>
+                                </svg>
+                            </p>
+                        </div>
+                    </div>
                 </section>
                 <section class="modal-bodybottom">
                     <div class="txt-1">
@@ -905,7 +923,10 @@
                     </div>
                     <div class="txt-1">
                         <h3>Por que escolher o Bolo de Churros da Divina Fatia?</h3>
-                        <p> Escolher nosso Bolo de Churros é optar por um momento especial compartilhado com quem você ama. Não é apenas um bolo, é um convite para pausar, apreciar e celebrar os pequenos momentos. Feito com ingredientes criteriosamente selecionados e preparado com o carinho que só a produção artesanal proporciona.</p>                        
+                        <p> Escolher nosso Bolo de Churros é optar por um momento especial compartilhado com quem você
+                            ama. Não é apenas um bolo, é um convite para pausar, apreciar e celebrar os pequenos
+                            momentos. Feito com ingredientes criteriosamente selecionados e preparado com o carinho que
+                            só a produção artesanal proporciona.</p>
                     </div>
                     <div>
                         linha
@@ -919,8 +940,10 @@
                             </div>
                             <div class="txt-2">
                                 <h3>Ingredientes:</h3>
-                                <p> Farinha de trigo enriquecida com ferro e ácido fólico, açúcar refinado, óleo vegetal, ovos caipiras, canela em pó, fermento químico. Cobertura: leite condensado de alta qualidade (leite integral e açúcar), margarina sem sal.</p>
-                            </div>                       
+                                <p> Farinha de trigo enriquecida com ferro e ácido fólico, açúcar refinado, óleo
+                                    vegetal, ovos caipiras, canela em pó, fermento químico. Cobertura: leite condensado
+                                    de alta qualidade (leite integral e açúcar), margarina sem sal.</p>
+                            </div>
                         </div>
                         <div>
                             <div>
@@ -930,8 +953,9 @@
                             </div>
                             <div class="txt-2">
                                 <h3>Alérgicos:</h3>
-                                <p> Contém glúten. Contém lactose. Contém ovos. Pode conter traços de oleaginosas (nozes, castanhas, amêndoas).</p>
-                            </div>                       
+                                <p> Contém glúten. Contém lactose. Contém ovos. Pode conter traços de oleaginosas
+                                    (nozes, castanhas, amêndoas).</p>
+                            </div>
                         </div>
                         <div>
                             <svg class="img-modal">
@@ -940,13 +964,16 @@
                         </div>
                         <div class="txt-2">
                             <h3>Validade:</h3>
-                            <p> <strong>5 dias em refrigeração.</strong> Para melhor experiência, consumir em temperatura ambiente. Para preservar todo o sabor e maciez, mantenha o bolo em recipiente fechado na geladeira e retire 30 minutos antes de servir. O bolo de churros é perfeito para acompanhar um café coado na hora ou um cappuccino cremoso.</p>
-                        </div>                       
-                    </div>
-
+                            <p> <strong>5 dias em refrigeração.</strong> Para melhor experiência, consumir em
+                                temperatura ambiente. Para preservar todo o sabor e maciez, mantenha o bolo em
+                                recipiente fechado na geladeira e retire 30 minutos antes de servir. O bolo de churros é
+                                perfeito para acompanhar um café coado na hora ou um cappuccino cremoso.</p>
+                        </div>
                     </div>
                 </section>
             </div>
+
+        </div>
         </div>
     </dialog>
 
@@ -1237,7 +1264,7 @@
                 <div class="cart-summary">
                     <p class="txt-small-modal">Subtotal:&nbsp;<span class="subtotal txt-small-modal" id="lblSubTotal">R$
                             79,00</span></p>
-                    <p class="txt-small-modal center-txt"><svg class="social-top">
+                    <p class="txt-small-modal center-txt"><svg class="icon-25">
                             <use href="#icon-delivery-modal" />
                         </svg>
                         Entrega:&nbsp;<span class="entrega txt-small-modal" id="lblValorEntrega">+&nbsp;R$ 12,00</span>

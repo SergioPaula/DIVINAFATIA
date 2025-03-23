@@ -36,6 +36,8 @@ dialog p {
     background-color: var(--color-background-modal);
     z-index: 9999;
     padding: var(--spacing-6);
+    margin-top: 2svh;
+    border-radius: var(--radius-md);
     
 }
 

@@ -17,27 +17,31 @@ dialog p {
 
 .modalproduct-overlay {
     display: flex;    
-    position: absolute;
-    justify-content: center;    
+    position: fixed;
+    justify-content: center; 
+    align-items: center;   
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-indez: 9998;
+    z-index: 9998;
     border: none;
+    overflow: auto;
 }
 
 
 
 .product-modal {
-    position: fixed;
-    width: 70svw;    
+    position: relative;
+    width: 60svw;    
     background-color: var(--color-background-modal);
     z-index: 9999;
     padding: var(--spacing-6);
-    margin-top: 2svh;
     border-radius: var(--radius-md);
+    max-height: 95vh; /* L
+    ita a altura */
+    overflow: hidden;
     
 }
 
@@ -56,6 +60,7 @@ dialog p {
     right: 16px;
     width: 32px;
     height: 32px;
+    font-size: var(--text-xl);
     border-radius: 50%;
     border: none;
     background-color: var(--color-sombra);
@@ -83,7 +88,7 @@ dialog p {
 /* Estilos para a imagem do modal */
 .modal-image-gallery {
     flex-basis: 50%;
-    height: 70svh;
+    height: 500px;
     flex-grow: 1;
     flex-shrink: 0;
     overflow: hidden;
@@ -110,7 +115,7 @@ dialog p {
 .modalproduct-info {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-3);
+    gap: var(--spacing-1);
     justify-content: space-between;
 }
 
@@ -118,15 +123,15 @@ dialog p {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4);
-    padding-top: var(--spacing-6);
-    padding-bottom: var(--spacing-6);
+    padding-top: var(--spacing-5);
+    padding-bottom: var(--spacing-5);
     border-top: 1px solid var(--color-sombra);
     border-bottom: 1px solid var(--color-sombra);
 }
 
 .price-andbag .price-container {
     width: 368px;
-    height: 49px;
+    height: 48px;
     border-radius: 50px;
     background-color: var(--color-sombra);
     }
@@ -160,18 +165,48 @@ dialog p {
     margin-bottom: var(--spacing-2);        
 }
 
-.cart-modal {
-    background-color: var(--color-background-modal);
-}
-
 .purchase-controls-modal .qty-btn {
     background-color: transparent;
     box-shadow: none;
 
 }
 
+.add-to-cartproduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-addcart-02);
+    color: var(--color-background);
+    border: none;    
+    border-radius: 50px;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--text-md);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cartproduct:hover {
+    background-color: var(--color-addcart-01);
+}
+
+.add-to-cartproduct .cart-modal{
+    display: block;
+    position: relative;
+    fill: var(--color-background-modal);
+    width: 32px;
+    height: 32px;
+    margin: 0;
+}
+
 .modalproduct-sku {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
+    gap: var(--spacing-1);
+    
 }
+
+.modalproduct-sku p {
+    font-size: var(--text-sm);
+    
+}
+

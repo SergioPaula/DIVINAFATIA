@@ -16,10 +16,10 @@ dialog p {
 }
 
 .modalproduct-overlay {
-    display: flex;    
+    display: flex;
     position: fixed;
-    justify-content: center; 
-    align-items: center;   
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -34,22 +34,23 @@ dialog p {
 
 .product-modal {
     position: relative;
-    width: 60svw;    
+    width: 65svw;
     background-color: var(--color-background-modal);
     z-index: 9999;
     padding: var(--spacing-6);
     border-radius: var(--radius-md);
-    max-height: 95vh; /* L
+    max-height: 95vh;
+    /* L
     ita a altura */
     overflow: hidden;
-    
+
 }
 
 
 .modal-content {
     position: relative;
     width: 90%;
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
     padding: 24px;
     z-index: 10000;
 }
@@ -61,7 +62,7 @@ dialog p {
     width: 32px;
     height: 32px;
     font-size: var(--text-xl);
-    border-radius: 50%;
+    border-radius: var(--radius-xl);
     border: none;
     background-color: var(--color-sombra);
     cursor: pointer;
@@ -77,10 +78,10 @@ dialog p {
     margin-top: var(--spacing-6);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-4);
 }
 
-.txt-1 h2, .txt-1 h3 {
+.txt-1 h2,
+.txt-1 h3 {
     margin-bottom: var(--spacing-2);
 }
 
@@ -93,7 +94,7 @@ dialog p {
     flex-shrink: 0;
     overflow: hidden;
     position: relative;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     box-shadow: 0 4px 12px rgba(95, 53, 47, 0.15);
     border: 1px solid var(--color-primary-03);
     transition: transform 0.3s ease;
@@ -115,27 +116,18 @@ dialog p {
 .modalproduct-info {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-1);
     justify-content: space-between;
 }
 
-.price-andbag {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-4);
-    padding-top: var(--spacing-5);
-    padding-bottom: var(--spacing-5);
-    border-top: 1px solid var(--color-sombra);
-    border-bottom: 1px solid var(--color-sombra);
+
+
+.metaproduct-description {
+    font-size: var(--text-sm);
 }
 
-.price-andbag .price-container {
-    width: 368px;
-    height: 48px;
-    border-radius: 50px;
-    background-color: var(--color-sombra);
-    }
-
+.info-selos {
+    padding-top: var(--spacing-4);
+}
 
 
 .purchase-controls-modal {
@@ -150,19 +142,19 @@ dialog p {
     border-radius: 50px;
     background-color: var(--color-sombra);
     flex-shrink: 1;
-    flex-grow: 1;    
+    flex-grow: 1;
 }
 
 .purchase-controls-modal button {
     flex-basis: 100px;
     gap: var(--spacing-4);
-    border-radius: 50px;    
+    border-radius: 50px;
     flex-shrink: 1;
-    flex-grow: 2;    
+    flex-grow: 2;
 }
 
 .modalproduct-title h1 {
-    margin-bottom: var(--spacing-2);        
+    margin-bottom: var(--spacing-2);
 }
 
 .purchase-controls-modal .qty-btn {
@@ -177,8 +169,8 @@ dialog p {
     align-items: center;
     background-color: var(--color-addcart-02);
     color: var(--color-background);
-    border: none;    
-    border-radius: 50px;
+    border: none;
+    border-radius: var(--radius-xl);
     font-weight: var(--font-weight-semibold);
     font-size: var(--text-md);
     cursor: pointer;
@@ -189,7 +181,7 @@ dialog p {
     background-color: var(--color-addcart-01);
 }
 
-.add-to-cartproduct .cart-modal{
+.add-to-cartproduct .cart-modal {
     display: block;
     position: relative;
     fill: var(--color-background-modal);
@@ -198,15 +190,93 @@ dialog p {
     margin: 0;
 }
 
-.modalproduct-sku {
+.peso-rende {
+    display: flex;
+}
+
+.peso-rende p {
+    padding-right: 16px;
+    border-right: 2px solid var(--color-primary-01);
+}
+
+.peso-rende span {
+    font-size: var(--text-xl);
+    font-family: var(--font-title);
+    font-weight: var(--font-weight-regular);
+}
+
+.peso-rende p:last-child {
+    padding-left: 16px;
+    border-right: none;
+}
+
+.icon-selos {
+    width: 60px;
+    height: 60px;
+
+}
+
+.selos-modalproduto {
+    display: flex;
+    justify-content: space-around;
+}
+
+.selos-modalproduto div {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    font-weight: var(--font-weight-semibold);
+}
+
+.price-andbag {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-1);
-    
+    gap: var(--spacing-4);
+    padding-top: var(--spacing-4);
 }
 
-.modalproduct-sku p {
+.price-container-productmodal {
+    width: 100%;
+    display: flex;
+    gap: var(--spacing-4);
+    align-items: center;
+    justify-content: center;
+    /* Adicione esta linha para alinhar à direita */
+}
+
+.line-div {
+    border-top: 1px solid var(--color-primary-01);
+    opacity: .3;
+}
+
+.line-div-dashed {
+    border-bottom: 1px dashed var(--color-sombra);
+}
+
+.navbar-modalproduct {
+    width: 70svw;
+}
+
+.navbar-modal {
+    display: flex;
+    gap: var(--spacing-4);
+    width: 60%;
+    flex-flow: row wrap;
+}
+
+.nav-itemmodal {
+    list-style: none;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-semibold);
     font-size: var(--text-sm);
+    flex-grow: 1;
+    flex-shrink: 0;
     
 }
 
+
+.nav-itemmodal:hover {
+    border-bottom: 1px solid var(--color-terciary-06);
+    background-color: var(--color-terciary-03);
+    color: var(--color-terciary-06);
+}

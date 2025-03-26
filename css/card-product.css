@@ -241,13 +241,15 @@ body {
     font-family: var(--font-body);
     font-weight: var(--font-weight-regular);
     text-decoration-line: line-through;
-    font-size: 1rem;
-    color: var(--color-sombra);
+    font-size: var(--text-md);
+    color: var(--color-primary-01);
+    opacity: .5;
 }
 
 .current-price {
-    font-size: 1.5rem;
-    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-regular) !important;
 }
 
 /* Controles de compra */

@@ -75,9 +75,10 @@ dialog p {
 }
 
 .modal-bodybottom {
-    margin-top: var(--spacing-6);
+    margin-top: var(--spacing-4);
     display: flex;
     flex-direction: column;
+    gap: var(--spacing-2);
 }
 
 .txt-1 h2,
@@ -253,30 +254,41 @@ dialog p {
     border-bottom: 1px dashed var(--color-sombra);
 }
 
+
+
 .navbar-modalproduct {
-    width: 70svw;
+    width: 100svw;
 }
 
 .navbar-modal {
     display: flex;
     gap: var(--spacing-4);
-    width: 60%;
+    width: 100%;
+    height: 28px;
     flex-flow: row wrap;
+
 }
 
 .nav-itemmodal {
     list-style: none;
     font-family: var(--font-body);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-extrabold);
     font-size: var(--text-sm);
-    flex-grow: 1;
-    flex-shrink: 0;
-    
+    flex: 180px 0 1;
 }
 
 
 .nav-itemmodal:hover {
-    border-bottom: 1px solid var(--color-terciary-06);
-    background-color: var(--color-terciary-03);
+    border-bottom: 3px solid var(--color-terciary-03);
+    background-color: none;
     color: var(--color-terciary-06);
+    box-sizing: content-box;
 }
+
+.nav-itemmodal:active {
+    border-bottom: 3px solid var(--color-terciary-06);
+    background-color: none;
+    color: var(--color-primary-01);
+    box-sizing: content-box;
+}
+

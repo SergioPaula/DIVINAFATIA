@@ -13,90 +13,69 @@ function showProductModal(productId) {
         return;
     }
 
-    // Selecionar o modal existente no HTML
-    const modal = document.querySelector('.modal-overlay');
+    // Selecionar o modal existente no DOM
+    const modal = document.querySelector('.modalproduct-overlay');
     
-    // Preencher dados do produto no modal
-    if (modal) {
-        // Preencher os dados do produto no modal
-        modal.querySelector('.main-image').src = product.images[0];
-        modal.querySelector('.main-image').alt = product.name;
-        modal.querySelector('.product-name').textContent = product.name;
-        
-        // Preencher a descrição do produto
-        const metaDescription = modal.querySelector('.metaproduct-description');
-        if (metaDescription) {
-            metaDescription.textContent = product.detailedDescription || product.description;
-        }
-        
-        // Preencher preços
-        const currentPrice = modal.querySelector('.current-price');
+    // Preencher dados básicos
+    modal.querySelector('.product-name').textContent = product.name;
+    modal.querySelector('.main-image').src = product.images[0];
+    modal.querySelector('.main-image').alt = product.name;
+    modal.querySelector('.metaproduct-description').textContent = product.description;
+    modal.querySelector('.current-price').textContent = window.formatPrice(product.price);
+    
+    if (product.oldPrice) {
         const oldPrice = modal.querySelector('.old-price');
-        
-        if (currentPrice) {
-            currentPrice.textContent = window.formatPrice(product.price);
-        }
-        
-        if (oldPrice && product.oldPrice) {
-            oldPrice.textContent = window.formatPrice(product.oldPrice);
-            oldPrice.style.display = 'inline-block';
-        } else if (oldPrice) {
-            oldPrice.style.display = 'none';
-        }
-        
-        // Avaliações
-        const rating = modal.querySelector('.rating');
-        if (rating && product.rating) {
-            // Aqui você pode implementar o preenchimento das estrelas de avaliação
-            const avaliacoes = rating.querySelector('.avaliacoes');
-            if (avaliacoes) {
-                avaliacoes.textContent = `${product.reviewCount || 0} Avaliações`;
-            }
-        }
-        
-        // Configurar o botão "Adicionar à Sacola"
-        const addToCartButton = modal.querySelector('.add-to-cart');
-        if (addToCartButton) {
-            addToCartButton.setAttribute('data-product', productId);
-        }
-        
-        // Configurar controles de quantidade
-        const quantityContainer = modal.querySelector('.quantity');
-        if (quantityContainer) {
-            window.setupQuantityControls(quantityContainer);
-        }
-        
-        // Mostrar o modal
-        modal.showModal();
-        
-        // Adicionar eventos de fechar
+        oldPrice.textContent = window.formatPrice(product.oldPrice);
+        oldPrice.style.display = 'inline';
+    } else {
+        modal.querySelector('.old-price').style.display = 'none';
+    }
+    
+    // Forçar o estilo de exibição para garantir que seja visível
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open');
+    
+    // Evita adicionar múltiplos listeners
+    if (!modal.hasAttribute('data-events-initialized')) {
+        // Configurar evento para botão fechar
         const closeButton = modal.querySelector('.modal-close');
         if (closeButton) {
-            closeButton.addEventListener('click', () => {
-                modal.close();
-            });
+            closeButton.addEventListener('click', closeProductModal);
         }
-    } else {
-        console.error('Modal element not found in the HTML');
+        
+        // Configurar evento para overlay
+        const overlay = modal.querySelector('.modal-overlay');
+        if (overlay) {
+            overlay.addEventListener('click', closeProductModal);
+        }
+        
+        // Marcar que os eventos foram inicializados
+        modal.setAttribute('data-events-initialized', 'true');
     }
+}
+
+// Função para fechar o modal
+function closeProductModal() {
+    console.log('Executing modal close');
+    const modal = document.querySelector('.modalproduct-overlay');
+    
+    // Ocultar o modal com estilo
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
 }
 
 // Adicionar eventos de clique nas imagens dos produtos
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Setting up click events');
     
-    // Selecionar o modal
-    const modal = document.querySelector('.modal-overlay');
+    // Configurar evento de escape para fechar o modal
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeProductModal();
+        }
+    });
     
-    // Adicionar evento de fechar ao botão de fechar
-    const closeButton = modal.querySelector('.modal-close');
-    if (closeButton) {
-        closeButton.addEventListener('click', () => {
-            modal.close();
-        });
-    }
-    
-    // Adicionar eventos de clique nas imagens dos produtos
+    // Selecionar todas as imagens de produtos e adicionar evento de clique
     const productImages = document.querySelectorAll('.card-image');
     productImages.forEach(imageContainer => {
         const productCard = imageContainer.closest('.product-card');
@@ -113,4 +92,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+    
+    // Inicializar eventos do modal ao carregar
+    const modal = document.querySelector('.modalproduct-overlay');
+    if (modal) {
+        // Inicialmente esconder o modal
+        modal.style.display = 'none';
+        
+        // Configurar evento para botão fechar
+        const closeButton = modal.querySelector('.modal-close');
+        if (closeButton) {
+            closeButton.addEventListener('click', closeProductModal);
+        }
+        
+        // Configurar evento para overlay
+        const overlay = modal.querySelector('.modal-overlay');
+        if (overlay) {
+            overlay.addEventListener('click', closeProductModal);
+        }
+        
+        // Marcar como inicializado
+        modal.setAttribute('data-events-initialized', 'true');
+    }
 });

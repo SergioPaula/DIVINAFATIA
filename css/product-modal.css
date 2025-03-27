@@ -15,36 +15,36 @@ dialog p {
     font-size: var(--text-base);
 }
 
+body.modal-open {
+    overflow: hidden;
+  }
+
 .modalproduct-overlay {
-    display: flex;
+    display: none; /* Inicialmente escondido */
     position: fixed;
-    justify-content: center;
-    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 9998;
-    border: none;
     overflow: auto;
-}
+  }
 
 
 
-.product-modal {
+  .product-modal {
     position: relative;
-    width: 65svw;
+    width: 65%;
+    max-width: 1200px;
+    margin: 5vh auto;
     background-color: var(--color-background-modal);
     z-index: 9999;
     padding: var(--spacing-6);
     border-radius: var(--radius-md);
-    max-height: 95vh;
-    /* L
-    ita a altura */
-    overflow: hidden;
-
-}
+    max-height: 90vh;
+    overflow: auto;
+  }
 
 
 .modal-content {
@@ -66,7 +66,17 @@ dialog p {
     border: none;
     background-color: var(--color-sombra);
     cursor: pointer;
-}
+    z-index: 10001; /* Garantir que esteja acima do conteúdo do modal */
+  }
+
+  .modalproduct-overlay .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
 
 .modal-bodytop {
     display: flex;
@@ -291,4 +301,23 @@ dialog p {
     color: var(--color-primary-01);
     box-sizing: content-box;
 }
+
+/* BARRA DE ROLAGEM*/
+
+.product-modal::-webkit-scrollbar-track {
+    border-radius: 8px;
+  }
+
+  .product-modal {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-sombra) var(--color-background-modal);
+    scrollbar-r
+  }
+
+@media (max-width: 768px) {
+    .product-modal {
+      width: 90%;
+      padding: var(--spacing-4);
+    }
+  }
 

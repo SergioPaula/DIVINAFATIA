@@ -17,10 +17,11 @@ dialog p {
 
 body.modal-open {
     overflow: hidden;
-  }
+}
 
 .modalproduct-overlay {
-    display: none; /* Inicialmente escondido */
+    display: none;
+    /* Inicialmente escondido */
     position: fixed;
     top: 0;
     left: 0;
@@ -29,11 +30,11 @@ body.modal-open {
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 9998;
     overflow: auto;
-  }
+}
 
 
 
-  .product-modal {
+.product-modal {
     position: relative;
     width: 65%;
     max-width: 1200px;
@@ -44,7 +45,7 @@ body.modal-open {
     border-radius: var(--radius-md);
     max-height: 90vh;
     overflow: auto;
-  }
+}
 
 
 .modal-content {
@@ -66,17 +67,18 @@ body.modal-open {
     border: none;
     background-color: var(--color-sombra);
     cursor: pointer;
-    z-index: 10001; /* Garantir que esteja acima do conteúdo do modal */
-  }
+    z-index: 10001;
+    /* Garantir que esteja acima do conteúdo do modal */
+}
 
-  .modalproduct-overlay .modal-overlay {
+.modalproduct-overlay .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     cursor: pointer;
-  }
+}
 
 .modal-bodytop {
     display: flex;
@@ -99,10 +101,8 @@ body.modal-open {
 
 /* Estilos para a imagem do modal */
 .modal-image-gallery {
-    flex-basis: 50%;
+    flex: 1 0 50%;
     height: 500px;
-    flex-grow: 1;
-    flex-shrink: 0;
     overflow: hidden;
     position: relative;
     border-radius: var(--radius-md);
@@ -149,19 +149,15 @@ body.modal-open {
 }
 
 .purchase-controls-modal div {
-    flex-basis: 100px;
+    flex: 1 1 100px;
     border-radius: 50px;
     background-color: var(--color-sombra);
-    flex-shrink: 1;
-    flex-grow: 1;
 }
 
 .purchase-controls-modal button {
-    flex-basis: 100px;
+    flex: 2 1 100px;
     gap: var(--spacing-4);
     border-radius: 50px;
-    flex-shrink: 1;
-    flex-grow: 2;
 }
 
 .modalproduct-title h1 {
@@ -224,7 +220,12 @@ body.modal-open {
 .icon-selos {
     width: 60px;
     height: 60px;
+    margin: var(--spacing-2);
+    transition: transform 0.3s ease;
+}
 
+.icon-selo:hover {
+    transform: scale(1.1);
 }
 
 .selos-modalproduto {
@@ -236,7 +237,13 @@ body.modal-open {
     display: flex;
     align-items: center;
     gap: var(--spacing-1);
-    font-weight: var(--font-weight-semibold);
+}
+
+.selos-modalproduto p {
+    font-weight: var(--font-weight-extrabold);
+    font-size: var(--text-xs);
+    line-height: var(--spacing-4);
+    text-transform: uppercase;
 }
 
 .price-andbag {
@@ -284,7 +291,7 @@ body.modal-open {
     font-family: var(--font-body);
     font-weight: var(--font-weight-extrabold);
     font-size: var(--text-sm);
-    flex: 180px 0 1;
+    flex: 0 1 180px;
 }
 
 
@@ -302,22 +309,50 @@ body.modal-open {
     box-sizing: content-box;
 }
 
+.conteudo-navmodal div {
+    margin-top: var(--spacing-2);
+
+}
+
+.aba-modal {
+    display: flex;
+    gap: var(--spacing-4);
+    align-items: center;
+}
+
+/*.aba-modal div:first-child{
+    background-color: var(--color-sombra);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}*/
+
+.img-modal {
+    background-color: var(--color-sombrabotao);
+    fill: var(--color-primary-01);
+    width: 70px;
+    height: 70px;
+    padding: var(--spacing-2);
+    fill-opacity: .4;
+}
+
+
+
+
 /* BARRA DE ROLAGEM*/
 
 .product-modal::-webkit-scrollbar-track {
     border-radius: 8px;
-  }
+}
 
-  .product-modal {
+.product-modal {
     scrollbar-width: thin;
     scrollbar-color: var(--color-sombra) var(--color-background-modal);
-    scrollbar-r
-  }
+    }
 
 @media (max-width: 768px) {
     .product-modal {
-      width: 90%;
-      padding: var(--spacing-4);
+        width: 90%;
+        padding: var(--spacing-4);
     }
-  }
-
+}

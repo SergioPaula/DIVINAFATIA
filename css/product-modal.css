@@ -170,6 +170,11 @@ body.modal-open {
 
 }
 
+.purchase-controls-modal .qty-btn:hover {
+    background-color: var(--color-sombra);
+    opacity: .5;
+}
+
 .add-to-cartproduct {
     display: flex;
     justify-content: center;
@@ -191,10 +196,10 @@ body.modal-open {
 .add-to-cartproduct .cart-modal {
     display: block;
     position: relative;
-    fill: var(--color-background-modal);
-    width: 32px;
-    height: 32px;
-    margin: 0;
+    fill: var(--color-background-modal)!important; 
+    width: 28px;
+    height: 28px;
+    margin-bottom: 5px;
 }
 
 .peso-rende {

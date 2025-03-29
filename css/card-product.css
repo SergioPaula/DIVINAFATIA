@@ -502,7 +502,6 @@ body {
 .filtro-produto {
     display: flex;
     scroll-snap-align:inherit;
-    min-width:;
     width: auto;
 }
 

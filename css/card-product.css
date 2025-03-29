@@ -21,19 +21,28 @@ body {
 /* ====== SWIPER E CARDS ====== */
 
 .swiper {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    width: 90%;
     height: 100%;
     margin-top: 4svh;
-    margin-bottom: 3svh;
+    margin-bottom: var(--spacing-2);
 }
 
 .cardapio .container {
-    padding-right: 0;
+    padding: 0;
+    padding-bottom: var(--spacing-4);
 }
 
 .swiper-wrapper {
     padding-top: 15px;
     padding-bottom: 15px;
+    height: fit-content;
+    width: fit-content;
+
 }
 
 /* Card do produto */
@@ -158,13 +167,13 @@ body {
     width: 15px;
     height: 15px;
     fill: var(--color-primary-01);
-    transition: transform 0.2s ease;    
+    transition: transform 0.2s ease;
 }
 
 .rating .star-line {
     fill: var(--color-primary-01);
     transition: transform 0.2s ease;
-    opacity: 0.7;    
+    opacity: 0.7;
 }
 
 .avaliacoes {
@@ -252,7 +261,7 @@ body {
 
 .current-price {
     font-family: var(--font-title);
-    font-size: var(--text-2xl);
+    font-size: var(--text-xl);
     font-weight: var(--font-weight-regular) !important;
 }
 
@@ -440,7 +449,11 @@ body {
 }
 
 /* Responsividade */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
+
+    .swiper {
+        width: 100%;
+    }
 
     .swiper-button-prev,
     .swiper-button-next {
@@ -451,6 +464,7 @@ body {
         padding-top: 0px;
         padding-bottom: 0px;
     }
+
     /*Dentro do Card*/
     .card-image {
         height: 336px;
@@ -464,74 +478,80 @@ body {
         font-size: var(--text-lg);
     }
 
+    .cardapio .container {
+        padding-left: var(--spacing-4) ;
+    }
+
 
     /* Menu Filtro Mobile */
-.menucardapio {
-    display: flex;
-    flex-flow: row nowrap;
-    height: 100px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: inline mandatory;
-    scroll-padding-inline: 0px;
-    scrollbar-width:thin;  /* Esconde scrollbar no Firefox */
-    -ms-overflow-style:inherit;  /* Esconde scrollbar no IE e Edge */
-    scroll-snap-align: start;
-    scrollbar-color: var(--color-sombra) var(--color-background-modal);
-    border-radius: 0;
-    background: none;
-    max-width: 100%;
-    padding: var(--spacing-0);
-    gap: var(--spacing-4);
-    align-items: center;
-    justify-content: flex-start;
-    padding-right: var(--spacing-5);
+    .menucardapio {
+        display: flex;
+        flex-flow: row nowrap;
+        height: 100px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: inline mandatory;
+        scroll-padding-inline: 0px;
+        scrollbar-width: thin;
+        /* Esconde scrollbar no Firefox */
+        -ms-overflow-style: inherit;
+        /* Esconde scrollbar no IE e Edge */
+        scroll-snap-align: start;
+        scrollbar-color: var(--color-sombra) var(--color-background-modal);
+        border-radius: 0;
+        background: none;
+        max-width: 100%;
+        padding: var(--spacing-0);
+        gap: var(--spacing-4);
+        align-items: center;
+        justify-content: flex-start;
+        padding-right: var(--spacing-5);
 
-}
+    }
 
-.img-filter {
-    display: none;
-}
+    .img-filter {
+        display: none;
+    }
 
-.circle-filter {
-    display: none;
-}
+    .circle-filter {
+        display: none;
+    }
 
-.filtro-produto {
-    display: flex;
-    scroll-snap-align:inherit;
-    width: auto;
-}
+    .filtro-produto {
+        display: flex;
+        scroll-snap-align: inherit;
+        width: auto;
+    }
 
-.text-filtro {
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    padding: 8px 12px;
-    height: 49px;
-    width: 100%;
-    font-family: var(--font-title);
-    font-size: var(--text-md);
-    border-radius: var(--radius-lg);
-    background: var(--color-terciary-03);
-    color: var(--color-primary-01);
-    line-height: 1;
-    text-align: center;
-    white-space: normal;
-}
+    .text-filtro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 12px;
+        height: 49px;
+        width: 100%;
+        font-family: var(--font-title);
+        font-size: var(--text-md);
+        border-radius: var(--radius-lg);
+        background: var(--color-terciary-03);
+        color: var(--color-primary-01);
+        line-height: 1;
+        text-align: center;
+        white-space: normal;
+    }
 
-.menucardapio::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 40px;
-    background: linear-gradient(to right, transparent, var(--color-primary-03) 90%);
-    pointer-events: none;
-}
+    .menucardapio::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 40px;
+        background: linear-gradient(to right, transparent, var(--color-primary-03) 90%);
+        pointer-events: none;
+    }
 
 
 

@@ -338,7 +338,7 @@
     .conteudo-rodape {
         display: flex;
         flex-direction: column;
-        padding: 8vh 8vw;
+        padding: 8vh 8vw 2vh 8vw;
         gap: var(--spacing-8);
     }
 
@@ -369,9 +369,6 @@
         flex-direction: column;
     }
 
-    .placeholder-geral {
-        flex-direction: column;
-    }
 
     /* Footer para mobile */
     footer {

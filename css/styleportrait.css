@@ -76,6 +76,8 @@
         padding: 0px var(--spacing-4);
     }
 
+    
+
     /* Menu de navegação mobile */
     #burguer {
         display: block;
@@ -253,6 +255,8 @@
 
     .snaps-inline > * {
         scroll-snap-align: start;
+        scrollbar-width: thin;
+    scrollbar-color: var(--color-sombra) var(--color-background-modal);
     }
 
     /* Cardápio para mobile */

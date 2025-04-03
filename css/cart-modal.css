@@ -172,25 +172,61 @@ html,
 }
 
 /* Estilos para os itens do carrinho */
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .cart-items .cart-item {
     display: flex;
+    flex-flow: row nowrap;
     justify-content: space-between;
     max-width: 100%;
-    gap: 20px;
+    gap: var(--spacing-3);
     align-items: center;
     padding: 15px;
     border-bottom: 1px solid var(--color-sombra);
 }
 
+
+
 .cart-item:last-child {
     border-bottom: 0px solid var(--color-primary-01);
 }
 
-.item-image img {
-    width: 100px;
+
+
+.items-details {
+    flex: 1 0 175px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.items-quantity {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+
+
+.item-image {
     height: 100px;
+    border-radius: var(--radius-sm);
+    flex: 0 0 100px;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
+}
+
+.item-details {
+    flex: 2 1 150px;
 }
 
 .item-details h3 {
@@ -203,17 +239,10 @@ html,
     font-size: var(--text-lg);
 }
 
-.items-details,
-.items-quantity {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
 .item-quantity {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: var(--spacing-5);
 }
 
 .qty-btn {
@@ -249,7 +278,8 @@ html,
 
 /* Estilos para o formulário de endereço */
 /* Estilos gerais de formulário */
-.step-2 form fieldset, .placeholder-modal{
+.step-2 form fieldset,
+.placeholder-modal {
     border: none;
     margin-top: var(--spacing-5);
 }
@@ -416,7 +446,7 @@ html,
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: var(--spacing-5);
-    height:100%;
+    height: 100%;
     padding: var(--spacing-3) 0;
 
 }
@@ -464,37 +494,48 @@ html,
     border-bottom: 0px solid var(--color-primary-02);
     padding: var(--spacing-3) 0;
     width: 100%;
-    position: relative; /* Para posicionamento do pseudo-elemento */
+    position: relative;
+    /* Para posicionamento do pseudo-elemento */
 }
 
 .item-details-group {
     display: flex;
     align-items: center;
     gap: var(--spacing-3);
-    flex: 1; /* Ocupa o espaço disponível */
+    flex: 1;
+    /* Ocupa o espaço disponível */
 }
 
 .item-details .price {
     position: relative;
     display: inline-block;
-    padding-right: 8px; /* Espaço para a linha pontilhada não sobrepor o texto */
-    background-color: var(--color-background); /* Mesmo que o fundo para "quebrar" a linha */
-    z-index: 2; /* Acima da linha pontilhada */
+    padding-right: 8px;
+    /* Espaço para a linha pontilhada não sobrepor o texto */
+    background-color: var(--color-background);
+    /* Mesmo que o fundo para "quebrar" a linha */
+    z-index: 2;
+    /* Acima da linha pontilhada */
 }
 
-.item-carrinho-content, .item-details {
-    flex-grow: 1; /* Permite que essa div ocupe o espaço disponível */
-    margin-right: auto; /* Empurra outros elementos para a direita */
+.item-carrinho-content,
+.item-details {
+    flex-grow: 1;
+    /* Permite que essa div ocupe o espaço disponível */
+    margin-right: auto;
+    /* Empurra outros elementos para a direita */
 }
 
 .qtd-produto-resumo {
     white-space: nowrap;
-    font-weight: var(--font-weight-semibold);    
+    font-weight: var(--font-weight-semibold);
     color: var(--color-marrom-claro);
     position: relative;
-    background-color: var(--color-background); /* Mesmo que o fundo para "quebrar" a linha */
-    padding-left: 8px; /* Espaço para a linha pontilhada não sobrepor o texto */
-    z-index: 2; /* Acima da linha pontilhada */
+    background-color: var(--color-background);
+    /* Mesmo que o fundo para "quebrar" a linha */
+    padding-left: 8px;
+    /* Espaço para a linha pontilhada não sobrepor o texto */
+    z-index: 2;
+    /* Acima da linha pontilhada */
     align-self: flex-end;
 }
 
@@ -505,7 +546,8 @@ html,
     right: 3%;
     bottom: 30%;
     border-bottom: 1px dotted var(--color-marrom-claro);
-    z-index: 1; /* Abaixo do texto */
+    z-index: 1;
+    /* Abaixo do texto */
 }
 
 .item-carrinho-content:last-child {
@@ -629,7 +671,7 @@ p .entrega {
 @media (max-width: 768px) {
 
 
-    .modal-content{
+    .modal-content {
         max-width: 100svw;
         padding: var(--spacing-3);
     }
@@ -642,7 +684,7 @@ p .entrega {
         width: 20px;
         height: 20px;
     }
-    
+
     .step::before {
         content: '';
         width: 15px;
@@ -657,31 +699,23 @@ p .entrega {
     }
 
     .item-details h3 {
-        font-size: var(--text-md);
-    }
-    
-    .items-details,
-    .items-quantity {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-
-    }
-
-    .item-image img {
-        width: 70px;
-        height: 70px;
+        font-size: var(--text-base);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
     }
     
 
-    .cart-item {
-        grid-template-columns: 80px 1fr;
+    .item-image {
+        height: 50px;
+        border-radius: var(--radius-sm);
+        flex: 0 0 50px;
     }
 
-    .item-quantity {
-        grid-column: 1 / -1;
-        justify-content: center;
-    }
+
+
+    
 
     .remove-item {
         position: absolute;
@@ -710,9 +744,10 @@ p .entrega {
     }
 
     .item-carrinho-content {
-        padding-right: 50px; /* Espaço para a quantidade */
+        padding-right: 50px;
+        /* Espaço para a quantidade */
     }
-    
+
     .qtd-produto-resumo {
         position: absolute;
         right: 0;

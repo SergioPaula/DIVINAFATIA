@@ -56,7 +56,7 @@ body.modal-open {
     z-index: 10000;
 }
 
-.modal-close {
+.modal-productheader .modal-close {
     position: absolute;
     top: 16px;
     right: 16px;

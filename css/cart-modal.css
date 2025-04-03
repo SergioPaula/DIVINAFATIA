@@ -627,6 +627,53 @@ p .entrega {
 }
 
 @media (max-width: 768px) {
+
+
+    .modal-content{
+        max-width: 100svw;
+        padding: var(--spacing-3);
+    }
+
+    .modal-content h2 {
+        font-size: var(--text-lg);
+    }
+
+    .step {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .step::before {
+        content: '';
+        width: 15px;
+        background-color: var(--color-sombra);
+        position: absolute;
+        height: 2px;
+        margin-left: 35px;
+    }
+
+    .close-modal-cart {
+        font-size: 0;
+    }
+
+    .item-details h3 {
+        font-size: var(--text-md);
+    }
+    
+    .items-details,
+    .items-quantity {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+    }
+
+    .item-image img {
+        width: 70px;
+        height: 70px;
+    }
+    
+
     .cart-item {
         grid-template-columns: 80px 1fr;
     }
@@ -671,5 +718,9 @@ p .entrega {
         right: 0;
         top: 50%;
         transform: translateY(-50%);
+    }
+
+    .faixa-decorativa {
+        background-size: 40%;
     }
 }

@@ -246,7 +246,7 @@ body {
     gap: 1rem;
     margin-top: auto;
     background: rgba(95, 53, 47, 0.10);
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
     justify-content: center;
 }
 

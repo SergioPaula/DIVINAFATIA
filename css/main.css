@@ -299,12 +299,12 @@ button {
     padding: 1.9rem;
     margin-top: 30px;
     background-color: var(--color-primary-03);
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
     list-style: none;
 }
 
-#burguer {
-    display: none;
+.menu-superior-mobile {
+    display: none ;
 }
 
 nav {
@@ -351,7 +351,7 @@ nav a {
 
 .nav-icon {
     background-color: var(--color-sombrabotao);
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
     padding: 8px 12px;
     display: flex;
     align-items: center;
@@ -375,7 +375,7 @@ nav a {
 
 .nav-car {
     background-color: var(--color-terciary-03);
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
     display: flex;
     padding: 8px 16px;
     justify-content: center;
@@ -414,7 +414,7 @@ nav a {
 .btn-marrom {
     background-color: var(--color-primary-01);
     border: 2px solid var(--color-primary-01);
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
     padding: 8px 2.5rem;
     color: var(--button-text-color);
     font-family: var(--font-body);
@@ -433,7 +433,7 @@ nav a {
     background-color: var(--color-primary-03);
     padding: 8px 18px;
     border: 2px solid var(--color-primary-01);
-    border-radius: 30px;
+    border-radius: var(--radius-lg);
     justify-content: center;
     gap: 16px;
 }

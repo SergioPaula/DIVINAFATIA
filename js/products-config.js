@@ -164,6 +164,7 @@ function updateCartItemQuantity(productId, newQuantity) {
             // Atualizar a quantidade
             cartItems[itemIndex].quantity = newQuantity;
             saveCartToLocalStorage();
+            updateCartCount();
             updateCartTotals();
         }
     }
@@ -309,6 +310,7 @@ function attachCartItemEvents() {
         button.addEventListener('click', () => {
             const productId = parseInt(button.dataset.product);
             removeFromCart(productId);
+            updateCartCount();
         });
     });
 }

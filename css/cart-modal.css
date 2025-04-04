@@ -185,7 +185,7 @@ html,
     max-width: 100%;
     gap: var(--spacing-3);
     align-items: center;
-    padding: 15px;
+    padding: var(--spacing-4) 0px;
     border-bottom: 1px solid var(--color-sombra);
 }
 
@@ -198,16 +198,18 @@ html,
 
 
 .items-details {
-    flex: 1 0 175px;
     display: flex;
     align-items: center;
-    gap: var(--spacing-2);
+    gap: var(--spacing-4);
+    width: 100%;
 }
 
 .items-quantity {
     display: flex;
+    justify-content: end;
+    padding-right: var(--spacing-1);
     align-items: center;
-    gap: var(--spacing-4);
+    gap: var(--spacing-2);
 }
 
 
@@ -225,18 +227,30 @@ html,
     border-radius: var(--radius-sm);
 }
 
-.item-details {
-    flex: 2 1 150px;
-}
 
-.item-details h3 {
-    margin: 0;
-    font-family: var(--font-title);
+
+.item-details {    
+    width: 150px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     color: var(--color-primary-01);
-    font-size: var(--text-lg);
+}
+
+.modal-bodycart .item-quantity {
+    height: 35px;
+    background-color: var(--color-background);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-sombrabotao);
+    padding: var(--spacing-2);
+    gap: var(--spacing-2);
+    justify-content:end ;
+}
+
+.item-details h3 {
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    font-weight: var(--font-weight-semibold);
 }
 
 .item-quantity {
@@ -255,13 +269,12 @@ html,
     cursor: pointer;
 }*/
 
-.btn-retirar {
-    background-color: var(--color-terciary-06);
+.modal-bodycart .btn-retirar {
+    background-color: var(--color-sombrabotao);
     border: none;
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    box-shadow: var(--shadow-lg);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -269,9 +282,9 @@ html,
 }
 
 .remove-item {
-    width: 15px;
-    height: 15px;
-    fill: var(--color-primary-03);
+    width: 10px;
+    height: 10px;
+    fill: var(--color-primary-01);
     background-color: transparent;
     font-size: 20px;
 }
@@ -515,6 +528,8 @@ html,
     /* Mesmo que o fundo para "quebrar" a linha */
     z-index: 2;
     /* Acima da linha pontilhada */
+    font-family: var(--font-title);
+    font-size: var(--text-md);
 }
 
 .item-carrinho-content,
@@ -697,6 +712,8 @@ p .entrega {
     .close-modal-cart {
         font-size: 0;
     }
+
+
 
     .item-details h3 {
         font-size: var(--text-base);

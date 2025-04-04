@@ -245,7 +245,7 @@ html,
     gap: var(--spacing-5);
 }
 
-.qty-btn {
+/*.qty-btn {
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -253,7 +253,7 @@ html,
     background-color: var(--color-primary-03);
     color: var(--color-primary-01);
     cursor: pointer;
-}
+}*/
 
 .btn-retirar {
     background-color: var(--color-terciary-06);

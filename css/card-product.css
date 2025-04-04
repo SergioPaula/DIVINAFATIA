@@ -15,7 +15,7 @@ html,
 
 body {
     color: var(--all-text-color);
-    line-height: 1.6;
+    line-height: var(--leading-normal);
 }
 
 /* ====== SWIPER E CARDS ====== */
@@ -28,7 +28,7 @@ body {
     margin: 0;
     width: 90%;
     height: 100%;
-    margin-top: 4svh;
+    margin-top: var(--spacing-3);
     margin-bottom: var(--spacing-2);
 }
 
@@ -47,12 +47,12 @@ body {
 
 /* Card do produto */
 .swiper-slide {
-    border: 2px solid var(--all-text-color);
-    background-color: var(--button-text-color);
+    border: 1px solid var(--color-sombrabotao);
+    background-color: var(--color-background);
     border-radius: var(--radius-lg);
     padding: 10px 10px 0px 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
+    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -236,7 +236,7 @@ body {
     justify-content: center;
     gap: 16px;
     padding: 8px;
-    background: rgba(95, 53, 47, 0.10);
+    background: var(--color-sombrasuave);
     border-radius: 40px;
 }
 
@@ -244,8 +244,9 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    height: 42px;
     margin-top: auto;
-    background: rgba(95, 53, 47, 0.10);
+    background: var(--color-sombrasuave);
     border-radius: var(--radius-lg);
     justify-content: center;
 }
@@ -261,7 +262,7 @@ body {
 
 .current-price {
     font-family: var(--font-title);
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: var(--font-weight-regular) !important;
 }
 
@@ -269,39 +270,36 @@ body {
 .purchase-controls {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--spacing-2);
 }
 
 .quantity {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    background-color: var(--color-primary-03);
-    padding: 0.5rem;
-    border-radius: 8px;
+    background-color: var(--color-background);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-sombrabotao);
+    padding: var(--spacing-1);
     justify-content: space-around;
 }
 
 .qty-btn {
     width: 32px;
     height: 32px;
-    border-radius: 50%;
+    border-radius: var(--radius-lg);
     border: none;
     background-color: var(--color-background);
-    color: #2c3e50;
+    color: var(--color-primary-01);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--text-xl);
-    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3);
+    font-size: var(--text-2xl);
     transition: background-color 0.3s ease;
-    background-color: transparent;
-    box-shadow: none;
 }
 
 .qty-btn:hover {
-    background-color: var(--color-terciary-03);
+    background-color: var(--color-sombrasuave);
 }
 
 .qty-btn:disabled {

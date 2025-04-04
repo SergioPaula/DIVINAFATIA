@@ -278,7 +278,7 @@ html,
 }
 
 .modal-bodycart .remove-item {
-    position:static;
+    position: static;
     width: 10px;
     height: 10px;
     fill: var(--color-primary-01);
@@ -710,6 +710,9 @@ p .entrega {
         font-size: 0;
     }
 
+    .cart-items .cart-item {
+        display:block;       
+    }
 
 
     .item-details h3 {
@@ -742,14 +745,7 @@ p .entrega {
     }
 
     .label-nome,
-    .label-telefone,
-    .cep-container,
-    .endereco-container,
-    .numero-container,
-    .complemento-container,
-    .bairro-container,
-    .cidade-container,
-    .uf-container {
+    .label-telefone {
         grid-column: 1;
         /* Todos os elementos ocupam a coluna inteira */
     }
@@ -774,4 +770,36 @@ p .entrega {
         width: 120px;
         gap: var(--spacing-1);
     }
+
+    .endereco-cliente {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .cep-container {
+        grid-column: span 1;
+        grid-row: 1;
+    }
+
+    .endereco-container,
+    .numero-container {
+        grid-row: 2;
+    }
+
+
+    .complemento-container,
+    .bairro-container {
+        grid-row: 3;
+    }
+
+    .cidade-container,
+    .uf-container {
+        grid-row: 4;
+    }
+
+
+
+
+
+
 }

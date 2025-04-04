@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/card-product.css" media="screen">
     <link rel="stylesheet" href="./css/product-modal.css">
     <link rel="stylesheet" href="./css/cart-modal.css">
+    <link rel="stylesheet" href="./css/cart.css">
 
 
 
@@ -21,7 +22,7 @@
 </head>
 
 <body>
-   
+
 
     <!-- BARRA DE MENU -->
     <header class="herofarm">
@@ -29,17 +30,12 @@
             <nav class="menu-superior">
 
                 <div class="menu-superior-mobile">
-                    <div class="menu-burguer" id="burguer" >
+                    <div class="menu-burguer" id="burguer">
                         <svg class="icon-25">
                             <use href="./img/ICONS/icones-gerais.svg#menu-burguer" />
                         </svg>
                     </div>
 
-                    <a href="" class="nav-car">
-                        <svg class="cart-nav icon-25">
-                            <use href="./img/ICONS/icones-gerais.svg#icon-carrinho" />
-                        </svg>
-                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -91,15 +87,16 @@
                         </svg>
                         <p class="phone-nav">(11) 96207-3812</p>
                     </a>
-                    <a href="" class="nav-car">
-                        Minha Sacola
-                        <svg class="icon cart-nav">
-                            <use href="./img/ICONS/icones-gerais.svg#icon-carrinho" />
-                        </svg>
-
+                    <a href="" class="cart-button cart-desktop">
+                        <div class="cart-icon-container">
+                            <svg class="cart-nav">
+                                <use href="./img/ICONS/icones-gerais.svg#icon-carrinho" />
+                            </svg>
+                            <span class="cart-count">0</span>
+                        </div>
                     </a>
                 </div>
-                
+
             </nav>
         </div>
 
@@ -867,8 +864,10 @@
                                 <h2>Experimente o Bolo de Churros da Divina Fatia</h2>
                                 <p>O <strong>Bolo de Churros da Divina Fatia</strong> traz toda a nostalgia e sabor do
                                     churros
-                                    tradicional para um formato de bolo caseiro que vai encantar seu paladar. Cada mordida
-                                    combina o aroma irresistível da canela com a textura macia da massa e a indulgência do
+                                    tradicional para um formato de bolo caseiro que vai encantar seu paladar. Cada
+                                    mordida
+                                    combina o aroma irresistível da canela com a textura macia da massa e a indulgência
+                                    do
                                     doce
                                     de leite caseiro que derrete na boca.</p>
                             </div>
@@ -876,17 +875,21 @@
                                 <h3>Sabor Inigualável</h3>
                                 <p> Uma experiência sensorial completa: ao cortar a primeira fatia, o aroma de canela
                                     preenche o
-                                    ambiente, enquanto o visual do doce de leite escorrendo pelos lados cria uma antecipação
-                                    irresistível. É o tipo de bolo que evoca memórias afetivas e cria novas lembranças em
+                                    ambiente, enquanto o visual do doce de leite escorrendo pelos lados cria uma
+                                    antecipação
+                                    irresistível. É o tipo de bolo que evoca memórias afetivas e cria novas lembranças
+                                    em
                                     cada
                                     reunião familiar.</p>
                             </div>
                             <div class="txt-3">
                                 <h3>Por que escolher o Bolo de Churros da Divina Fatia?</h3>
-                                <p> Escolher nosso Bolo de Churros é optar por um momento especial compartilhado com quem
+                                <p> Escolher nosso Bolo de Churros é optar por um momento especial compartilhado com
+                                    quem
                                     você
                                     ama. Não é apenas um bolo, é um convite para pausar, apreciar e celebrar os pequenos
-                                    momentos. Feito com ingredientes criteriosamente selecionados e preparado com o carinho
+                                    momentos. Feito com ingredientes criteriosamente selecionados e preparado com o
+                                    carinho
                                     que
                                     só a produção artesanal proporciona.</p>
                             </div>
@@ -1278,11 +1281,11 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/scripts.js"></script>
     <script src="./js/products-config.js"></script>
-    <script src="./js/product-modal.js"></script>
-    <script src="./js/cart-modal.js"></script>
+    <script src="./js/cart.js"></script>
+<script src="./js/product-modal2.js"></script>
+   <!-- <script src="./js/cart-modal.js"></script> -->
     <script src="./js/filter-menu.js"></script>
     <script src="./js/dados.js"></script>
-    <script src="./js/mobile-menu.js"></script>
 
 </body>
 

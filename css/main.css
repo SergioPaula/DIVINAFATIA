@@ -261,9 +261,9 @@ button {
 
 .cart-nav {
     fill: currentColor;
-    /* Permite mudar cor via color */
+    margin-top: 8px;
+    margin-right: 5px;
     width: 24px;
-    /* ou o tamanho que quiser */
     height: 24px;
 }
 
@@ -315,8 +315,11 @@ nav {
     align-items: center;
 }
 
-nav a {
-    text-decoration: none;
+.nav-item, .nav-icon {
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    align-content: center;
 }
 
 .navbar-brand {
@@ -326,7 +329,7 @@ nav a {
     top: 1.5rem;
 }
 
-.nav-item a {
+.nav-link {
     font-family: var(--font-body);
     font-size: var(--text-base);
     font-weight: var(--font-weight-bold);
@@ -338,59 +341,83 @@ nav a {
 
 .navbar-nav {
     display: flex;
-    gap: 32px;
+    gap: var(--spacing-3);
     list-style: none;
-    margin-left: 1rem;
+    min-width: 18svw;
+    max-width: 35svw;
+    margin-left: var(--spacing-2);
+}
+
+.navbar-nav li {
+    flex: auto;
 }
 
 .btn-social {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: space-between;
+    min-width: 18svw;
+    max-width: 40svw;
 }
 
 .nav-icon {
-    background-color: var(--color-sombrabotao);
+    background-color: none;
     border-radius: var(--radius-lg);
-    padding: 8px 12px;
+    padding: 0px 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .nav-icon:hover {
-    background-color: var(--color-terciary-03);
+    background-color: var(--color-sombrabotao);
 
 }
-.nav-car:hover {
-    background-color: var(--color-secondary-03);
-    color: var(--button-text-color);    
+.cart-button:hover {
+    background-color: var(--color-sombrabotao);    
 }
 
-.nav-car:hover .cart-nav {
-    fill: var(--button-text-color);
-}
-
-
-
-.nav-car {
-    background-color: var(--color-terciary-03);
+.cart-button {
+    background-color: none;
     border-radius: var(--radius-lg);
     display: flex;
-    padding: 8px 16px;
+    padding: 0px 12px;
     justify-content: center;
     align-items: center;
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-bold);
-    gap: 16px;
 }
 
 .phone-nav {
-    margin-left: var(--spacing-3);
-    margin-right: var(--spacing-3);
+    text-align: center;
+    margin-left: var(--spacing-2);
     font-family: var(--font-title);    
     font-size: var(--text-md);
+}
+
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    background-color: var(--color-terciary-06); /* Rosa escuro */
+    color: white;
+    font-size: 12px;
+    font-weight: var(--font-weight-bold);
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+}
+
+/* Esconde o contador quando está vazio */
+.cart-count.empty {
+    display: none;
 }
 
 .text-head {

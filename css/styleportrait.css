@@ -112,9 +112,14 @@
         display: none;
     }
 
-    nav .btn-social {
+    
+    .btn-social .nav-icon {
         display: none;
-    }
+      }
+
+      .btn-social {
+        justify-content: end;
+      }
 
     .navbar-brand > img {
         width: 90px;

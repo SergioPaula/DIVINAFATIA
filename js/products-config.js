@@ -113,25 +113,6 @@ function setupQuantityControls(container) {
     });
 }
 
-// Adicionar à sacola (integração com WhatsApp)
-function setupAddToCartButtons() {
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const productId = parseInt(e.target.dataset.product);
-            const product = products.find(p => p.id === productId);
-            const quantityElement = e.target.parentElement.parentElement.querySelector('.qty-display');
-            const quantity = parseInt(quantityElement.textContent);
-
-            if (product) {
-                const total = product.price * quantity;
-                const message = `Olá! Gostaria de encomendar ${quantity}x ${product.name} por ${formatPrice(total)}`;
-                const whatsappUrl = `https://wa.me/5511962073812?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-            }
-        });
-    });
-}
-
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     // Configurar controles de quantidade em todos os cards
@@ -139,8 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setupQuantityControls(container);
     });
 
-    // Configurar botões de adicionar à sacola
-    setupAddToCartButtons();
+    // Configurar botões de adicionar à sacola - esta função será substituída pela do cart.js
+    if (typeof window.setupAddToCartButtons === 'function') {
+        window.setupAddToCartButtons();
+    }
 
     // Adicionar evento de clique nas imagens dos produtos para abrir o modal
     document.querySelectorAll('.card-image img').forEach(img => {

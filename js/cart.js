@@ -68,17 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Configurar os botões "Adicionar à Sacola" em todos os cards de produto
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = parseInt(button.dataset.product);
-            const quantityElement = button.closest('.product-card').querySelector('.qty-display');
-            const quantity = parseInt(quantityElement.textContent);
-            
-            addToCart(productId, quantity);
-        });
-    });
-
+    // NOVA PARTE: Configurar os botões "Adicionar à Sacola" em todos os cards de produto
+    setupAddToCartButtons();
+    
     // Inicializar o carrinho
     function initCart() {
         // Atualizar o contador de itens
@@ -91,6 +83,27 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartTotals();
     }
 });
+
+// NOVA FUNÇÃO: Configurar botões "Adicionar à Sacola" nos cards
+function setupAddToCartButtons() {
+    // Selecionar todos os botões "Adicionar à Sacola" nos cards
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', (e) => {
+            // Evitar comportamento padrão do botão
+            e.preventDefault();
+            
+            // Obter ID do produto do atributo data-product
+            const productId = parseInt(button.dataset.product);
+            
+            // Obter a quantidade selecionada
+            const quantityElement = button.closest('.purchase-controls').querySelector('.qty-display');
+            const quantity = parseInt(quantityElement.textContent);
+            
+            // Adicionar o produto ao carrinho
+            addToCart(productId, quantity);
+        });
+    });
+}
 
 // Função para adicionar produto ao carrinho (pode ser chamada de qualquer lugar)
 function addToCart(productId, quantity = 1) {
@@ -163,6 +176,8 @@ function renderCartItems() {
     const cartItemsContainer = document.getElementById('itensCarrinho');
     
     // Limpar o conteúdo atual
+    if (!cartItemsContainer) return;
+    
     cartItemsContainer.innerHTML = '';
     
     if (cartItems.length === 0) {
@@ -216,6 +231,8 @@ function renderCartItems() {
 // Renderiza o resumo do pedido (passo 3)
 function renderOrderSummary() {
     const summaryItemsContainer = document.querySelector('.summary-items');
+    if (!summaryItemsContainer) return;
+    
     summaryItemsContainer.innerHTML = '';
     
     cartItems.forEach(item => {
@@ -247,12 +264,12 @@ function updateDeliveryAddress() {
     
     if (!addressElement || !addressContainer) return;
     
-    const cep = document.getElementById('txtCEP').value;
-    const street = document.getElementById('address').value;
-    const number = document.getElementById('txtNumero').value;
-    const neighborhood = document.getElementById('txtBairro').value;
-    const city = document.getElementById('txtCidade').value;
-    const state = document.getElementById('ddlUF').value;
+    const cep = document.getElementById('txtCEP')?.value || '';
+    const street = document.getElementById('address')?.value || '';
+    const number = document.getElementById('txtNumero')?.value || '';
+    const neighborhood = document.getElementById('txtBairro')?.value || '';
+    const city = document.getElementById('txtCidade')?.value || '';
+    const state = document.getElementById('ddlUF')?.value || '';
     
     if (street && city) {
         addressContainer.innerHTML = `
@@ -365,15 +382,15 @@ function sendOrderToWhatsApp() {
     if (cartItems.length === 0) return;
     
     // Obter os dados do cliente
-    const name = document.getElementById('txtNomeCliente').value;
-    const phone = document.getElementById('txtContatoCliente').value;
-    const address = document.getElementById('address').value;
-    const number = document.getElementById('txtNumero').value;
-    const complement = document.getElementById('txtComplemento').value;
-    const neighborhood = document.getElementById('txtBairro').value;
-    const city = document.getElementById('txtCidade').value;
-    const state = document.getElementById('ddlUF').value;
-    const cep = document.getElementById('txtCEP').value;
+    const name = document.getElementById('txtNomeCliente')?.value || '';
+    const phone = document.getElementById('txtContatoCliente')?.value || '';
+    const address = document.getElementById('address')?.value || '';
+    const number = document.getElementById('txtNumero')?.value || '';
+    const complement = document.getElementById('txtComplemento')?.value || '';
+    const neighborhood = document.getElementById('txtBairro')?.value || '';
+    const city = document.getElementById('txtCidade')?.value || '';
+    const state = document.getElementById('ddlUF')?.value || '';
+    const cep = document.getElementById('txtCEP')?.value || '';
     
     // Verificar dados obrigatórios
     if (!name || !phone || !address || !number || !neighborhood || !city || !state) {
@@ -527,3 +544,43 @@ function initCepSearch() {
 
 // Inicializar o CEP quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', initCepSearch);
+
+// Inicializar os controles de quantidade em todos os cards de produtos
+document.addEventListener('DOMContentLoaded', () => {
+    // Controles de quantidade nos cards de produtos
+    document.querySelectorAll('.quantity').forEach(container => {
+        setupQuantityControls(container);
+    });
+});
+
+// Configurar controles de quantidade
+function setupQuantityControls(container) {
+    if (!container) return;
+    
+    const minusBtn = container.querySelector('.minus');
+    const plusBtn = container.querySelector('.plus');
+    const displayElement = container.querySelector('.qty-display');
+    
+    if (!minusBtn || !plusBtn || !displayElement) return;
+    
+    minusBtn.addEventListener('click', () => {
+        let quantity = parseInt(displayElement.textContent);
+        if (quantity > 1) {
+            quantity--;
+            displayElement.textContent = quantity;
+        }
+        minusBtn.disabled = quantity <= 1;
+    });
+    
+    plusBtn.addEventListener('click', () => {
+        let quantity = parseInt(displayElement.textContent);
+        quantity++;
+        displayElement.textContent = quantity;
+        minusBtn.disabled = false;
+    });
+}
+
+// Expor funções globalmente para uso em outros scripts
+window.addToCart = addToCart;
+window.setupQuantityControls = setupQuantityControls;
+window.setupAddToCartButtons = setupAddToCartButtons;

@@ -373,7 +373,7 @@ nav {
     background-color: var(--color-sombrabotao);
 
 }
-/*.cart-button:hover {
+.cart-button:hover {
     background-color: var(--color-sombrabotao);    
 }
 
@@ -384,7 +384,7 @@ nav {
     padding: 0px 12px;
     justify-content: center;
     align-items: center;
-}*/
+}
 
 .phone-nav {
     text-align: center;
@@ -398,7 +398,7 @@ nav {
     display: inline-block;
 }
 
-/*.cart-count {
+.cart-count {
     position: absolute;
     top: -5px;
     right: -15px;
@@ -417,7 +417,7 @@ nav {
 
 .cart-count.empty {
     display: none;
-}*/
+}
 
 .text-head {
     display: flex;

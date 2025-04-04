@@ -3,6 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Elementos do modal
     const productModal = document.querySelector('.modalproduct-overlay');
+    if (!productModal) return;
+
     const closeButton = productModal.querySelector('.modal-close');
     
     // Configurar botão de fechar
@@ -26,22 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Inicializar controles de quantidade no modal
-    setupQuantityControls(productModal.querySelector('.quantity'));
-    
     // Configurar botão de adicionar ao carrinho no modal
     const addToCartButton = productModal.querySelector('.add-to-cartproduct');
-    if (addToCartButton) {
+    if (addToCartButton && !addToCartButton.dataset.initialized) {
         addToCartButton.addEventListener('click', () => {
             const productId = parseInt(addToCartButton.dataset.product);
             const quantity = parseInt(productModal.querySelector('.qty-display').textContent);
             
             // Adicionar ao carrinho
-            addToCart(productId, quantity);
+            if (typeof window.addToCart === 'function') {
+                window.addToCart(productId, quantity);
+            }
             
             // Fechar o modal
             closeProductModal();
         });
+        
+        // Marcar como inicializado
+        addToCartButton.dataset.initialized = "true";
     }
     
     // Configurar navegação por abas no modal
@@ -50,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Função para mostrar o modal de produto
 function showProductModal(productId) {
-    const product = products.find(p => p.id === productId);
+    const product = window.products.find(p => p.id === productId);
     
     if (!product) {
         console.error(`Produto com ID ${productId} não encontrado`);
@@ -77,6 +81,9 @@ function showProductModal(productId) {
     if (addToCartButton) {
         addToCartButton.dataset.product = productId;
     }
+    
+    // Configurar os controles de quantidade no modal - uso da versão corrigida
+    setupModalQuantityControls(productModal.querySelector('.quantity'));
 }
 
 // Função para fechar o modal de produto
@@ -142,14 +149,14 @@ function populateProductModal(product) {
     const currentPrice = modal.querySelector('.current-price');
     
     if (oldPrice && product.oldPrice) {
-        oldPrice.textContent = formatPrice(product.oldPrice);
+        oldPrice.textContent = window.formatPrice(product.oldPrice);
         oldPrice.style.display = 'inline-block';
     } else if (oldPrice) {
         oldPrice.style.display = 'none';
     }
     
     if (currentPrice) {
-        currentPrice.textContent = formatPrice(product.price);
+        currentPrice.textContent = window.formatPrice(product.price);
     }
     
     // Conteúdo detalhado
@@ -217,16 +224,26 @@ function populateDetailedContent(product) {
     }
 }
 
-// Configurar os controles de quantidade (+ e -)
-function setupQuantityControls(container) {
+// Configurar os controles de quantidade (+ e -) no modal
+// Esta é uma versão específica para o modal, separada da função no products-config.js
+function setupModalQuantityControls(container) {
     if (!container) return;
     
-    const minusBtn = container.querySelector('.minus');
-    const plusBtn = container.querySelector('.plus');
+    // Remover os botões antigos e substituir por novos
+    const oldMinusBtn = container.querySelector('.minus');
+    const oldPlusBtn = container.querySelector('.plus');
     const displayElement = container.querySelector('.qty-display');
     
-    if (!minusBtn || !plusBtn || !displayElement) return;
+    if (!oldMinusBtn || !oldPlusBtn || !displayElement) return;
     
+    // Clonar e substituir para remover event listeners antigos
+    const minusBtn = oldMinusBtn.cloneNode(true);
+    const plusBtn = oldPlusBtn.cloneNode(true);
+    
+    oldMinusBtn.replaceWith(minusBtn);
+    oldPlusBtn.replaceWith(plusBtn);
+    
+    // Configurar novos event listeners
     minusBtn.addEventListener('click', () => {
         let quantity = parseInt(displayElement.textContent);
         if (quantity > 1) {
@@ -288,4 +305,4 @@ function setupModalTabs() {
 // Tornar funções globais para serem acessadas por outros scripts
 window.showProductModal = showProductModal;
 window.closeProductModal = closeProductModal;
-window.setupQuantityControls = setupQuantityControls;
+window.setupModalQuantityControls = setupModalQuantityControls;

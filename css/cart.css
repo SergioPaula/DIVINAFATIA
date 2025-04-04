@@ -1,4 +1,4 @@
-/* Estilos para o contador do carrinho */
+/* 
 .cart-icon-container {
     position: relative;
     display: inline-flex;
@@ -10,7 +10,7 @@
     position: absolute;
     top: -8px;
     right: -8px;
-    background-color: var(--color-terciary-06); /* Rosa escuro */
+    background-color: var(--color-terciary-06); 
     color: white;
     font-size: 12px;
     font-weight: var(--font-weight-bold);
@@ -22,7 +22,7 @@
     justify-content: center;
     padding: 0 4px;
     transition: all 0.3s ease;
-}
+}*/
 
 /* Esconde o contador quando está vazio */
 .cart-count.empty {
@@ -31,7 +31,7 @@
 }
 
 /* Estilo para o botão do carrinho */
-.cart-button {
+/*.cart-button {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -41,9 +41,9 @@
     padding: 8px 16px;
     transition: all 0.3s ease;
     cursor: pointer;
-}
+}*/
 
-.cart-button:hover {
+/*.cart-button:hover {
     background-color: var(--color-secondary-03);
     color: var(--button-text-color);
 }
@@ -51,7 +51,7 @@
 .cart-button:hover .cart-nav {
     fill: var(--button-text-color);
 }
-
+*/
 /* Estilo para o carrinho vazio */
 .empty-cart {
     display: flex;

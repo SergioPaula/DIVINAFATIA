@@ -802,7 +802,7 @@
                                     <button class="qty-btn plus" data-product="1">+</button>
                                 </div>
                                 <button class="add-to-cartproduct" data-product="1">
-                                    <svg class="cart-modal">
+                                    <svg class="icon-cart-modal">
                                         <use href="./img/ICONS/icones-gerais.svg#icon-carrinho"></use>
                                     </svg>
 
@@ -956,8 +956,9 @@
                     <div class="step" data-step="2">2</div>
                     <div class="step" data-step="3">3</div>
                 </div>
-                <h2 class="modal-title" id="lblTituloEtapa">Seu Pedido</h2>
-                <button class="close-modal-cart">Fechar <svg class="x-modal">
+                <button class="close-modal-cart">
+                    <span>Fechar</span>
+                    <svg class="x-modal">
                         <use href="./img/ICONS/icones-gerais.svg#icon-x" />
                     </svg></button>
 
@@ -967,8 +968,10 @@
             <div class="modal-bodycart">
                 <!-- Passo 1: Lista de Itens -->
                 <div class="step-content step-1 active">
+                    <h2 class="modal-title" id="lblTituloEtapa">Seu Pedido</h2>
                     <div class="cart-items" id="itensCarrinho">
                         <!-- Os itens do carrinho serão inseridos aqui dinamicamente -->
+
                         <div class="cart-item">
                             <div class="items-details">
                                 <div class="item-image">
@@ -1136,97 +1139,11 @@
                                         </div>
                                         <p class="qtd-produto-resumo">x <b>3</b></p>
                                     </div>
-
-                                    <div class="item-carrinho-content">
-                                        <div class="item-details-group">
-                                            <div class="item-image-resumo">
-                                                <img src="./img/PRODUTOS/02-fuba/20230722_121127.jpg" alt="Produto">
-                                            </div>
-                                            <div class="item-details">
-                                                <h3 class="title-produto-resumo">Bolo de Cenoura com Cobertura de
-                                                    Chocolate</h3>
-                                                <p class="price">R$ 79,90</p>
-                                            </div>
-                                        </div>
-                                        <p class="qtd-produto-resumo">x <b>3</b></p>
-                                    </div>
-
-                                    <div class="item-carrinho-content">
-                                        <div class="item-details-group">
-                                            <div class="item-image-resumo">
-                                                <img src="./img/PRODUTOS/02-fuba/20230722_121127.jpg" alt="Produto">
-                                            </div>
-                                            <div class="item-details">
-                                                <h3 class="title-produto-resumo">Bolo de Cenoura com Cobertura de
-                                                    Chocolate</h3>
-                                                <p class="price">R$ 79,90</p>
-                                            </div>
-                                        </div>
-                                        <p class="qtd-produto-resumo">x <b>3</b></p>
-                                    </div>
-
-                                    <div class="item-carrinho-content">
-                                        <div class="item-details-group">
-                                            <div class="item-image-resumo">
-                                                <img src="./img/PRODUTOS/02-fuba/20230722_121127.jpg" alt="Produto">
-                                            </div>
-                                            <div class="item-details">
-                                                <h3 class="title-produto-resumo">Bolo de Cenoura com Cobertura de
-                                                    Chocolate</h3>
-                                                <p class="price">R$ 79,90</p>
-                                            </div>
-                                        </div>
-                                        <p class="qtd-produto-resumo">x <b>3</b></p>
-                                    </div>
-
-                                    <div class="item-carrinho-content">
-                                        <div class="item-details-group">
-                                            <div class="item-image-resumo">
-                                                <img src="./img/PRODUTOS/02-fuba/20230722_121127.jpg" alt="Produto">
-                                            </div>
-                                            <div class="item-details">
-                                                <h3 class="title-produto-resumo">Bolo de Cenoura com Cobertura de
-                                                    Chocolate</h3>
-                                                <p class="price">R$ 79,90</p>
-                                            </div>
-                                        </div>
-                                        <p class="qtd-produto-resumo">x <b>3</b></p>
-                                    </div>
-
-                                    <div class="item-carrinho-content">
-                                        <div class="item-details-group">
-                                            <div class="item-image-resumo">
-                                                <img src="./img/PRODUTOS/02-fuba/20230722_121127.jpg" alt="Produto">
-                                            </div>
-                                            <div class="item-details">
-                                                <h3 class="title-produto-resumo">Bolo de Cenoura com Cobertura de
-                                                    Chocolate</h3>
-                                                <p class="price">R$ 79,90</p>
-                                            </div>
-                                        </div>
-                                        <p class="qtd-produto-resumo">x <b>3</b></p>
-                                    </div>
-
-                                    <div class="item-carrinho-content">
-                                        <div class="item-details-group">
-                                            <div class="item-image-resumo">
-                                                <img src="./img/PRODUTOS/02-fuba/20230722_121127.jpg" alt="Produto">
-                                            </div>
-                                            <div class="item-details">
-                                                <h3 class="title-produto-resumo">Bolo de Cenoura com Cobertura de
-                                                    Chocolate</h3>
-                                                <p class="price">R$ 79,90</p>
-                                            </div>
-                                        </div>
-                                        <p class="qtd-produto-resumo">x <b>3</b></p>
-                                    </div>
+                                    
 
                                 </div>
                             </div>
                         </div>
-
-
-
 
                         <div class="delivery-info">
                             <h4 class="title-carrinho">Endereço de Entrega</h4>

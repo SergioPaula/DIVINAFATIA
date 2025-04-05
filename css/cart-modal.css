@@ -74,9 +74,12 @@ html,
     height: 30px;
     border-radius: 30px;
     background: var(--color-sombrabotao);
-    border: 0px solid var(--color-primary-01);
-    font-size: 18px;
-    cursor: pointer;
+    border: 0px solid var(--color-primary-01);    
+    cursor: pointer;    
+}
+
+.close-modal-cart span {
+    font-size: var(--text-sm);
     color: var(--color-primary-01);
 }
 
@@ -108,7 +111,7 @@ html,
     color: var(--color-primary-01);
     font-family: var(--font-body);
     font-weight: var(--font-weight-bold);
-    box-shadow: var(--shadow-lg);
+    box-shadow: none;
 }
 
 .step::before {
@@ -133,7 +136,7 @@ html,
     text-align: center;
     font-family: var(--font-title);
     color: var(--color-primary-01);
-    margin: 0;
+    margin-top: var(--spacing-3);
     font-size: var(--text-xl);
 }
 
@@ -557,7 +560,8 @@ html,
     left: 10%;
     right: 3%;
     bottom: 30%;
-    border-bottom: 1px dotted var(--color-marrom-claro);
+    border-bottom: 1px dotted var(--color-primary-01);
+    opacity: .4;
     z-index: 1;
     /* Abaixo do texto */
 }
@@ -601,7 +605,7 @@ html,
 }
 
 .delivery-info {
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-3);
     padding-top: 0px;
 
 }
@@ -678,26 +682,48 @@ p .entrega {
     background-color: var(--color-primary-03);
     background-image: url('../img/PATTERNS/pattern_amarelo.avif');
     background-size: 15%;
+    object-fit: cover;
+    background-position-x: center;
 }
 
 @media (max-width: 768px) {
 
+    .cart-modal {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
 
     .cart-modal .modal-content {
-        max-width: 100svw;
+        max-width: 100%;
+        width: 100%;
         height: 100svh;
         margin: 0;
         border-radius: 0;
-        padding: var(--spacing-3);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        padding: var(--spacing-4);
     }
+
+    .modal-overlay {
+        background-color: var(--color-background);
+        border: none;
+        height: 150%;
+    }
+
 
     .modal-content h2 {
         font-size: var(--text-lg);
     }
 
     .step {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
     }
 
     .step::before {
@@ -706,11 +732,11 @@ p .entrega {
         background-color: var(--color-sombra);
         position: absolute;
         height: 2px;
-        margin-left: 35px;
+        margin-left: 45px;
     }
 
-    .close-modal-cart {
-        font-size: 0;
+    .close-modal-cart span {
+        display: none;
     }
 
     .cart-items .cart-item {
@@ -753,10 +779,7 @@ p .entrega {
         /* Todos os elementos ocupam a coluna inteira */
     }
 
-    .item-carrinho-content {
-        padding-right: 50px;
-        /* Espaço para a quantidade */
-    }
+    
 
     .qtd-produto-resumo {
         position: absolute;
@@ -767,12 +790,16 @@ p .entrega {
 
     .faixa-decorativa {
         background-size: 40%;
+        background-position: center;
+        
     }
 
     .modal-bodycart .item-quantity {
         width: 120px;
         gap: var(--spacing-1);
     }
+
+    /*STEP 2*/
 
     .endereco-cliente {
         grid-template-rows: repeat(4, 1fr);
@@ -817,11 +844,55 @@ p .entrega {
     }
 
     .order-summary {
-        display: grid;
-        grid-template-columns: 1fr;
-    
+        display: flex;
+        flex-direction: column;    
     }
 
+
+    /*STEP 3*/
+    .itens-escolhidos {
+        border-right: none;
+        height: 100%;
+    }
+
+    .summary-items {
+        padding: 0 var(--spacing-3);
+        gap: var(--spacing-3);
+    }
+
+    .title-carrinho {
+        margin-bottom: var(--spacing-2);
+        font-size: var(--text-lg);
+    }
+
+    .item-carrinho-content {
+        padding: var(--spacing-2) 50px 0 0;
+        /* Espaço para a quantidade */
+    }
+    
+
+    .item-carrinho-content::after {
+        content: "";
+        position: absolute;
+        left: 35%;
+        right: 10%;
+        bottom: 30%;
+        border-bottom: 1px dotted var(--color-primary-01);
+        opacity: .4;
+        z-index: 1;
+    }
+
+    .resumo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        gap: var(--spacing-3);
+    }
+
+    .delivery-info {
+     margin-bottom: var(--spacing-2);   
+    }
 
 
 

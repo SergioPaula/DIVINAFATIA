@@ -772,29 +772,51 @@ p .entrega {
     }
 
     .endereco-cliente {
-        grid-template-columns: 1fr;
         grid-template-rows: repeat(4, 1fr);
+        margin-bottom: var(--spacing-4);
     }
 
     .cep-container {
-        grid-column: span 1;
+        grid-column: span 12;
         grid-row: 1;
     }
 
-    .endereco-container,
+    .endereco-container {
+        grid-column: span 10;
+        grid-row: 2;
+    }
+
     .numero-container {
+        grid-column: span 2;
         grid-row: 2;
     }
 
 
-    .complemento-container,
-    .bairro-container {
+    .complemento-container{
+        grid-column: span 7;
         grid-row: 3;
     }
 
-    .cidade-container,
-    .uf-container {
+    .bairro-container {
+        grid-column: span 5;
+        grid-row: 3;
+    }
+
+    .cidade-container {
+        grid-column: span 10;
         grid-row: 4;
+    }
+
+
+    .uf-container {
+        grid-column: span 2;
+        grid-row: 4;
+    }
+
+    .order-summary {
+        display: grid;
+        grid-template-columns: 1fr;
+    
     }
 
 

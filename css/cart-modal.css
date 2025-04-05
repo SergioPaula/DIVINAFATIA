@@ -683,8 +683,11 @@ p .entrega {
 @media (max-width: 768px) {
 
 
-    .modal-content {
+    .cart-modal .modal-content {
         max-width: 100svw;
+        height: 100svh;
+        margin: 0;
+        border-radius: 0;
         padding: var(--spacing-3);
     }
 

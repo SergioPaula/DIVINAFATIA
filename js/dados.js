@@ -1,4 +1,6 @@
 var MENU = {
+
+    //separado por categoria
     "churrasco": [
         {
             "id": "ribs-brisket-and-burnt-ends",

@@ -254,9 +254,10 @@ body {
     font-family: var(--font-body);
     font-weight: var(--font-weight-regular);
     text-decoration-line: line-through;
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     color: var(--color-primary-01);
     opacity: .5;
+    margin-right: var(--spacing-1);
 }
 
 .current-price {
@@ -468,7 +469,7 @@ body {
     }
 
     .old-price {
-        font-size: var(--text-base);
+        font-size: var(--text-sm);
     }
 
     .current-price {

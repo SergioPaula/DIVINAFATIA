@@ -19,3 +19,29 @@ itemsFilter.forEach(item => {
     });
 });
 
+$(document).ready(function () {
+    cardapio.eventos.init();
+})
+
+
+var cardapio = {};
+
+cardapio.eventos = {
+    init: () => {
+        console.log('iniciou')
+    }
+}
+
+cardapio.metodos = {
+
+    //Obtem a lista de itens do cardapio
+    obterItensCardapio: () => {
+        var filtro = MENU['Bolos sem Cobertura'];
+        console.log(filtro);
+    }
+
+}
+
+cardapio.templates = {
+
+}

@@ -116,6 +116,32 @@ body {
 }
 
 /* Tags */
+.area-menu-tag {
+    display: flex;
+    gap: var(--spacing-2);
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: var(--spacing-2);
+}
+
+.filter-tag span {
+    background-color: var(--color-sombra);
+    cursor: pointer;
+}
+
+.filter-tag-promo:hover {
+    background-color: #FFB2B8;
+}
+
+.filter-tag-news:hover {
+    background-color: #B2B7FF;
+}
+
+.filter-tag-hot:hover {
+    background-color: #FFEB99;
+}
+
+
 .tags {
     position: absolute;
     top: 8px;
@@ -135,15 +161,15 @@ body {
     font-size: 0.8rem;
 }
 
-.tag.new {
+.tag.tag-news {
     background-color: #B2B7FF;
 }
 
-.tag.bestseller {
+.tag.tag-hot {
     background-color: #FFEB99;
 }
 
-.tag.sale {
+.tag.tag-promo {
     background-color: #FFB2B8;
 }
 

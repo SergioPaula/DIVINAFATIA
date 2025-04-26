@@ -1,4 +1,4 @@
-// Adicione este código como um novo arquivo js/sticky-cart.js ou inclua no final do arquivo scripts.js
+// Versão corrigida do sticky-cart.js
 
 document.addEventListener('DOMContentLoaded', function() {
     // Seleciona o botão flutuante do carrinho
@@ -26,27 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Função para mostrar/esconder o botão do carrinho flutuante baseado na rolagem
     function toggleStickyCart() {
-        // Define a posição de rolagem em que o botão deve aparecer (ajuste conforme necessário)
-        // Por exemplo, depois de rolar 300px do topo da página
-        const cardapioSection = document.querySelector('.cardapio');
+        // Mudamos para que o carrinho apareça logo após começar a rolagem
+        // Valor mais baixo faz com que apareça mais cedo
+        const scrollThreshold = 600; // Ajuste este valor para controlar quando o carrinho aparece
         
-        if (cardapioSection) {
-            const cardapioPosition = cardapioSection.getBoundingClientRect().top;
-            
-            if (cardapioPosition <= 0) {
-                // Mostrar o botão flutuante quando passar da seção de cardápio
-                stickyCart.classList.add('visible');
-            } else {
-                // Esconder o botão flutuante quando estiver acima da seção de cardápio
-                stickyCart.classList.remove('visible');
-            }
+        if (window.scrollY > scrollThreshold) {
+            // Mostrar o botão flutuante quando rolar além do limite
+            stickyCart.classList.add('visible');
         } else {
-            // Fallback se a seção de cardápio não for encontrada, baseado na rolagem
-            if (window.scrollY > 300) {
-                stickyCart.classList.add('visible');
-            } else {
-                stickyCart.classList.remove('visible');
-            }
+            // Esconder o botão flutuante quando estiver próximo ao topo
+            stickyCart.classList.remove('visible');
         }
     }
     
@@ -74,6 +63,15 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+    
+    // Corrigindo o bug do modal: garantir que ao fechar o modal o scroll volte a funcionar
+    const closeButtons = document.querySelectorAll('.close-modal-cart, .modal-overlay');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remover a classe modal-open do body para reativar o scroll
+            document.body.classList.remove('modal-open');
+        });
+    });
     
     // Adicionar a função ao evento de rolagem da página
     window.addEventListener('scroll', toggleStickyCart);

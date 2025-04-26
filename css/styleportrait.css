@@ -402,7 +402,7 @@
         width: calc(100% - 40px);
     }
 
-/*CARRINHO FLUTUANTE*/
+    /*CARRINHO FLUTUANTE*/
 
     /* Estilo para o botão flutuante do carrinho em mobile */
     .cart-sticky-mobile {
@@ -468,6 +468,283 @@
     }
 }
 
+/* ====== ESTILOS PARA TABLETS ====== */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    /* Tipografia para tablet */
+    h1 {
+        font-family: var(--font-title);
+        font-size: var(--text-4xl);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--leading-tight);
+    }
+
+    h2 {
+        font-family: var(--font-title);
+        font-size: var(--text-3xl);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--leading-tight);
+    }
+
+    h3 {
+        font-family: var(--font-title);
+        font-size: var(--text-2xl);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--leading-tight);
+    }
+
+    /* Layout para tablet */
+    .container {
+        max-width: 100%;
+        padding: 0 var(--spacing-5);
+    }
+
+    /* ====== HEADER E NAVEGAÇÃO ====== */
+    .menu-superior {
+        padding: var(--spacing-3) var(--spacing-4);
+        margin-top: var(--spacing-5);
+    }
+
+    /* Ajuste para o menu mobile não aparecer em tablets */
+    .menu-superior-mobile {
+        display: flex;
+    }
+
+    /* Navegação - exibir links do menu em formato simplificado */
+    .navbar-nav {
+        display: none;
+        max-width: 45%;
+    }
+
+    .navbar-brand>img {
+        width: 80px;
+    }
+
+    /* Mostrar ícones de redes sociais, mas ocultar número de telefone */
+    .btn-social .nav-icon {
+        display: flex;
+    }
+
+    .phone-nav {
+        display: none;
+    }
+
+    /* ====== HERO SECTION ====== */
+    .text-head {
+        max-width: 60%;
+        margin-top: 10vh;
+        padding-bottom: 30vh;
+        padding-left: var(--spacing-4);
+    }
+
+    .text-head .btn-social {
+        flex-direction: row;
+        gap: var(--spacing-4);
+    }
+
+    .big-cake-head {
+        left: 60%;
+        max-width: 60%;
+        bottom: 10vh;
+    }
+
+    /* ====== SEÇÃO SERVIÇO ====== */
+    .big-brand-central {
+        max-width: 25vw;
+    }
+
+    .box-yellow::before,
+    .box-yellow::after {
+        /* Reduzir tamanho das imagens decorativas */
+        transform: scale(0.7);
+    }
+
+    .conteudo-boxy {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--spacing-4);
+    }
+
+    .conteudo-boxy>figure {
+        grid-column: 1/7;
+
+    }
+
+    .bolo-polaroid {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .text-boxyellow {
+        grid-column: 7/13;
+    }
+
+    /* ====== FAIXA MARROM ====== */
+    .como-fazemos {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        gap: var(--spacing-3);
+    }
+
+    .icon-txt p {
+        font-size: var(--text-sm);
+    }
+
+
+
+    /* ====== SEÇÃO CHEIRINHO ====== */
+    .box-cheirinho {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--spacing-3);
+    }
+
+    .box-cheirinho> :nth-child(2) {
+        grid-column: 1/4;
+    }
+
+    .box-cheirinho> :nth-child(3) {
+        grid-column: 5/8;
+        padding-top: var(--spacing-6);
+    }
+
+    #bolo-cenoura {
+        grid-column: 8/13;
+    }
+
+    /* ====== DEPOIMENTOS ====== */
+
+    .caixa-depoimento {
+        display: flex;
+        padding: var(--spacing-6);
+        align-items: center;
+    }
+
+    .caixa-depoimento>img {
+        display: none;
+    }
+
+    .conteudo-depoimento {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        gap: var(--spacing-3);
+    }
+
+    .foto-depoimento {
+        width: 150px;
+    }
+
+    /* ====== PROPÓSITO ====== */
+    .box-proposito {
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--spacing-3);
+    }
+
+    .box-proposito img {
+        grid-column: 1/6;
+    }
+
+    .box-proposito .conteudo-proposito {
+        grid-column: 6/13;
+    }
+
+    /* ====== RODAPÉ ====== */
+    .conteudo-rodape {
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: var(--spacing-3);
+    }
+
+    .convite-rodape {
+        grid-column: 1/5;
+    }
+
+    .paracontato-rodape {
+        grid-column: 5/13;
+    }
+
+    /* ====== MODAL DE CARRINHO ====== */
+    .cart-modal .modal-content {
+        max-width: 90%;
+        width: 90%;
+        height: 90vh;
+        margin: 5vh auto;
+    }
+
+    .modal-bodycart .cart-item {
+        padding: var(--spacing-3) var(--spacing-2);
+    }
+
+    .endereco-cliente {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto auto auto;
+    }
+
+    .cep-container {
+        grid-column: span 4;
+    }
+
+    .endereco-container {
+        grid-column: span 6;
+    }
+
+    .numero-container {
+        grid-column: span 2;
+    }
+
+    .complemento-container {
+        grid-column: span 6;
+    }
+
+    .bairro-container {
+        grid-column: span 6;
+    }
+
+    .cidade-container {
+        grid-column: span 4;
+    }
+
+    .uf-container {
+        grid-column: span 2;
+    }
+
+    /* ====== MODAL DE PRODUTO ====== */
+    .product-modal {
+        width: 90%;
+        max-width: 90%;
+        margin: 5vh auto;
+        max-height: 90vh;
+    }
+
+    .modal-image-gallery {
+        height: 300px;
+    }
+
+    .modalproduct-info {
+        max-width: 100%;
+    }
+
+    .modal-bodytop {
+        flex-flow: column nowrap;
+    }
+
+    .peso-rende {
+        flex-wrap: wrap;
+    }
+
+    .purchase-controls-modal {
+        gap: var(--spacing-2);
+    }
+}
+
+/* Media query para garantir que só aparece em mobile */
+@media screen and (min-width: 769px) {
+    .cart-sticky-mobile {
+        display: none !important;
+    }
+}
+
 /* Animação de pulsar quando adicionar ao carrinho */
 @keyframes pulse {
     0% {
@@ -485,11 +762,4 @@
 
 .pulse {
     animation: pulse 0.5s ease-in-out;
-}
-
-/* Media query para garantir que só aparece em mobile */
-@media screen and (min-width: 769px) {
-    .cart-sticky-mobile {
-        display: none !important;
-    }
 }

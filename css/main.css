@@ -85,6 +85,7 @@ html,
     /* 64px */
 
     /* Line heights */
+    --leading-fit: .8;
     --leading-none: 1;
     --leading-tight: 1.25;
     --leading-normal: 1.5;
@@ -270,6 +271,11 @@ button {
 
 .medida-unidade {
     font-size: var(--text-xs);
+}
+
+/*carrinho flutuante some*/
+.cart-sticky-mobile{
+    display: none;
 }
 
 
@@ -542,6 +548,8 @@ nav {
     border-radius: var(--radius-lg);
     justify-content: center;
     gap: 16px;
+    text-align: center;
+    line-height: var(--leading-none) ;
 }
 
 .herofarm {

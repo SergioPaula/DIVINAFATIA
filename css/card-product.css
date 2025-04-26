@@ -447,7 +447,7 @@ body {
 }
 
 /* Responsividade */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
 
     .swiper {
         width: 100%;
@@ -482,7 +482,7 @@ body {
     }
 
     .cardapio .container {
-        padding-left: var(--spacing-4) ;
+        padding-left: var(--spacing-4);
     }
 
     .card-content {
@@ -496,7 +496,7 @@ body {
     .menucardapio {
         display: flex;
         flex-flow: row nowrap;
-        height: 100px;
+        height: 70px;
         overflow-x: auto;
         overflow-y: hidden;
         white-space: nowrap;
@@ -567,4 +567,19 @@ body {
 
 
 
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .cardapio .container {
+        align-items: center;
+    }
+
+    .menucardapio {
+        align-self: center;
+    }
+    
+    .swiper {
+        margin-bottom: var(--spacing-4);
+    }
 }

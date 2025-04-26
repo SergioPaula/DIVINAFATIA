@@ -2,6 +2,7 @@
 
 /* Estilos para dispositivos com orientação retrato (mobile) */
 @media screen and (max-width: 768px) {
+
     /* Reset básico */
     html,
     * {
@@ -80,7 +81,7 @@
 
     /* Menu de navegação mobile */
 
-    
+
     .menu-superior-mobile {
         display: flex;
         align-items: center;
@@ -96,7 +97,7 @@
 
     }
 
-    .menu-burguer{
+    .menu-burguer {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -112,16 +113,16 @@
         display: none;
     }
 
-    
+
     .btn-social .nav-icon {
         display: none;
-      }
+    }
 
-      .btn-social {
+    .btn-social {
         justify-content: end;
-      }
+    }
 
-    .navbar-brand > img {
+    .navbar-brand>img {
         width: 90px;
         margin-top: calc(-1 * var(--spacing-2));
     }
@@ -151,7 +152,7 @@
         background-position: center center;
     }
 
-    .herofarm > .big-cake-head {
+    .herofarm>.big-cake-head {
         position: absolute;
         left: 50svw;
         max-width: 80%;
@@ -251,7 +252,7 @@
         gap: var(--spacing-8);
     }
 
-    .box-cheirinho > :nth-child(3) {
+    .box-cheirinho> :nth-child(3) {
         padding-top: 0rem;
     }
 
@@ -270,9 +271,9 @@
         scrollbar-color: var(--color-primary-02) var(--color-primary-01);
     }
 
-    .snaps-inline > * {
+    .snaps-inline>* {
         scroll-snap-align: start;
-        
+
     }
 
     /* Cardápio para mobile */
@@ -294,7 +295,7 @@
         justify-content: center;
     }
 
-    .caixa-depoimento > img {
+    .caixa-depoimento>img {
         display: none;
     }
 
@@ -310,7 +311,7 @@
         margin-bottom: 5svh;
     }
 
-    .conteudo-depoimento > div {
+    .conteudo-depoimento>div {
         gap: var(--spacing-4);
         max-width: 80vw;
         max-height: 100%;
@@ -399,5 +400,96 @@
         right: 20px;
         left: 20px;
         width: calc(100% - 40px);
+    }
+
+/*CARRINHO FLUTUANTE*/
+
+    /* Estilo para o botão flutuante do carrinho em mobile */
+    .cart-sticky-mobile {
+        display: none;
+        /* Inicialmente oculto */
+        position: fixed;
+        right: 15svw;
+        bottom: 15svh;
+        z-index: 1000;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .cart-sticky-mobile.visible {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .cart-button-sticky {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 65px;
+        height: 65px;
+        background-color: var(--color-primary-01);
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .cart-button-sticky:hover {
+        background-color: var(--color-primary-02);
+    }
+
+    .cart-sticky-icon {
+        width: 24px;
+        height: 24px;
+        margin-top: 8px;
+        fill: var(--color-background);
+    }
+
+    .cart-count-sticky {
+        position: absolute;
+        top: -20px;
+        right: -25px;
+        background-color: var(--color-terciary-06);
+        color: white;
+        font-size: var(--text-base);
+        font-weight: var(--font-weight-bold);
+        min-width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
+    }
+
+    .cart-count-sticky.empty {
+        display: none;
+    }
+}
+
+/* Animação de pulsar quando adicionar ao carrinho */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Media query para garantir que só aparece em mobile */
+@media screen and (min-width: 769px) {
+    .cart-sticky-mobile {
+        display: none !important;
     }
 }

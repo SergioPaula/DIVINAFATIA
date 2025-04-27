@@ -202,16 +202,15 @@
                 </div>
 
                 <div class="area-menu-tag">
-                    <div class="filter-tag">
+                    <div class="filter-tag" data-tag="promo">
                         <span class="tag filter-tag-promo">Promoção</span>
                     </div>
-                    <div class="filter-tag">
+                    <div class="filter-tag" data-tag="news">
                         <span class="tag filter-tag-news">Novidades</span>
                     </div>
-                    <div class="filter-tag">
-                        <span class="tag filter-tag-hot">Mais Venditos</span>
+                    <div class="filter-tag" data-tag="hot">
+                        <span class="tag filter-tag-hot">Mais Vendidos</span>
                     </div>
-
                 </div>
 
                 <!-- PRODUTOS -->
@@ -220,64 +219,11 @@
                 <div class="swiper mySwiper">
 
 
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" id="itensCardapio">
 
-                        <div class="swiper-slide">
-                            <article class="product-card" data-category="sem-cobertura">
-                                <figure class="card-image">
-                                    <img src="./img/PRODUTOS/01-chocolate/01.png" alt="Bolo de Chocolate" />
-                                    <div class="tags">
-                                        <span class="tag tag-promo">Promoção</span>
-                                    </div>
-                                    <div class="title-overlay">
-                                        <h2>Bolo de Chocolate <br>com Brigadeiro e Granulado</h2>
-                                    </div>
-                                </figure>
-
-                                <div class="card-content">
-                                    <div class="rating">
-                                        <svg>
-                                            <use href="./img/ICONS/icones-gerais.svg#star-full"></use>
-                                        </svg>
-                                        <svg>
-                                            <use href="./img/ICONS/icones-gerais.svg#star-full"></use>
-                                        </svg>
-                                        <svg>
-                                            <use href="./img/ICONS/icones-gerais.svg#star-full"></use>
-                                        </svg>
-                                        <svg>
-                                            <use href="./img/ICONS/icones-gerais.svg#star-full"></use>
-                                        </svg>
-                                        <svg class="star-line">
-                                            <use href="./img/ICONS/icones-gerais.svg#star-line"></use>
-                                        </svg>
-
-                                        <p class="avaliacoes">236 Avaliações</p>
-                                    </div>
+                        <!-- AQUI ENTRA OS PRODUTOS POR JS, SWIPER-SLIDE-->
 
 
-                                    <p class="description">Delicioso bolo de chocolate coberto com brigadeiro cremoso e
-                                        chocolate belga ralado. Uma explosão de sabor para os amantes de chocolate.</p>
-
-                                    <div class="price-container">
-                                        <span class="old-price">R$ 89,90</span>
-                                        <span class="current-price">R$ 129,90</span>
-                                        <p class="medida-unidade">/un</p>
-                                    </div>
-
-                                    <div class="purchase-controls">
-                                        <div class="quantity">
-                                            <button class="qty-btn minus" data-product="1">-</button>
-                                            <span class="qty-display">1</span>
-                                            <button class="qty-btn plus" data-product="1">+</button>
-                                        </div>
-                                        <button class="add-to-cart" data-product="1">
-                                            Adicionar à Sacola
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
                     </div> <!-- Fim do swiper-container -->
 
 
@@ -301,40 +247,33 @@
                             <div class="circle-filter"></div>
                             <img src="./img/IMAGENS/semcobertura.avif" alt="miniatura de um bolo caseiro sem cobertura"
                                 class="img-filter">
-
                         </div>
-                        <a href="" class="text-filtro">
+                        <span class="text-filtro" data-category="Bolos sem Cobertura">
                             Bolos Sem Cobertura
-                        </a>
-
+                        </span>
                     </div>
 
                     <div class="filtro-produto">
                         <div class="item-filter">
                             <div class="circle-filter"></div>
-                            <img src="./img/IMAGENS/comcobertura.avif" alt="miniatura de um bolo caseiro sem cobertura"
+                            <img src="./img/IMAGENS/comcobertura.avif" alt="miniatura de um bolo caseiro com cobertura"
                                 class="img-filter">
-
                         </div>
-                        <a href="" class="text-filtro">
+                        <span class="text-filtro" data-category="Bolos com Cobertura">
                             Bolos Com Cobertura
-                        </a>
-
+                        </span>
                     </div>
 
                     <div class="filtro-produto">
                         <div class="item-filter">
                             <div class="circle-filter"></div>
                             <img src="./img/IMAGENS/bastantecobertura.avif"
-                                alt="miniatura de um bolo caseiro sem cobertura" class="img-filter">
-
+                                alt="miniatura de um bolo caseiro com bastante cobertura" class="img-filter">
                         </div>
-                        <a href="" class="text-filtro">
+                        <span class="text-filtro" data-category="Bolos com Bastante Cobertura">
                             Bolos Com Bastante Cobertura
-                        </a>
-
+                        </span>
                     </div>
-
                 </div>
             </article>
 
@@ -940,7 +879,7 @@
                                         </div>
                                         <p class="qtd-produto-resumo">x <b>3</b></p>
                                     </div>
-                                    
+
 
                                 </div>
                             </div>
@@ -1003,7 +942,7 @@
     <script src="./js/filter-menu.js"></script>
     <script src="./js/dados.js"></script>
     <script src="./js/sticky-cart.js"></script>
-    <script src="./js/tablet-adjustments.js"></script>
+    <!-- <script src="./js/tablet-adjustments.js"></script>-->
 
 </body>
 

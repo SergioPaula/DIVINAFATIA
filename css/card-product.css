@@ -124,9 +124,17 @@ body {
     margin-top: var(--spacing-2);
 }
 
+.filter-tag {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
 .filter-tag span {
     background-color: var(--color-sombra);
     cursor: pointer;
+    display: inline-block;
+    transition: all 0.2s ease;
 }
 
 .filter-tag-promo:hover {
@@ -139,6 +147,30 @@ body {
 
 .filter-tag-hot:hover {
     background-color: #FFEB99;
+}
+
+/* Estilos para tags ativas */
+.filter-tag.active .tag {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filter-tag.active .filter-tag-promo, 
+.filter-tag.active .tag-promo {
+    background-color: #FFB2B8 !important;
+    font-weight: var(--font-weight-extrabold);
+}
+
+.filter-tag.active .filter-tag-news, 
+.filter-tag.active .tag-news {
+    background-color: #B2B7FF !important;
+    font-weight: var(--font-weight-extrabold);
+}
+
+.filter-tag.active .filter-tag-hot, 
+.filter-tag.active .tag-hot {
+    background-color: #FFEB99 !important;
+    font-weight: var(--font-weight-extrabold);
 }
 
 
@@ -161,16 +193,32 @@ body {
     font-size: 0.8rem;
 }
 
-.tag.tag-news {
+.tag.news {
     background-color: #B2B7FF;
 }
 
-.tag.tag-hot {
+.tag.hot {
     background-color: #FFEB99;
 }
 
-.tag.tag-promo {
+.tag.promo {
     background-color: #FFB2B8;
+}
+
+/* Mensagem de produtos não encontrados */
+.no-products-message {
+    width: 100%;
+    height: 58svh;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--color-primary-03);
+    border-radius: var(--radius-lg);
+}
+
+.no-products-message p {
+    font-size: var(--text-lg);
+    color: var(--color-primary-01);
+    font-weight: var(--font-weight-medium);
 }
 
 /* Conteúdo do card */

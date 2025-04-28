@@ -1,88 +1,5 @@
 // products-config.js - Versão unificada com funcionalidades do carrinho
-
-// Dados dos produtos
-const products = [
-    {
-        id: 1,
-        name: "Bolo de Chocolate com Brigadeiro",
-        price: 79.90,
-        oldPrice: 89.90,
-        description: "Delicioso bolo de chocolate coberto com brigadeiro cremoso e chocolate belga ralado. Uma explosão de sabor para os amantes de chocolate.",
-        detailedDescription: "Bolo super macio feito com chocolate premium, recheado e coberto com brigadeiro cremoso preparado no fogão da maneira tradicional. Finalizado com raspas de chocolate belga.",
-        ingredients: "Farinha de trigo, açúcar, ovos, leite, chocolate em pó, manteiga, brigadeiro (leite condensado, manteiga, chocolate em pó)",
-        allergens: {
-            gluten: true,
-            lactose: true,
-            nuts: false
-        },
-        specifications: {
-            weight: "1.5kg",
-            serves: "15 a 20 fatias",
-            size: "23cm de diâmetro",
-            height: "12cm de altura",
-            storage: "5 dias em geladeira",
-            bestTime: "2 dias após a compra"
-        },
-        images: [
-            "./img/PRODUTOS/01-chocolate/01.png"
-        ],
-        rating: 4.5,
-        reviewCount: 28
-    },
-    {
-        id: 2,
-        name: "Red Velvet",
-        price: 89.90,
-        description: "Clássico bolo Red Velvet com cobertura de cream cheese",
-        detailedDescription: "Bolo vermelho aveludado com suave sabor de cacau, recheado e coberto com creme de cream cheese. Uma combinação perfeita de texturas e sabores.",
-        ingredients: "Farinha de trigo, açúcar, ovos, buttermilk, corante vermelho, cacau em pó, cream cheese, manteiga",
-        allergens: {
-            gluten: true,
-            lactose: true,
-            nuts: false
-        },
-        specifications: {
-            weight: "1.6kg",
-            serves: "15 a 20 fatias",
-            size: "23cm de diâmetro",
-            height: "12cm de altura",
-            storage: "5 dias em geladeira",
-            bestTime: "2 dias após a compra"
-        },
-        images: [
-            "./img/PRODUTOS/01-chocolate/01.png" // Atualizar com a imagem correta
-        ],
-        rating: 4.8,
-        reviewCount: 15
-    },
-    {
-        id: 3,
-        name: "Bolo de Cenoura",
-        price: 59.90,
-        oldPrice: 69.90,
-        description: "Clássico bolo de cenoura com cobertura de chocolate",
-        detailedDescription: "Bolo de cenoura super fofinho feito com cenouras frescas e cobertura de chocolate meio amargo. O equilíbrio perfeito entre o dulçor da cenoura e o sabor do chocolate.",
-        ingredients: "Cenoura, farinha de trigo, açúcar, ovos, óleo, chocolate meio amargo, manteiga",
-        allergens: {
-            gluten: true,
-            lactose: true,
-            nuts: false
-        },
-        specifications: {
-            weight: "1.4kg",
-            serves: "15 a 20 fatias",
-            size: "23cm de diâmetro",
-            height: "12cm de altura",
-            storage: "5 dias em geladeira",
-            bestTime: "2 dias após a compra"
-        },
-        images: [
-            "./img/PRODUTOS/01-chocolate/01.png" // Atualizar com a imagem correta
-        ],
-        rating: 4.7,
-        reviewCount: 32
-    }
-];
+// Modificado para usar os dados do arquivo dados.js
 
 // ==================
 // FUNÇÕES UTILITÁRIAS
@@ -105,8 +22,8 @@ let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
 // Função para adicionar produto ao carrinho
 function addToCart(productId, quantity = 1) {
-    // Encontrar o produto pelo ID
-    const product = products.find(p => p.id === productId);
+    // Encontrar o produto pelo ID nos dados de MENU.bolos
+    const product = MENU.bolos.find(p => p.id === productId);
 
     if (!product) {
         console.error(`Produto com ID ${productId} não encontrado`);
@@ -124,8 +41,8 @@ function addToCart(productId, quantity = 1) {
         cartItems.push({
             id: productId,
             name: product.name,
-            price: product.price,
-            image: product.images[0], // Primeira imagem como principal
+            price: product.currentPrice,
+            image: product.cardImage || './img/PRODUTOS/placeholder.webp', // Usar imagem do card ou placeholder
             quantity: quantity
         });
     }
@@ -258,10 +175,9 @@ function renderOrderSummary() {
 
 // Atualizar o endereço de entrega no resumo
 function updateDeliveryAddress() {
-    const addressElement = document.querySelector('.delivery-address');
     const addressContainer = document.querySelector('.resumo-entrega');
 
-    if (!addressElement || !addressContainer) return;
+    if (!addressContainer) return;
 
     const cep = document.getElementById('txtCEP')?.value || '';
     const street = document.getElementById('address')?.value || '';
@@ -328,6 +244,18 @@ function updateCartCount() {
         countElement.classList.add('empty');
     } else {
         countElement.classList.remove('empty');
+    }
+    
+    // Atualizar também o contador no carrinho flutuante se existir
+    const stickyCountElement = document.querySelector('.cart-count-sticky');
+    if (stickyCountElement) {
+        stickyCountElement.textContent = totalItems;
+        
+        if (totalItems <= 0) {
+            stickyCountElement.classList.add('empty');
+        } else {
+            stickyCountElement.classList.remove('empty');
+        }
     }
 }
 
@@ -563,12 +491,13 @@ function setupAddToCartButtons() {
 }
 
 // ==================
-// INICIALIZAÇÃO E MODAL DE PRODUTO
+// MODAL DE PRODUTO
 // ==================
 
 // Mostrar o modal de produto
 function showProductModal(productId) {
-    const product = products.find(p => p.id === productId);
+    // Encontrar o produto nos dados do MENU.bolos pelo ID 
+    const product = MENU.bolos.find(p => p.id === productId);
 
     if (!product) {
         console.error(`Produto com ID ${productId} não encontrado`);
@@ -576,6 +505,7 @@ function showProductModal(productId) {
     }
 
     const productModal = document.querySelector('.modalproduct-overlay');
+    if (!productModal) return;
 
     // Preencher os detalhes do produto no modal
     populateProductModal(product);
@@ -620,18 +550,21 @@ function showProductModal(productId) {
 // Fechar o modal de produto
 function closeProductModal() {
     const productModal = document.querySelector('.modalproduct-overlay');
-    productModal.style.display = 'none';
-    document.body.classList.remove('modal-open');
+    if (productModal) {
+        productModal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    }
 }
 
 // Preencher os detalhes do produto no modal
 function populateProductModal(product) {
     const modal = document.querySelector('.modalproduct-overlay');
+    if (!modal) return;
 
     // Imagem principal
     const mainImage = modal.querySelector('.main-image');
-    if (mainImage && product.images && product.images.length > 0) {
-        mainImage.src = product.images[0];
+    if (mainImage) {
+        mainImage.src = product.cardImage || './img/PRODUTOS/placeholder.webp';
         mainImage.alt = product.name;
     }
 
@@ -644,9 +577,33 @@ function populateProductModal(product) {
     // Avaliações
     const ratingContainer = modal.querySelector('.rating');
     if (ratingContainer) {
-        // Pode implementar lógica de exibição de estrelas baseada no product.rating
+        // Limpar estrelas existentes
+        const starsContainer = ratingContainer.querySelectorAll('svg');
+        starsContainer.forEach(star => star.remove());
+        
+        // Criar estrelas baseadas na avaliação
+        for (let i = 1; i <= 5; i++) {
+            const starSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            if (i <= Math.floor(product.rating)) {
+                // Estrela cheia
+                starSvg.innerHTML = '<use href="./img/ICONS/icones-gerais.svg#star-full"></use>';
+            } else if (i - 0.5 <= product.rating) {
+                // Estrela meio cheia
+                starSvg.innerHTML = '<use href="./img/ICONS/icones-gerais.svg#star-half"></use>';
+            } else {
+                // Estrela vazia
+                starSvg.classList.add('star-line');
+                starSvg.innerHTML = '<use href="./img/ICONS/icones-gerais.svg#star-line"></use>';
+            }
+            
+            // Inserir antes do texto de avaliações
+            const reviewsText = ratingContainer.querySelector('.avaliacoes');
+            ratingContainer.insertBefore(starSvg, reviewsText);
+        }
+        
+        // Atualizar contagem de avaliações
         const reviewsCount = ratingContainer.querySelector('.avaliacoes');
-        if (reviewsCount && product.reviewCount) {
+        if (reviewsCount && product.reviewCount !== undefined) {
             reviewsCount.textContent = `${product.reviewCount} Avaliações`;
         }
     }
@@ -654,24 +611,21 @@ function populateProductModal(product) {
     // Descrição
     const description = modal.querySelector('.metaproduct-description');
     if (description) {
-        description.textContent = product.description;
+        description.textContent = product.metaDescription || '';
     }
 
     // Especificações
-    if (product.specifications) {
-        const pesoRende = modal.querySelector('.peso-rende');
-        if (pesoRende) {
-            const pesoSpan = pesoRende.querySelector('p:first-child span');
-            const rendeSpan = pesoRende.querySelector('p:last-child span');
+    const pesoRende = modal.querySelector('.peso-rende');
+    if (pesoRende) {
+        const pesoSpan = pesoRende.querySelector('p:first-child span');
+        const rendeSpan = pesoRende.querySelector('p:last-child span');
 
-            if (pesoSpan && product.specifications.weight) {
-                pesoSpan.textContent = product.specifications.weight;
-            }
+        if (pesoSpan) {
+            pesoSpan.textContent = product.weight || '';
+        }
 
-            if (rendeSpan && product.specifications.serves) {
-                const fatias = product.specifications.serves.split(' ')[0];
-                rendeSpan.textContent = fatias;
-            }
+        if (rendeSpan) {
+            rendeSpan.textContent = product.servings || '';
         }
     }
 
@@ -679,78 +633,95 @@ function populateProductModal(product) {
     const oldPrice = modal.querySelector('.old-price');
     const currentPrice = modal.querySelector('.current-price');
 
-    if (oldPrice && product.oldPrice) {
-        oldPrice.textContent = formatPrice(product.oldPrice);
-        oldPrice.style.display = 'inline-block';
-    } else if (oldPrice) {
-        oldPrice.style.display = 'none';
+    if (oldPrice) {
+        if (product.oldPrice) {
+            oldPrice.textContent = formatPrice(product.oldPrice);
+            oldPrice.style.display = 'inline-block';
+        } else {
+            oldPrice.style.display = 'none';
+        }
     }
 
     if (currentPrice) {
-        currentPrice.textContent = formatPrice(product.price);
+        currentPrice.textContent = formatPrice(product.currentPrice);
     }
 
-    // Conteúdo detalhado
-    populateDetailedContent(product);
-}
-
-// Preencher o conteúdo detalhado nas abas
-function populateDetailedContent(product) {
-    const modal = document.querySelector('.modalproduct-overlay');
-
-    // Descrição detalhada
-    const descricaoConteudo = modal.querySelector('#descricao-conteudo');
-    if (descricaoConteudo && product.detailedDescription) {
-        const descParagraphs = descricaoConteudo.querySelectorAll('p');
-        if (descParagraphs.length > 0) {
-            descParagraphs[0].innerHTML = product.detailedDescription;
+    // Selos/ícones
+    const selosContainer = modal.querySelector('.selos-modalproduto');
+    if (selosContainer && product.icons) {
+        // Limpar selos existentes
+        selosContainer.innerHTML = '';
+        
+        // Adicionar novos selos
+        if (product.icons.length > 0) {
+            if (product.icons[0].firstText && product.icons[0].firstIcon) {
+                selosContainer.innerHTML += `
+                <div>
+                    <svg class="icon-selos icon-textura">
+                        <use href="./img/ICONS/icons-selos.svg#${product.icons[0].firstIcon}"></use>
+                    </svg>
+                    <p>${product.icons[0].firstText.replace(/\s+/g, '<br>')}</p>
+                </div>`;
+            }
+            
+            if (product.icons[1] && product.icons[1].secondText && product.icons[1].secondIcon) {
+                selosContainer.innerHTML += `
+                <div>
+                    <svg class="icon-selos icon-canela">
+                        <use href="./img/ICONS/icons-selos.svg#${product.icons[1].secondIcon}"></use>
+                    </svg>
+                    <p>${product.icons[1].secondText.replace(/\s+/g, '<br>')}</p>
+                </div>`;
+            }
+            
+            if (product.icons[2] && product.icons[2].thirdText && product.icons[2].thirdIcon) {
+                selosContainer.innerHTML += `
+                <div>
+                    <svg class="icon-selos sem-conservantes">
+                        <use href="./img/ICONS/icons-selos.svg#${product.icons[2].thirdIcon}"></use>
+                    </svg>
+                    <p>${product.icons[2].thirdText.replace(/\s+/g, '<br>')}</p>
+                </div>`;
+            }
         }
     }
 
-    // Ingredientes
-    const ingredientesConteudo = modal.querySelector('#ingredientes-conteudo');
-    if (ingredientesConteudo && product.ingredients) {
-        const ingredientsParagraph = ingredientesConteudo.querySelector('.txt-2 p');
-        if (ingredientsParagraph) {
-            ingredientsParagraph.textContent = product.ingredients;
+    // Conteúdo detalhado - pode ser expandido conforme necessário
+    if (product.details) {
+        // Descrição detalhada
+        const descricaoConteudo = modal.querySelector('#descricao-conteudo');
+        if (descricaoConteudo && product.details.fullDescription) {
+            const descParagraphs = descricaoConteudo.querySelectorAll('.txt-2 p, .txt-3 p');
+            if (descParagraphs.length > 0) {
+                descParagraphs[0].innerHTML = product.details.fullDescription;
+            }
         }
-    }
 
-    // Alérgicos
-    const alergicosConteudo = modal.querySelector('#alergicos-conteudo');
-    if (alergicosConteudo && product.allergens) {
-        const alergicosParagraph = alergicosConteudo.querySelector('.txt-2 p');
-        if (alergicosParagraph) {
-            let alergicosText = '';
-
-            if (product.allergens.gluten) {
-                alergicosText += 'Contém glúten. ';
-            } else {
-                alergicosText += 'Não contém glúten. ';
+        // Ingredientes
+        const ingredientesConteudo = modal.querySelector('#ingredientes-conteudo');
+        if (ingredientesConteudo && product.details.ingredients) {
+            const ingredientsParagraph = ingredientesConteudo.querySelector('.txt-2 p');
+            if (ingredientsParagraph) {
+                ingredientsParagraph.textContent = product.details.ingredients;
             }
-
-            if (product.allergens.lactose) {
-                alergicosText += 'Contém lactose. ';
-            } else {
-                alergicosText += 'Não contém lactose. ';
-            }
-
-            if (product.allergens.nuts) {
-                alergicosText += 'Contém oleaginosas (nozes, castanhas, amêndoas).';
-            } else {
-                alergicosText += 'Pode conter traços de oleaginosas (nozes, castanhas, amêndoas).';
-            }
-
-            alergicosParagraph.textContent = alergicosText;
         }
-    }
 
-    // Validade
-    const validadeConteudo = modal.querySelector('#validade-conteudo');
-    if (validadeConteudo && product.specifications && product.specifications.storage) {
-        const validadeParagraph = validadeConteudo.querySelector('.txt-2 p');
-        if (validadeParagraph) {
-            validadeParagraph.innerHTML = `<strong>${product.specifications.storage}</strong>. Para melhor experiência, consumir em temperatura ambiente. Para preservar todo o sabor e maciez, mantenha o bolo em recipiente fechado na geladeira e retire 30 minutos antes de servir.`;
+        // Alérgicos
+        const alergicosConteudo = modal.querySelector('#alergicos-conteudo');
+        if (alergicosConteudo && product.details.allergens) {
+            const alergicosParagraph = alergicosConteudo.querySelector('.txt-2 p');
+            if (alergicosParagraph) {
+                alergicosParagraph.textContent = product.details.allergens;
+            }
+        }
+
+        // Validade
+        const validadeConteudo = modal.querySelector('#validade-conteudo');
+        if (validadeConteudo && product.details.validity) {
+            const validadeParagraph = validadeConteudo.querySelector('.txt-2 p');
+            if (validadeParagraph) {
+                validadeParagraph.innerHTML = product.details.validity;
+            }
         }
     }
 }
@@ -758,7 +729,10 @@ function populateDetailedContent(product) {
 // Configurar a navegação por abas no modal
 function setupModalTabs() {
     const modal = document.querySelector('.modalproduct-overlay');
+    if (!modal) return;
+    
     const menuItems = modal.querySelectorAll('.nav-itemmodal a');
+    if (!menuItems.length) return;
 
     // Esconder todos os conteúdos das abas, exceto o primeiro
     const contents = modal.querySelectorAll('[id$="-conteudo"]');
@@ -796,54 +770,6 @@ function setupModalTabs() {
     });
 }
 
-// Inicializar o sistema de busca de CEP 
-function initCepSearch() {
-    const cepInput = document.getElementById('txtCEP');
-    const cepButton = document.querySelector('.search-cep');
-
-    if (!cepInput || !cepButton) return;
-
-    cepButton.addEventListener('click', () => {
-        const cep = cepInput.value.replace(/\D/g, '');
-
-        if (cep.length !== 8) {
-            alert('CEP inválido. Digite os 8 números do CEP.');
-            return;
-        }
-
-        // Fazer consulta à API do ViaCEP
-        fetch(`https://viacep.com.br/ws/${cep}/json/`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.erro) {
-                    alert('CEP não encontrado.');
-                    return;
-                }
-
-                // Preencher os campos de endereço
-                document.getElementById('address').value = data.logradouro;
-                document.getElementById('txtBairro').value = data.bairro;
-                document.getElementById('txtCidade').value = data.localidade;
-                document.getElementById('ddlUF').value = data.uf;
-
-                // Focar no campo de número
-                document.getElementById('txtNumero').focus();
-            })
-            .catch(error => {
-                console.error('Erro ao buscar CEP:', error);
-                alert('Erro ao buscar CEP. Tente novamente mais tarde.');
-            });
-    });
-
-    // Também buscar ao pressionar Enter
-    cepInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            cepButton.click();
-        }
-    });
-}
-
 // ==================
 // INICIALIZAÇÃO
 // ==================
@@ -868,7 +794,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCepSearch();
 });
 
-// Inicializar o carrinho
+    // Inicializar o carrinho
 function initCart() {
     // Elementos do carrinho
     const cartModal = document.getElementById('cartModal');
@@ -900,9 +826,20 @@ function initCart() {
         updateStep(1);
     });
 
+    // Verificar se existe o botão flutuante para mobile e adicionar evento
+    const stickyCartButton = document.querySelector('.cart-button-sticky');
+    if (stickyCartButton) {
+        stickyCartButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartModal.classList.add('active');
+            updateStep(1);
+        });
+    }
+
     // Fechar modal
     function closeModal() {
         cartModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
     }
 
     if (closeButton) closeButton.addEventListener('click', closeModal);
@@ -946,52 +883,3 @@ function initCart() {
         });
     }
 }
-
-// Inicializar o modal de produto
-function initModal() {
-    // Elementos do modal
-    const productModal = document.querySelector('.modalproduct-overlay');
-    if (!productModal) return;
-
-    const closeButton = productModal.querySelector('.modal-close');
-
-    // Configurar botão de fechar
-    if (closeButton) {
-        closeButton.addEventListener('click', () => {
-            closeProductModal();
-        });
-    }
-
-    // Fechar ao clicar fora do modal
-    productModal.addEventListener('click', (e) => {
-        if (e.target === productModal) {
-            closeProductModal();
-        }
-    });
-
-    // Escutar cliques nas imagens dos produtos
-    document.querySelectorAll('.product-card .card-image').forEach(imageContainer => {
-        imageContainer.addEventListener('click', () => {
-            const productCard = imageContainer.closest('.product-card');
-            if (productCard) {
-                const addToCartBtn = productCard.querySelector('.add-to-cart');
-                if (addToCartBtn) {
-                    const productId = parseInt(addToCartBtn.dataset.product);
-                    showProductModal(productId);
-                }
-            }
-        });
-    });
-
-    // Configurar navegação por abas no modal
-    setupModalTabs();
-}
-
-// Exportar funções para uso global
-window.products = products;
-window.formatPrice = formatPrice;
-window.setupQuantityControls = setupQuantityControls;
-window.showProductModal = showProductModal;
-window.closeProductModal = closeProductModal;
-window.setupAddToCartButtons = setupAddToCartButtons;
-window.addToCart = addToCart;

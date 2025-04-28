@@ -1,13 +1,12 @@
-// Script corrigido de filtro do cardápio
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar o cardápio quando a página carregar
     cardapio.eventos.init();
     
-    // Adicionar interação aos filtros de categoria
-    const itemsFilter = document.querySelectorAll('.item-filter');
-    itemsFilter.forEach(item => {
-        item.addEventListener('click', () => {
-            const filtroContainer = item.closest('.filtro-produto');
+    // Adicionar interação aos filtros de categoria (versão corrigida para mobile)
+    const filtroProdutos = document.querySelectorAll('.filtro-produto');
+    filtroProdutos.forEach(filtroContainer => {
+        // Adicionar evento ao container inteiro
+        filtroContainer.addEventListener('click', () => {
             const textFilter = filtroContainer.querySelector('.text-filtro');
             const categoria = textFilter.getAttribute('data-category');
             
@@ -63,28 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Adicionar estilos de destaque para os filtros
-    const style = document.createElement('style');
-    style.textContent = `
-        .filter-tag.active .tag {
-            transform: scale(1.05);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-        .filter-tag.active .filter-tag-promo, .filter-tag.active .tag-promo {
-            background-color: #FFB2B8 !important;
-            font-weight: var(--font-weight-extrabold);
-        }
-        .filter-tag.active .filter-tag-news, .filter-tag.active .tag-news {
-            background-color: #B2B7FF !important;
-            font-weight: var(--font-weight-extrabold);
-        }
-        .filter-tag.active .filter-tag-hot, .filter-tag.active .tag-hot {
-            background-color: #FFEB99 !important;
-            font-weight: var(--font-weight-extrabold);
-        }
-    `;
-    document.head.appendChild(style);
 });
 
 // Namespace para o cardápio
@@ -121,16 +98,16 @@ cardapio.metodos = {
     inicializarFiltros: () => {
         // Adicionar data-category aos elementos de filtro
         document.querySelectorAll('.text-filtro').forEach(textFilter => {
-            const texto = textFilter.textContent.trim();
-            
-            // Mapear o texto para a categoria correta
-            let categoria = 'Todos';
-            if (texto.includes('Sem Cobertura')) categoria = 'Bolos sem Cobertura';
-            if (texto.includes('Com Cobertura') && !texto.includes('Bastante')) categoria = 'Bolos com Cobertura';
-            if (texto.includes('Bastante Cobertura')) categoria = 'Bolos com Bastante Cobertura';
-            
-            // Armazenar a categoria como atributo
             if (!textFilter.hasAttribute('data-category')) {
+                const texto = textFilter.textContent.trim();
+                
+                // Mapear o texto para a categoria correta
+                let categoria = 'Todos';
+                if (texto.includes('Sem Cobertura')) categoria = 'Bolos sem Cobertura';
+                if (texto.includes('Com Cobertura') && !texto.includes('Bastante')) categoria = 'Bolos com Cobertura';
+                if (texto.includes('Bastante Cobertura')) categoria = 'Bolos com Bastante Cobertura';
+                
+                // Armazenar a categoria como atributo
                 textFilter.setAttribute('data-category', categoria);
             }
         });
@@ -140,11 +117,11 @@ cardapio.metodos = {
             if (!tagFilter.hasAttribute('data-tag')) {
                 const tagSpan = tagFilter.querySelector('span');
                 if (tagSpan) {
-                    if (tagSpan.classList.contains('filter-tag-promo') || tagSpan.classList.contains('tag-promo')) {
+                    if (tagSpan.classList.contains('filter-tag-promo') || tagSpan.classList.contains('promo')) {
                         tagFilter.setAttribute('data-tag', 'promo');
-                    } else if (tagSpan.classList.contains('filter-tag-news') || tagSpan.classList.contains('tag-news')) {
+                    } else if (tagSpan.classList.contains('filter-tag-news') || tagSpan.classList.contains('news')) {
                         tagFilter.setAttribute('data-tag', 'news');
-                    } else if (tagSpan.classList.contains('filter-tag-hot') || tagSpan.classList.contains('tag-hot')) {
+                    } else if (tagSpan.classList.contains('filter-tag-hot') || tagSpan.classList.contains('hot')) {
                         tagFilter.setAttribute('data-tag', 'hot');
                     }
                 }
@@ -197,12 +174,7 @@ cardapio.metodos = {
         // Se não encontrou produtos, mostrar mensagem
         if (produtosFiltrados.length === 0) {
             const mensagem = document.createElement('div');
-            mensagem.className = 'no-products-message swiper-slide';
-            mensagem.style.display = 'flex';
-            mensagem.style.justifyContent = 'center';
-            mensagem.style.alignItems = 'center';
-            mensagem.style.padding = '2rem';
-            mensagem.style.width = '100%';
+            mensagem.className = 'no-products-message swiper-slide';            
             mensagem.innerHTML = '<p>Nenhum produto encontrado com os filtros selecionados</p>';
             document.getElementById("itensCardapio").appendChild(mensagem);
         }
@@ -246,7 +218,7 @@ cardapio.metodos = {
         const oldPriceHTML = produto.oldPrice ? `<span class="old-price">${oldPrice}</span>` : '';
         
         // Tratamento para imagem padrão se não houver cardImage
-        const imgSrc = produto.cardImage || './img/PRODUTOS/placeholder.jpg';
+        const imgSrc = produto.cardImage || './img/PRODUTOS/placeholder.webp';
         
         // Criar o elemento do slide
         const slide = document.createElement('div');

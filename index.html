@@ -470,31 +470,32 @@
                                 <p class="avaliacoes"></p>
                             </div>
                         </div>
-    
+
                         <p class="metaproduct-description"></p>
-    
+
                         <div class="line-div"></div>
-    
+
                         <div class="info-selos">
                             <div class="peso-rende">
                                 <p><strong>Peso:&nbsp;&nbsp;</strong><span></span></p>
-                                <p><strong>Rende aprox.</strong>&nbsp;&nbsp;<span></span>&nbsp;&nbsp;<strong>Divinas Fatias Generosas</strong></p>
+                                <p><strong>Rende aprox.</strong>&nbsp;&nbsp;<span></span>&nbsp;&nbsp;<strong>Divinas
+                                        Fatias Generosas</strong></p>
                             </div>
                         </div>
                         <div class="selos-modalproduto">
                             <!-- Selos serão adicionados dinamicamente -->
                         </div>
-    
+
                         <div class="line-div"></div>
-    
+
                         <div class="price-container-productmodal">
                             <span class="old-price"></span>
                             <span class="current-price"></span>
                             <p class="medida-unidade">/un</p>
                         </div>
-    
+
                         <div class="line-div-dashed"></div>
-    
+
                         <div class="price-andbag">
                             <div class="purchase-controls-modal">
                                 <div class="quantity">
@@ -611,60 +612,12 @@
             <!-- Conteúdo do Modal -->
             <div class="modal-bodycart">
                 <!-- Passo 1: Lista de Itens -->
+                <!-- Passo 1: Lista de Itens -->
                 <div class="step-content step-1 active">
                     <h2 class="modal-title" id="lblTituloEtapa">Seu Pedido</h2>
                     <div class="cart-items" id="itensCarrinho">
                         <!-- Os itens do carrinho serão inseridos aqui dinamicamente -->
-
-                        <div class="cart-item">
-                            <div class="items-details">
-                                <div class="item-image">
-                                    <img src="./img/PRODUTOS/04-churros/20230624_161430.jpg" alt="Imagem do Produto">
-                                </div>
-                                <div class="item-details">
-                                    <h3>Nome do Produto</h3>
-                                    <p class="price">R$ 79,90</p>
-                                </div>
-                            </div>
-                            <div class="items-quantity">
-                                <div class="item-quantity">
-                                    <button class="qty-btn minus">-</button>
-                                    <span class="qty-display">1</span>
-                                    <button class="qty-btn plus">+</button>
-                                </div>
-                                <button class="btn-retirar">
-                                    <svg class="remove-item">
-                                        <use href="./img/ICONS/icones-gerais.svg#icon-x" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="cart-item">
-                            <div class="items-details">
-                                <div class="item-image">
-                                    <img src="./img/PRODUTOS/04-churros/20230624_161430.jpg" alt="Produto">
-                                </div>
-                                <div class="item-details">
-                                    <h3>Nome do Produto</h3>
-                                    <p class="price">R$ 79,90</p>
-                                </div>
-                            </div>
-                            <div class="items-quantity">
-                                <div class="item-quantity">
-                                    <button class="qty-btn minus">-</button>
-                                    <span class="qty-display">1</span>
-                                    <button class="qty-btn plus">+</button>
-                                </div>
-                                <button class="btn-retirar">
-                                    <svg class="remove-item">
-                                        <use href="./img/ICONS/icones-gerais.svg#icon-x" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
                     </div>
-
                 </div>
 
                 <!-- Passo 2: Endereço de Entrega -->
@@ -694,7 +647,7 @@
                                 <label for="txtCEP">CEP</label>
                                 <div class="cep-input">
                                     <input type="text" id="txtCEP" name="cep" placeholder="00000-000">
-                                    <button class="search-cep">Buscar</button>
+                                    <button class="search-cep" onclick="cardapio.metodos.buscarCEP()">Buscar</button>
                                 </div>
                             </div>
 
@@ -763,35 +716,21 @@
                 </div>
 
                 <!-- Passo 3: Resumo do Pedido -->
+
+
                 <div class="step-content step-3">
                     <div class="order-summary" id="resumoCarrinho">
                         <div class="itens-escolhidos">
-                            <h4 class="title-carrinho">Doces Escolhidos</h4>
+                            <h4 class="title-carrinho">Bolos Escolhidos</h4>
 
+                            <!-- Container para itens dinâmicos -->
                             <div class="summary-items">
-                                <div class="item-carrinho resumo">
-                                    <div class="item-carrinho-content">
-                                        <div class="item-details-group">
-                                            <div class="item-image-resumo">
-                                                <img src="./img/PRODUTOS/02-fuba/20230722_121127.jpg" alt="Produto">
-                                            </div>
-                                            <div class="item-details">
-                                                <h3 class="title-produto-resumo">Bolo de Cenoura com Cobertura de
-                                                    Chocolate</h3>
-                                                <p class="price">R$ 79,90</p>
-                                            </div>
-                                        </div>
-                                        <p class="qtd-produto-resumo">x <b>3</b></p>
-                                    </div>
-
-
-                                </div>
+                                <!-- Os itens serão inseridos aqui pelo JavaScript -->
                             </div>
                         </div>
 
                         <div class="delivery-info">
                             <h4 class="title-carrinho">Endereço de Entrega</h4>
-                            <p class="delivery-address"></p>
 
                             <div class="final-summary">
                                 <div class="resumo">
@@ -799,8 +738,7 @@
                                         <use href="./img/ICONS/icones-gerais.svg#icon-pin" />
                                     </svg>
                                     <div class="resumo-entrega">
-                                        <h3 class="title-produto-resumo">Rua de teste, 123, Barra Funda</h3>
-                                        <p>São Paulo - SP / 04843-410</p>
+                                        <!-- O endereço será inserido aqui pelo JavaScript -->
                                     </div>
                                 </div>
                             </div>
@@ -844,6 +782,7 @@
     <script src="./js/scripts-swipe.js"></script>
     <script src="./js/filter-menu.js"></script>
     <script src="./js/products-config.js"></script>
+    <script src="./js/cart-modal.js"></script>
     <script src="./js/product-modal.js"></script>
     <script src="./js/sticky-cart.js"></script>
     <!-- <script src="./js/tablet-adjustments.js"></script>-->

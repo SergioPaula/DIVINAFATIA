@@ -1,5 +1,5 @@
-// products-config.js - Versão unificada com funcionalidades do carrinho
-// Modificado para usar os dados do arquivo dados.js
+// products-config.js - Gerencia as funcionalidades do carrinho e produtos
+// Versão corrigida - 2025
 
 // ==================
 // FUNÇÕES UTILITÁRIAS
@@ -17,8 +17,8 @@ function formatPrice(price) {
 // FUNCIONALIDADES DO CARRINHO
 // ==================
 
-// Estado global do carrinho
-let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+// Estado global do carrinho - definido como propriedade de window
+window.cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
 // Função para adicionar produto ao carrinho
 function addToCart(productId, quantity = 1) {
@@ -31,14 +31,14 @@ function addToCart(productId, quantity = 1) {
     }
 
     // Verificar se o produto já está no carrinho
-    const existingItemIndex = cartItems.findIndex(item => item.id === productId);
+    const existingItemIndex = window.cartItems.findIndex(item => item.id === productId);
 
     if (existingItemIndex > -1) {
         // Produto já existe, atualizar quantidade
-        cartItems[existingItemIndex].quantity += quantity;
+        window.cartItems[existingItemIndex].quantity += quantity;
     } else {
         // Produto novo, adicionar ao carrinho
-        cartItems.push({
+        window.cartItems.push({
             id: productId,
             name: product.name,
             price: product.currentPrice,
@@ -61,7 +61,7 @@ function addToCart(productId, quantity = 1) {
 
 // Função para remover produto do carrinho
 function removeFromCart(productId) {
-    cartItems = cartItems.filter(item => item.id !== productId);
+    window.cartItems = window.cartItems.filter(item => item.id !== productId);
 
     saveCartToLocalStorage();
     updateCartCount();
@@ -71,7 +71,7 @@ function removeFromCart(productId) {
 
 // Função para atualizar a quantidade de um produto no carrinho
 function updateCartItemQuantity(productId, newQuantity) {
-    const itemIndex = cartItems.findIndex(item => item.id === productId);
+    const itemIndex = window.cartItems.findIndex(item => item.id === productId);
 
     if (itemIndex > -1) {
         if (newQuantity <= 0) {
@@ -79,7 +79,7 @@ function updateCartItemQuantity(productId, newQuantity) {
             removeFromCart(productId);
         } else {
             // Atualizar a quantidade
-            cartItems[itemIndex].quantity = newQuantity;
+            window.cartItems[itemIndex].quantity = newQuantity;
             saveCartToLocalStorage();
             updateCartCount();
             updateCartTotals();
@@ -96,7 +96,7 @@ function renderCartItems() {
 
     cartItemsContainer.innerHTML = '';
 
-    if (cartItems.length === 0) {
+    if (window.cartItems.length === 0) {
         // Carrinho vazio
         cartItemsContainer.innerHTML = `
             <div class="empty-cart">
@@ -108,7 +108,7 @@ function renderCartItems() {
     }
 
     // Adicionar cada item do carrinho à interface
-    cartItems.forEach(item => {
+    window.cartItems.forEach(item => {
         const cartItemElement = document.createElement('div');
         cartItemElement.className = 'cart-item';
         cartItemElement.innerHTML = `
@@ -139,96 +139,6 @@ function renderCartItems() {
 
     // Adicionar evento aos botões de adicionar/remover quantidade
     attachCartItemEvents();
-
-    // Atualizar também o resumo do pedido (passo 3)
-    renderOrderSummary();
-}
-
-// Renderiza o resumo do pedido (passo 3)
-function renderOrderSummary() {
-    const summaryItemsContainer = document.querySelector('.summary-items');
-    if (!summaryItemsContainer) return;
-
-    summaryItemsContainer.innerHTML = '';
-
-    cartItems.forEach(item => {
-        const itemElement = document.createElement('div');
-        itemElement.className = 'item-carrinho-content';
-        itemElement.innerHTML = `
-            <div class="item-details-group">
-                <div class="item-image-resumo">
-                    <img src="${item.image}" alt="${item.name}">
-                </div>
-                <div class="item-details">
-                    <h3 class="title-produto-resumo">${item.name}</h3>
-                    <p class="price">${formatPrice(item.price)}</p>
-                </div>
-            </div>
-            <p class="qtd-produto-resumo">x <b>${item.quantity}</b></p>
-        `;
-        summaryItemsContainer.appendChild(itemElement);
-    });
-
-    // Atualizar o endereço de entrega (se disponível)
-    updateDeliveryAddress();
-}
-
-// Atualizar o endereço de entrega no resumo
-function updateDeliveryAddress() {
-    const addressContainer = document.querySelector('.resumo-entrega');
-
-    if (!addressContainer) return;
-
-    const cep = document.getElementById('txtCEP')?.value || '';
-    const street = document.getElementById('address')?.value || '';
-    const number = document.getElementById('txtNumero')?.value || '';
-    const neighborhood = document.getElementById('txtBairro')?.value || '';
-    const city = document.getElementById('txtCidade')?.value || '';
-    const state = document.getElementById('ddlUF')?.value || '';
-
-    if (street && city) {
-        addressContainer.innerHTML = `
-            <h3 class="title-produto-resumo">${street}, ${number}, ${neighborhood}</h3>
-            <p>${city} - ${state} ${cep ? `/ ${cep}` : ''}</p>
-        `;
-    }
-}
-
-// Adicionar eventos aos itens do carrinho
-function attachCartItemEvents() {
-    // Botões de quantidade
-    document.querySelectorAll('.cart-item .qty-btn.minus').forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = parseInt(button.dataset.product);
-            const quantityElement = button.nextElementSibling;
-            let quantity = parseInt(quantityElement.textContent);
-            if (quantity > 1) {
-                quantity--;
-                quantityElement.textContent = quantity;
-                updateCartItemQuantity(productId, quantity);
-            }
-        });
-    });
-
-    document.querySelectorAll('.cart-item .qty-btn.plus').forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = parseInt(button.dataset.product);
-            const quantityElement = button.previousElementSibling;
-            let quantity = parseInt(quantityElement.textContent);
-            quantity++;
-            quantityElement.textContent = quantity;
-            updateCartItemQuantity(productId, quantity);
-        });
-    });
-
-    // Botões de remover item
-    document.querySelectorAll('.btn-retirar').forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = parseInt(button.dataset.product);
-            removeFromCart(productId);
-            updateCartCount();
-        });
-    });
 }
 
 // Atualizar contador de itens
@@ -236,7 +146,7 @@ function updateCartCount() {
     const countElement = document.querySelector('.cart-count');
     if (!countElement) return;
 
-    const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+    const totalItems = window.cartItems.reduce((total, item) => total + item.quantity, 0);
 
     countElement.textContent = totalItems;
 
@@ -268,7 +178,7 @@ function updateCartTotals() {
     if (!subtotalElement || !totalElement) return;
 
     // Calcular subtotal
-    const subtotal = cartItems.reduce((total, item) => {
+    const subtotal = window.cartItems.reduce((total, item) => {
         return total + (item.price * item.quantity);
     }, 0);
 
@@ -302,78 +212,12 @@ function updateCartTotals() {
 
 // Salvar o carrinho no localStorage
 function saveCartToLocalStorage() {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-}
-
-// Função para enviar o pedido para o WhatsApp
-function sendOrderToWhatsApp() {
-    if (cartItems.length === 0) return;
-
-    // Obter os dados do cliente
-    const name = document.getElementById('txtNomeCliente')?.value || '';
-    const phone = document.getElementById('txtContatoCliente')?.value || '';
-    const address = document.getElementById('address')?.value || '';
-    const number = document.getElementById('txtNumero')?.value || '';
-    const complement = document.getElementById('txtComplemento')?.value || '';
-    const neighborhood = document.getElementById('txtBairro')?.value || '';
-    const city = document.getElementById('txtCidade')?.value || '';
-    const state = document.getElementById('ddlUF')?.value || '';
-    const cep = document.getElementById('txtCEP')?.value || '';
-
-    // Verificar dados obrigatórios
-    if (!name || !phone || !address || !number || !neighborhood || !city || !state) {
-        alert('Por favor, preencha todos os campos obrigatórios.');
-        return;
-    }
-
-    // Montar a mensagem
-    let message = `*Novo Pedido - Divina Fatia*\n\n`;
-    message += `*Cliente:* ${name}\n`;
-    message += `*Telefone:* ${phone}\n\n`;
-
-    message += `*Endereço de Entrega:*\n`;
-    message += `${address}, ${number}`;
-    if (complement) message += `, ${complement}`;
-    message += `\n${neighborhood}, ${city} - ${state}`;
-    if (cep) message += `\nCEP: ${cep}`;
-
-    message += `\n\n*Itens do Pedido:*\n`;
-
-    let subtotal = 0;
-
-    cartItems.forEach((item, index) => {
-        const itemTotal = item.price * item.quantity;
-        subtotal += itemTotal;
-
-        message += `${index + 1}. ${item.name} x${item.quantity} = ${formatPrice(itemTotal)}\n`;
-    });
-
-    // Calcular entrega
-    const deliveryValue = subtotal >= 79 ? 0 : 12;
-    const total = subtotal + deliveryValue;
-
-    message += `\n*Subtotal:* ${formatPrice(subtotal)}`;
-    message += `\n*Entrega:* ${deliveryValue === 0 ? 'GRÁTIS' : formatPrice(deliveryValue)}`;
-    message += `\n*Total:* ${formatPrice(total)}`;
-
-    // Preparar URL para WhatsApp
-    const phoneNumber = "5511962073812"; // Número da confeiteira (formato: DDDnúmero)
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-    // Abrir WhatsApp em nova janela
-    window.open(whatsappUrl, '_blank');
-
-    // Limpar o carrinho após enviar o pedido
-    clearCart();
-
-    // Fechar o modal
-    const cartModal = document.getElementById('cartModal');
-    cartModal.classList.remove('active');
+    localStorage.setItem('cartItems', JSON.stringify(window.cartItems));
 }
 
 // Limpar o carrinho
 function clearCart() {
-    cartItems = [];
+    window.cartItems = [];
     saveCartToLocalStorage();
     updateCartCount();
     renderCartItems();
@@ -413,6 +257,42 @@ function showAddedToCartNotification(productName) {
     }, 3000);
 }
 
+// Adicionar eventos aos itens do carrinho
+function attachCartItemEvents() {
+    // Botões de quantidade
+    document.querySelectorAll('.cart-item .qty-btn.minus').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = parseInt(button.dataset.product);
+            const quantityElement = button.nextElementSibling;
+            let quantity = parseInt(quantityElement.textContent);
+            if (quantity > 1) {
+                quantity--;
+                quantityElement.textContent = quantity;
+                updateCartItemQuantity(productId, quantity);
+            }
+        });
+    });
+
+    document.querySelectorAll('.cart-item .qty-btn.plus').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = parseInt(button.dataset.product);
+            const quantityElement = button.previousElementSibling;
+            let quantity = parseInt(quantityElement.textContent);
+            quantity++;
+            quantityElement.textContent = quantity;
+            updateCartItemQuantity(productId, quantity);
+        });
+    });
+
+    // Botões de remover item
+    document.querySelectorAll('.btn-retirar').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = parseInt(button.dataset.product);
+            removeFromCart(productId);
+        });
+    });
+}
+
 // ==================
 // CONTROLES DE QUANTIDADE
 // ==================
@@ -433,12 +313,11 @@ function setupQuantityControls(container) {
     if (!minusBtn || !plusBtn || !displayElement) return;
 
     // Remover event listeners existentes
-    minusBtn.replaceWith(minusBtn.cloneNode(true));
-    plusBtn.replaceWith(plusBtn.cloneNode(true));
-
-    // Obter novamente as referências após o clone
-    const newMinusBtn = container.querySelector('.minus');
-    const newPlusBtn = container.querySelector('.plus');
+    const newMinusBtn = minusBtn.cloneNode(true);
+    const newPlusBtn = plusBtn.cloneNode(true);
+    
+    minusBtn.parentNode.replaceChild(newMinusBtn, minusBtn);
+    plusBtn.parentNode.replaceChild(newPlusBtn, plusBtn);
 
     // Adicionar novos event listeners
     newMinusBtn.addEventListener('click', () => {
@@ -493,6 +372,64 @@ function setupAddToCartButtons() {
 // ==================
 // MODAL DE PRODUTO
 // ==================
+
+// Inicializar o modal
+function initModal() {
+    const productModal = document.querySelector('.modalproduct-overlay');
+    if (!productModal) return;
+
+    const closeButton = productModal.querySelector('.modal-close');
+    
+    // Configurar botão de fechar
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            closeProductModal();
+        });
+    }
+    
+    // Fechar ao clicar fora do modal
+    productModal.addEventListener('click', (e) => {
+        if (e.target === productModal) {
+            closeProductModal();
+        }
+    });
+    
+    // Configurar navegação por abas no modal
+    setupModalTabs();
+    
+    // Adicionar event listeners aos cards de produtos
+    attachProductCardListeners();
+}
+
+// Adicionar event listeners aos cards de produtos
+function attachProductCardListeners() {
+    // Selecionar todos os cards clicáveis
+    const productCards = document.querySelectorAll('.product-card .card-clickable, .product-card .card-image');
+    
+    productCards.forEach(card => {
+        // Verificar se o card já tem um listener (para evitar duplicação)
+        if (card.dataset.listenerAttached === 'true') return;
+        
+        card.addEventListener('click', (e) => {
+            // Não abrir o modal se clicar nos controles de quantidade ou botão de compra
+            if (e.target.closest('.purchase-controls')) {
+                return;
+            }
+            
+            // Obter o ID do produto do card pai
+            const productCard = card.closest('.product-card');
+            const productId = parseInt(productCard.dataset.id);
+            
+            // Verificar se temos um ID válido
+            if (productId) {
+                showProductModal(productId);
+            }
+        });
+        
+        // Marcar como inicializado
+        card.dataset.listenerAttached = 'true';
+    });
+}
 
 // Mostrar o modal de produto
 function showProductModal(productId) {
@@ -576,7 +513,7 @@ function populateProductModal(product) {
 
     // Avaliações
     const ratingContainer = modal.querySelector('.rating');
-    if (ratingContainer) {
+    if (ratingContainer && product.rating !== undefined) {
         // Limpar estrelas existentes
         const starsContainer = ratingContainer.querySelectorAll('svg');
         starsContainer.forEach(star => star.remove());
@@ -598,12 +535,16 @@ function populateProductModal(product) {
             
             // Inserir antes do texto de avaliações
             const reviewsText = ratingContainer.querySelector('.avaliacoes');
-            ratingContainer.insertBefore(starSvg, reviewsText);
+            if (reviewsText) {
+                ratingContainer.insertBefore(starSvg, reviewsText);
+            } else {
+                ratingContainer.appendChild(starSvg);
+            }
         }
         
         // Atualizar contagem de avaliações
         const reviewsCount = ratingContainer.querySelector('.avaliacoes');
-        if (reviewsCount && product.reviewCount !== undefined) {
+        if (reviewsCount) {
             reviewsCount.textContent = `${product.reviewCount} Avaliações`;
         }
     }
@@ -614,36 +555,19 @@ function populateProductModal(product) {
         description.textContent = product.metaDescription || '';
     }
 
-    // Especificações
+    // Peso e porções
     const pesoRende = modal.querySelector('.peso-rende');
     if (pesoRende) {
         const pesoSpan = pesoRende.querySelector('p:first-child span');
         const rendeSpan = pesoRende.querySelector('p:last-child span');
-
+        
         if (pesoSpan) {
             pesoSpan.textContent = product.weight || '';
         }
-
+        
         if (rendeSpan) {
             rendeSpan.textContent = product.servings || '';
         }
-    }
-
-    // Preço
-    const oldPrice = modal.querySelector('.old-price');
-    const currentPrice = modal.querySelector('.current-price');
-
-    if (oldPrice) {
-        if (product.oldPrice) {
-            oldPrice.textContent = formatPrice(product.oldPrice);
-            oldPrice.style.display = 'inline-block';
-        } else {
-            oldPrice.style.display = 'none';
-        }
-    }
-
-    if (currentPrice) {
-        currentPrice.textContent = formatPrice(product.currentPrice);
     }
 
     // Selos/ícones
@@ -654,10 +578,10 @@ function populateProductModal(product) {
         
         // Adicionar novos selos
         if (product.icons.length > 0) {
-            if (product.icons[0].firstText && product.icons[0].firstIcon) {
+            if (product.icons[0] && product.icons[0].firstText && product.icons[0].firstIcon) {
                 selosContainer.innerHTML += `
                 <div>
-                    <svg class="icon-selos icon-textura">
+                    <svg class="icon-selos">
                         <use href="./img/ICONS/icons-selos.svg#${product.icons[0].firstIcon}"></use>
                     </svg>
                     <p>${product.icons[0].firstText.replace(/\s+/g, '<br>')}</p>
@@ -667,7 +591,7 @@ function populateProductModal(product) {
             if (product.icons[1] && product.icons[1].secondText && product.icons[1].secondIcon) {
                 selosContainer.innerHTML += `
                 <div>
-                    <svg class="icon-selos icon-canela">
+                    <svg class="icon-selos">
                         <use href="./img/ICONS/icons-selos.svg#${product.icons[1].secondIcon}"></use>
                     </svg>
                     <p>${product.icons[1].secondText.replace(/\s+/g, '<br>')}</p>
@@ -677,7 +601,7 @@ function populateProductModal(product) {
             if (product.icons[2] && product.icons[2].thirdText && product.icons[2].thirdIcon) {
                 selosContainer.innerHTML += `
                 <div>
-                    <svg class="icon-selos sem-conservantes">
+                    <svg class="icon-selos">
                         <use href="./img/ICONS/icons-selos.svg#${product.icons[2].thirdIcon}"></use>
                     </svg>
                     <p>${product.icons[2].thirdText.replace(/\s+/g, '<br>')}</p>
@@ -686,42 +610,84 @@ function populateProductModal(product) {
         }
     }
 
-    // Conteúdo detalhado - pode ser expandido conforme necessário
-    if (product.details) {
-        // Descrição detalhada
-        const descricaoConteudo = modal.querySelector('#descricao-conteudo');
-        if (descricaoConteudo && product.details.fullDescription) {
-            const descParagraphs = descricaoConteudo.querySelectorAll('.txt-2 p, .txt-3 p');
-            if (descParagraphs.length > 0) {
-                descParagraphs[0].innerHTML = product.details.fullDescription;
-            }
+    // Preço
+    const oldPrice = modal.querySelector('.old-price');
+    const currentPrice = modal.querySelector('.current-price');
+    
+    if (oldPrice) {
+        if (product.oldPrice) {
+            oldPrice.textContent = formatPrice(product.oldPrice);
+            oldPrice.style.display = 'inline-block';
+        } else {
+            oldPrice.style.display = 'none';
         }
+    }
+    
+    if (currentPrice) {
+        currentPrice.textContent = formatPrice(product.currentPrice);
+    }
 
-        // Ingredientes
-        const ingredientesConteudo = modal.querySelector('#ingredientes-conteudo');
-        if (ingredientesConteudo && product.details.ingredients) {
-            const ingredientsParagraph = ingredientesConteudo.querySelector('.txt-2 p');
-            if (ingredientsParagraph) {
-                ingredientsParagraph.textContent = product.details.ingredients;
-            }
+    // Conteúdo detalhado para as abas
+    updateModalTabContent(product);
+}
+
+// Atualizar o conteúdo das abas do modal
+function updateModalTabContent(product) {
+    const modal = document.querySelector('.modalproduct-overlay');
+    if (!modal) return;
+    
+    // Descrição detalhada
+    const descricaoConteudo = modal.querySelector('#descricao-conteudo');
+    if (descricaoConteudo) {
+        // Se houver uma descrição detalhada definida, usar ela, caso contrário usar a descrição normal
+        const detailedDescription = product.details?.fullDescription || product.metaDescription;
+        
+        const descParagraph = descricaoConteudo.querySelector('.txt-1 p');
+        if (descParagraph) {
+            // Incluir o nome do produto na descrição
+            descParagraph.innerHTML = `O <strong>${product.name}</strong> ${detailedDescription || ''}`;
         }
-
-        // Alérgicos
-        const alergicosConteudo = modal.querySelector('#alergicos-conteudo');
-        if (alergicosConteudo && product.details.allergens) {
-            const alergicosParagraph = alergicosConteudo.querySelector('.txt-2 p');
-            if (alergicosParagraph) {
-                alergicosParagraph.textContent = product.details.allergens;
-            }
+        
+        // Atualizar título se presente
+        const descTitle = descricaoConteudo.querySelector('.txt-1 h2');
+        if (descTitle) {
+            descTitle.textContent = `Experimente o ${product.name}`;
         }
-
-        // Validade
-        const validadeConteudo = modal.querySelector('#validade-conteudo');
-        if (validadeConteudo && product.details.validity) {
-            const validadeParagraph = validadeConteudo.querySelector('.txt-2 p');
-            if (validadeParagraph) {
-                validadeParagraph.innerHTML = product.details.validity;
-            }
+    }
+    
+    // Ingredientes
+    const ingredientesConteudo = modal.querySelector('#ingredientes-conteudo');
+    if (ingredientesConteudo) {
+        const ingredientsParagraph = ingredientesConteudo.querySelector('.txt-2 p');
+        if (ingredientsParagraph) {
+            // Usar os ingredientes detalhados se houver, ou um texto padrão
+            ingredientsParagraph.textContent = product.details?.ingredients || 
+                'Farinha de trigo, açúcar, ovos, leite, manteiga, fermento químico e outros ingredientes selecionados.';
+        }
+    }
+    
+    // Alérgicos
+    const alergicosConteudo = modal.querySelector('#alergicos-conteudo');
+    if (alergicosConteudo) {
+        const alergicosParagraph = alergicosConteudo.querySelector('.txt-2 p');
+        if (alergicosParagraph) {
+            // Usar os dados de alérgenos se disponíveis, ou um texto padrão
+            const alergenosText = product.details?.allergens || 
+                'Contém glúten. Contém lactose. Pode conter traços de oleaginosas (nozes, castanhas, amêndoas).';
+            
+            alergicosParagraph.textContent = alergenosText;
+        }
+    }
+    
+    // Validade
+    const validadeConteudo = modal.querySelector('#validade-conteudo');
+    if (validadeConteudo) {
+        const validadeParagraph = validadeConteudo.querySelector('.txt-2 p');
+        if (validadeParagraph) {
+            // Usar os dados de validade se disponíveis, ou um texto padrão
+            const validadeText = product.details?.validity || '5 dias em refrigeração';
+            
+            validadeParagraph.innerHTML = `<strong>${validadeText}</strong>. Para melhor experiência, consumir em temperatura ambiente. Para preservar todo o sabor e maciez, mantenha o bolo em recipiente fechado na geladeira e retire 30 minutos antes de servir.`;
         }
     }
 }
@@ -741,26 +707,26 @@ function setupModalTabs() {
             content.style.display = 'none';
         }
     });
-
+    
     // Adicionar eventos aos links do menu
     menuItems.forEach((item) => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
-
+            
             // Obter o ID do conteúdo a ser mostrado
             const targetId = item.getAttribute('href').substring(1) + '-conteudo';
-
+            
             // Esconder todos os conteúdos
             contents.forEach((content) => {
                 content.style.display = 'none';
             });
-
+            
             // Mostrar o conteúdo correspondente
             const targetContent = modal.querySelector(`#${targetId}`);
             if (targetContent) {
                 targetContent.style.display = 'flex';
             }
-
+            
             // Atualizar a classe ativa nos links
             menuItems.forEach((menuItem) => {
                 menuItem.classList.remove('active');
@@ -777,7 +743,9 @@ function setupModalTabs() {
 // Inicialização quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar o carrinho
-    initCart();
+    updateCartCount();
+    renderCartItems();
+    updateCartTotals();
 
     // Configurar controles de quantidade em todos os cards
     document.querySelectorAll('.quantity').forEach(container => {
@@ -789,97 +757,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializar o modal
     initModal();
-
-    // Inicializar a busca de CEP
-    initCepSearch();
 });
 
-    // Inicializar o carrinho
-function initCart() {
-    // Elementos do carrinho
-    const cartModal = document.getElementById('cartModal');
-    const cartButton = document.querySelector('.cart-button');
-    const closeButton = cartModal?.querySelector('.close-modal-cart');
-    const overlay = cartModal?.querySelector('.modal-overlay');
-    const nextButton = cartModal?.querySelector('.btn-next');
-    const backButton = cartModal?.querySelector('.btn-back');
-    const cartCountElement = document.querySelector('.cart-count');
-
-    // Se não tiver elementos do carrinho, não continuar
-    if (!cartModal) return;
-
-    let currentStep = 1;
-
-    // Atualizar o contador de itens
-    updateCartCount();
-
-    // Renderizar os itens do carrinho na interface
-    renderCartItems();
-
-    // Calcular e atualizar os totais
-    updateCartTotals();
-
-    // Abrir modal do carrinho
-    cartButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        cartModal.classList.add('active');
-        updateStep(1);
-    });
-
-    // Verificar se existe o botão flutuante para mobile e adicionar evento
-    const stickyCartButton = document.querySelector('.cart-button-sticky');
-    if (stickyCartButton) {
-        stickyCartButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            cartModal.classList.add('active');
-            updateStep(1);
-        });
-    }
-
-    // Fechar modal
-    function closeModal() {
-        cartModal.classList.remove('active');
-        document.body.classList.remove('modal-open');
-    }
-
-    if (closeButton) closeButton.addEventListener('click', closeModal);
-    if (overlay) overlay.addEventListener('click', closeModal);
-
-    // Atualizar passo atual
-    function updateStep(step) {
-        const steps = cartModal.querySelectorAll('.step');
-        const contents = cartModal.querySelectorAll('.step-content');
-
-        steps.forEach(s => s.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-
-        steps[step - 1].classList.add('active');
-        contents[step - 1].classList.add('active');
-
-        // Atualizar visibilidade dos botões
-        backButton.hidden = step === 1;
-        nextButton.textContent = step === 3 ? 'Finalizar Pedido' : 'Continuar';
-
-        currentStep = step;
-    }
-
-    // Navegação entre passos
-    if (nextButton) {
-        nextButton.addEventListener('click', () => {
-            if (currentStep < 3) {
-                updateStep(currentStep + 1);
-            } else {
-                // Lógica para finalizar o pedido
-                sendOrderToWhatsApp();
-            }
-        });
-    }
-
-    if (backButton) {
-        backButton.addEventListener('click', () => {
-            if (currentStep > 1) {
-                updateStep(currentStep - 1);
-            }
-        });
-    }
-}
+// Expor funções para uso global
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+window.updateCartItemQuantity = updateCartItemQuantity;
+window.renderCartItems = renderCartItems;
+window.clearCart = clearCart;
+window.formatPrice = formatPrice;
+window.updateCartCount = updateCartCount;
+window.updateCartTotals = updateCartTotals;
+window.showProductModal = showProductModal;
+window.closeProductModal = closeProductModal;
+window.setupQuantityControls = setupQuantityControls;
+window.showSuccessMessage = showAddedToCartNotification;
